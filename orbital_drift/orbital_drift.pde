@@ -22,18 +22,25 @@ ArrayList<Point> points = new ArrayList<Point>();
 ArrayList<Path> paths = new ArrayList<Path>();
 
 float AngleBoundary = 2.2;
-float AngularRotationBoundary = 0.04;
+float AngularRotationBoundary = 0.05;
+float TransitioningStep = 0.001;
 float pivot = 0.0;
+
+color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f, #ff7f00, #cab2d6, #6a3d9a};
 
 void setup() {
   size(1000, 1000, P3D);
-  //frameRate(100);
+//  camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
+//         //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
+//         width/2.0, height/2.0, 0,                                     // Center
+//         0, 1, 0);                                                     // Up 
+
 
   for (int i = 0; i < 500; i++) {
     paths.add(new Path(400, 400, 
       new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
       random(180, 220), 
-      new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary)), color(random(1, 200), random(1, 200), random(1, 200))));
+      new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary)), int(random(0, 1) * 10)));
   }
 
   points.add(new Point(10, 100, 0));
@@ -44,9 +51,17 @@ void setup() {
 
 void draw() {
   background(0);
+  textSize(32);
+  fill(150);
+  text("S&P 500", width - 200, 200);
   pivot += 0.015;
   noFill();
   float t = map(mouseX, 0, width, -5, 5);
+  //camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
+         //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
+  //       width/2.0, height/2.0, 0,                                     // Center
+  //       0, 1, 0);                                                     // Up 
+  
   curveTightness(t);
   stroke(255, 255, 255);
   ellipse(points.get(0).x, points.get(0).y, 2, 2);
@@ -65,9 +80,16 @@ void draw() {
   lights();
   for (Path path : paths) {
     //path.rotationIncrement.z = float(mouseX) / 2500.0;
-    path.size = float(mouseY) / 5.0;
+    path.size = 5.0; //float(mouseY) / 5.0;
     path.rotate(path.rotationIncrement);
     path.display();
+  }
+}
+
+void keyPressed() {
+  for (Path path : paths) {
+    path.transitioning = !path.transitioning;
+    path.transitionDelay = int(random(0, 1000));
   }
 }
 
@@ -112,24 +134,34 @@ class Rotation {
 
 class Path {
 
-  Path(float initX, float initY, Rotation initRotation, float initRadius, Rotation initRotationIncrement, color initColor) {
-    radius = initRadius;
+  Path(float initX, float initY, Rotation initRotation, float initRadius, Rotation initRotationIncrement, int initCategory) {
+    sphereRadius = initRadius;
     center = new Point(initX, initY, 0.0);
+    categoryCenter = new Point(int((initCategory - initCategory % 3) * 50), int(initCategory % 3 * 200), 0.0);
     rotation = initRotation;
     rotationIncrement = initRotationIncrement;
-    pathColor = initColor;
+    if (rotationIncrement.z < 0.0) rotationDirection = -1.0; 
+    category = initCategory;
   }
 
   void display() {
+    float trail = 1.0;
     for (int i = 0; i < 30; i++) {
       pushMatrix();
-      translate(center.x, center.y, 0.0);
+      if (transitionDelay > 0) transitionDelay--;
+      else {
+        if (transitioning && transitioningRatio < 1.0) transitioningRatio += TransitioningStep;
+        else if (!transitioning && transitioningRatio > 0.0) transitioningRatio -= TransitioningStep;
+      }
+      translate(center.x + categoryCenter.x * transitioningRatio, center.y + categoryCenter.y * transitioningRatio, 0.0);
       rotateX(rotation.x);
       rotateY(rotation.y + pivot);
       rotateZ(rotation.z + i * 0.008);
-      translate(radius, 0.0, 0.0);
-      fill(pathColor, (30.0 - float(i)) / 30.0 * 255.0);
-      ellipse(0, 0, (30.0 - float(i)) / 30.0 * size, (30.0 - float(i)) / 30.0 * size);
+      translate(sphereRadius - sphereRadius / 1.5 * transitioningRatio, 0.0, 0.0);
+      trail = (30.0 - float(i)) / 30.0;
+      if (rotationDirection > 0.0) trail = 1.0 - trail;
+      fill(Colors[category], trail * 255.0);
+      ellipse(0, 0, trail * size, trail * size);
       //sphere(size);
       popMatrix();
     }
@@ -139,10 +171,17 @@ class Path {
     rotation.increment(increment);
   }
 
+  float rotationDirection = 1.0;
   float size = 5;
-  float radius;
+  float sphereRadius;
   Rotation rotation;
   Rotation rotationIncrement;
   Point center;
-  color pathColor;
+  Point categoryCenter;
+  int category;
+  
+  boolean transitioning = false;
+  int transitionDelay = 0;
+  float transitioningRatio = 0.0;
+
 }
