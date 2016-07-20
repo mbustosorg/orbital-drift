@@ -24,6 +24,10 @@ ArrayList<Path> paths = new ArrayList<Path>();
 float AngleBoundary = 2.2;
 float AngularRotationBoundary = 0.05;
 float TransitioningStep = 0.001;
+float PivotSpeed = 0.00;
+Point MarketCenter = new Point(400, 400, 0);
+int ZeroMarketSize = 200;
+
 float pivot = 0.0;
 
 color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f, #ff7f00, #cab2d6, #6a3d9a};
@@ -37,9 +41,9 @@ void setup() {
 
 
   for (int i = 0; i < 500; i++) {
-    paths.add(new Path(400, 400, 
+    paths.add(new Path(MarketCenter, 
       new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
-      random(180, 220), 
+      random(ZeroMarketSize - 20, ZeroMarketSize + 20), 
       new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary)), int(random(0, 1) * 10)));
   }
 
@@ -54,7 +58,7 @@ void draw() {
   textSize(32);
   fill(150);
   text("S&P 500", width - 200, 200);
-  pivot += 0.015;
+  pivot += PivotSpeed;
   noFill();
   float t = map(mouseX, 0, width, -5, 5);
   //camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
@@ -68,6 +72,10 @@ void draw() {
   ellipse(points.get(1).x, points.get(1).y, 2, 2);
   ellipse(points.get(2).x, points.get(2).y, 2, 2);
   ellipse(points.get(3).x, points.get(3).y, 2, 2);
+  stroke(55, 55, 55);
+  strokeWeight(5);
+  ellipse(MarketCenter.x, MarketCenter.y, ZeroMarketSize * 2, ZeroMarketSize * 2);
+  strokeWeight(1);
   stroke(255, 0, 0);
   bezier(points.get(0).x, points.get(0).y, points.get(0).z, 
     points.get(1).x, points.get(1).y, points.get(1).z, 
@@ -134,9 +142,9 @@ class Rotation {
 
 class Path {
 
-  Path(float initX, float initY, Rotation initRotation, float initRadius, Rotation initRotationIncrement, int initCategory) {
+  Path(Point initMarketCenter, Rotation initRotation, float initRadius, Rotation initRotationIncrement, int initCategory) {
     sphereRadius = initRadius;
-    center = new Point(initX, initY, 0.0);
+    center = initMarketCenter;
     categoryCenter = new Point(int((initCategory - initCategory % 3) * 50), int(initCategory % 3 * 200), 0.0);
     rotation = initRotation;
     rotationIncrement = initRotationIncrement;
