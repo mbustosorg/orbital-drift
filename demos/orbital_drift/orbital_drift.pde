@@ -36,8 +36,8 @@ color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f,
 
 void setup() {
   size(1000, 1000, P3D);
-  MarketCenter = new Point(width / 3, height / 3, 0);
-  ZeroMarketSize = (int)(width / 3);
+  MarketCenter = new Point(width * 0.4, height * 0.4, 0);
+  ZeroMarketSize = (int)(width * 0.2);
   //  camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
   //         //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
   //         width/2.0, height/2.0, 0,                                     // Center
