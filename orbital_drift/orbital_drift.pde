@@ -1,21 +1,21 @@
 /* //<>//
 
-    Copyright (C) 2016 Mauricio Bustos (m@bustos.org)
-    
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
-*/
+ Copyright (C) 2016 Mauricio Bustos (m@bustos.org)
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ */
 
 ArrayList<Point> points = new ArrayList<Point>();
 
@@ -27,6 +27,8 @@ float TransitioningStep = 0.001;
 float PivotSpeed = 0.00;
 Point MarketCenter = new Point(400, 400, 0);
 int ZeroMarketSize = 200;
+int TrailCount = 100;
+int UniverseSize = 1;
 
 float pivot = 0.0;
 
@@ -34,13 +36,13 @@ color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f,
 
 void setup() {
   size(1000, 1000, P3D);
-//  camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
-//         //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
-//         width/2.0, height/2.0, 0,                                     // Center
-//         0, 1, 0);                                                     // Up 
+  //  camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
+  //         //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
+  //         width/2.0, height/2.0, 0,                                     // Center
+  //         0, 1, 0);                                                     // Up 
 
 
-  for (int i = 0; i < 500; i++) {
+  for (int i = 0; i < UniverseSize; i++) {
     paths.add(new Path(MarketCenter, 
       new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
       random(ZeroMarketSize - 20, ZeroMarketSize + 20), 
@@ -62,10 +64,10 @@ void draw() {
   noFill();
   float t = map(mouseX, 0, width, -5, 5);
   //camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
-         //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
+  //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
   //       width/2.0, height/2.0, 0,                                     // Center
   //       0, 1, 0);                                                     // Up 
-  
+
   curveTightness(t);
   stroke(255, 255, 255);
   ellipse(points.get(0).x, points.get(0).y, 2, 2);
@@ -88,8 +90,8 @@ void draw() {
   lights();
   for (Path path : paths) {
     //path.rotationIncrement.z = float(mouseX) / 2500.0;
-    path.size = 5.0; //float(mouseY) / 5.0;
-    path.rotate(path.rotationIncrement);
+    //path.size = 5.0; //float(mouseY) / 5.0;
+    path.advance();
     path.display();
   }
 }
@@ -99,19 +101,6 @@ void keyPressed() {
     path.transitioning = !path.transitioning;
     path.transitionDelay = int(random(0, 1000));
   }
-}
-
-class Point {
-
-  Point(float initX, float initY, float initZ) {
-    x = initX;
-    y = initY;
-    z = initZ;
-  }
-
-  float x;
-  float y;
-  float z;
 }
 
 class Rotation {
@@ -140,9 +129,22 @@ class Rotation {
   float z;
 }
 
-class Path {
+class Point {
 
-  Path(Point initMarketCenter, Rotation initRotation, float initRadius, Rotation initRotationIncrement, int initCategory) {
+  Point(float initX, float initY, float initZ) {
+    x = initX;
+    y = initY;
+    z = initZ;
+  }
+
+  float x;
+  float y;
+  float z;
+}
+
+class PathPoint {
+
+  PathPoint(Point initMarketCenter, Rotation initRotation, float initRadius, Rotation initRotationIncrement, int initCategory, float transitioningRatio) {
     sphereRadius = initRadius;
     center = initMarketCenter;
     categoryCenter = new Point(int((initCategory - initCategory % 3) * 50), int(initCategory % 3 * 200), 0.0);
@@ -150,46 +152,80 @@ class Path {
     rotationIncrement = initRotationIncrement;
     if (rotationIncrement.z < 0.0) rotationDirection = -1.0; 
     category = initCategory;
+    pushMatrix();
+    translate(center.x + categoryCenter.x * transitioningRatio, center.y + categoryCenter.y * transitioningRatio, 0.0);
+    rotateX(rotation.x);
+    rotateY(rotation.y + pivot);
+    rotateZ(rotation.z);
+    translate(sphereRadius - sphereRadius / 1.5 * transitioningRatio, 0.0, 0.0);
+    model = new Point(modelX(0, 0, 0), modelY(0, 0, 0), modelZ(0, 0, 0));
+    popMatrix();
+  }
+
+  void display(int index, float transitioningRatio) {
+    pushMatrix();
+    translate(model.x, model.y, model.z);
+    rotateX(rotation.x);
+    rotateY(rotation.y + pivot);
+    rotateZ(rotation.z + index * 0.008);
+    float trail = (float(TrailCount) - float(index)) / float(TrailCount);
+    if (rotationDirection > 0.0) trail = 1.0 - trail;
+    fill(Colors[category], trail * 255.0);
+    ellipse(0, 0, trail * size, trail * size);
+    //sphere(size);
+    popMatrix();
+  }
+
+  Point model;
+  Point center;
+  Point categoryCenter;
+  Rotation rotation;
+  float sphereRadius;
+  int category = 0;
+  float size = 20;
+
+  float rotationDirection = 1.0;
+  Rotation rotationIncrement;
+}
+
+class Path {
+
+  Path(Point initMarketCenter, Rotation initRotation, float initRadius, Rotation initRotationIncrement, int initCategory) {
+    for (int i = 0; i < TrailCount; i++) {
+      trails[i] = new PathPoint(initMarketCenter, initRotation, initRadius, initRotationIncrement, initCategory, 0.0);
+    }
   }
 
   void display() {
-    float trail = 1.0;
-    for (int i = 0; i < 30; i++) {
-      pushMatrix();
+    int trailCursor = trailIndex;
+    for (int i = 0; i < TrailCount; i++) {
       if (transitionDelay > 0) transitionDelay--;
       else {
         if (transitioning && transitioningRatio < 1.0) transitioningRatio += TransitioningStep;
         else if (!transitioning && transitioningRatio > 0.0) transitioningRatio -= TransitioningStep;
       }
-      translate(center.x + categoryCenter.x * transitioningRatio, center.y + categoryCenter.y * transitioningRatio, 0.0);
-      rotateX(rotation.x);
-      rotateY(rotation.y + pivot);
-      rotateZ(rotation.z + i * 0.008);
-      translate(sphereRadius - sphereRadius / 1.5 * transitioningRatio, 0.0, 0.0);
-      trail = (30.0 - float(i)) / 30.0;
-      if (rotationDirection > 0.0) trail = 1.0 - trail;
-      fill(Colors[category], trail * 255.0);
-      ellipse(0, 0, trail * size, trail * size);
-      //sphere(size);
-      popMatrix();
+      trails[trailCursor].display(i, transitioningRatio);
+      trailCursor--;
+      if (trailCursor == 0) trailCursor = TrailCount - 1;
     }
   }
 
-  void rotate(Rotation increment) {
-    rotation.increment(increment);
+  void advance() {
+    if (trailIndex == TrailCount - 1) {
+      trails[0] = new PathPoint(trails[trailIndex].center, trails[trailIndex].rotation, trails[trailIndex].sphereRadius, trails[trailIndex].rotationIncrement, trails[trailIndex].category, transitioningRatio);
+      trails[0].rotation.increment(trails[0].rotationIncrement);
+    } else { 
+      trails[trailIndex + 1] = new PathPoint(trails[trailIndex].center, trails[trailIndex].rotation, trails[trailIndex].sphereRadius, trails[trailIndex].rotationIncrement, trails[trailIndex].category, transitioningRatio);
+      trails[trailIndex + 1].rotation.increment(trails[trailIndex + 1].rotationIncrement);
+    }
+    trailIndex++;
+    if (trailIndex == TrailCount) trailIndex = 0;
   }
 
-  float rotationDirection = 1.0;
-  float size = 5;
-  float sphereRadius;
-  Rotation rotation;
-  Rotation rotationIncrement;
-  Point center;
-  Point categoryCenter;
-  int category;
-  
+  PathPoint[] trails = new PathPoint[TrailCount];
+  int trailIndex = 0;
+
   boolean transitioning = false;
   int transitionDelay = 0;
   float transitioningRatio = 0.0;
-
 }
