@@ -23,12 +23,12 @@ ArrayList<Path> paths = new ArrayList<Path>();
 
 float AngleBoundary = 2.2;
 float AngularRotationBoundary = 0.05;
-float TransitioningStep = 0.001;
+float TransitioningStep = 0.0005;
 float PivotSpeed = 0.00;
 Point MarketCenter = new Point(400, 400, 0);
 int ZeroMarketSize = 200;
-int TrailCount = 100;
-int UniverseSize = 1;
+int TrailCount = 30;
+int UniverseSize = 500 ;
 
 float pivot = 0.0;
 
@@ -49,45 +49,22 @@ void setup() {
       new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary)), int(random(0, 1) * 10)));
   }
 
-  points.add(new Point(10, 100, 0));
-  points.add(new Point(10, 50, 0));
-  points.add(new Point(50, 10, 0));
-  points.add(new Point(100, 10, 0));
 }
 
 void draw() {
   background(0);
-  textSize(32);
-  fill(150);
-  text("S&P 500", width - 200, 200);
+  lights();
   pivot += PivotSpeed;
   noFill();
-  float t = map(mouseX, 0, width, -5, 5);
-  //camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
+  camera(mouseX * 2, mouseY * 2, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye 
   //width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0),   // Eye default
-  //       width/2.0, height/2.0, 0,                                     // Center
-  //       0, 1, 0);                                                     // Up 
+         width/2.0, height/2.0, 0,                                     // Center
+         0, 1, 0);                                                     // Up 
 
-  curveTightness(t);
-  stroke(255, 255, 255);
-  ellipse(points.get(0).x, points.get(0).y, 2, 2);
-  ellipse(points.get(1).x, points.get(1).y, 2, 2);
-  ellipse(points.get(2).x, points.get(2).y, 2, 2);
-  ellipse(points.get(3).x, points.get(3).y, 2, 2);
   stroke(55, 55, 55);
   strokeWeight(5);
   ellipse(MarketCenter.x, MarketCenter.y, ZeroMarketSize * 2, ZeroMarketSize * 2);
-  strokeWeight(1);
-  stroke(255, 0, 0);
-  bezier(points.get(0).x, points.get(0).y, points.get(0).z, 
-    points.get(1).x, points.get(1).y, points.get(1).z, 
-    points.get(2).x, points.get(2).y, points.get(2).z, 
-    points.get(3).x, points.get(3).y, points.get(3).z
-    );
-  fill(200, 0, 0);
-  stroke(200, 200, 200);
   noStroke();
-  lights();
   for (Path path : paths) {
     //path.rotationIncrement.z = float(mouseX) / 2500.0;
     //path.size = 5.0; //float(mouseY) / 5.0;
@@ -150,7 +127,6 @@ class PathPoint {
     categoryCenter = new Point(int((initCategory - initCategory % 3) * 50), int(initCategory % 3 * 200), 0.0);
     rotation = initRotation;
     rotationIncrement = initRotationIncrement;
-    if (rotationIncrement.z < 0.0) rotationDirection = -1.0; 
     category = initCategory;
     pushMatrix();
     translate(center.x + categoryCenter.x * transitioningRatio, center.y + categoryCenter.y * transitioningRatio, 0.0);
@@ -169,7 +145,6 @@ class PathPoint {
     rotateY(rotation.y + pivot);
     rotateZ(rotation.z + index * 0.008);
     float trail = (float(TrailCount) - float(index)) / float(TrailCount);
-    if (rotationDirection > 0.0) trail = 1.0 - trail;
     fill(Colors[category], trail * 255.0);
     ellipse(0, 0, trail * size, trail * size);
     //sphere(size);
@@ -182,9 +157,8 @@ class PathPoint {
   Rotation rotation;
   float sphereRadius;
   int category = 0;
-  float size = 20;
+  float size = 5;
 
-  float rotationDirection = 1.0;
   Rotation rotationIncrement;
 }
 
@@ -206,7 +180,7 @@ class Path {
       }
       trails[trailCursor].display(i, transitioningRatio);
       trailCursor--;
-      if (trailCursor == 0) trailCursor = TrailCount - 1;
+      if (trailCursor < 0) trailCursor = TrailCount - 1;
     }
   }
 
