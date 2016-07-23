@@ -42,7 +42,7 @@ class PerformanceScreen extends Screen {
       }
     } else if (key == 'f') {
       if (follow == null) {
-        follow = paths.get(int(random(0, entities.size() - 1)));
+        follow = paths.get(int(random(0, this.screen_manager.entities.size() - 1)));
       } else follow = null;
     }
   }

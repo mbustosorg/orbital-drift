@@ -58,15 +58,9 @@ abstract class Screen {
     }
   }
 
-<<<<<<< HEAD
-  void teardown() {
-  }
-
   void keyPressed() {
   }
-  
-=======
->>>>>>> entity_update
+
   Screen screen_next() {
      float chance = random(100);
      int chance_total = 0;

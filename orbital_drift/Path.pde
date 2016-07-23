@@ -8,7 +8,7 @@ class Path {
   Path(Entity entity) {
     for (int i = 0; i < TrailCount; i++) {
       trails[i] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.longitude, entity.latitude, 
-                             entity.x, entity.y, entity.z, entity.rotation, entity.rotationIncrement);
+                             entity.position.x, entity.position.y, entity.position.z, entity.rotation, entity.rotationIncrement);
     }
   }
 
@@ -19,7 +19,7 @@ class Path {
     if (nextIndex == TrailCount) nextIndex = 0;
     Entity entity = trails[trailIndex];
     trails[nextIndex] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.longitude, entity.latitude, 
-                                   entity.x, entity.y, entity.z, entity.rotation, entity.rotationIncrement);
+                                   entity.position.x, entity.position.y, entity.position.z, entity.rotation, entity.rotationIncrement);
     trails[nextIndex].rotation.increment(trails[nextIndex].rotationIncrement);
   }
 
