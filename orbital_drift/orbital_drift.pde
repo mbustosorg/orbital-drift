@@ -42,3 +42,7 @@ void draw() {
     0.0);
   draw_last_millis = draw_millis;
 }
+
+void keyPressed() {
+  screen_manager.keyPressed();
+}

@@ -44,6 +44,9 @@ class ScreenManager {
   private int entity_count = 0;
     // Sets max entities to create when not 0
 
+  private float AngleBoundary = 2.2;
+  private float AngularRotationBoundary = 0.05;
+
   ScreenManager(Screen screen) {
     this(0, screen);
   }
@@ -54,6 +57,10 @@ class ScreenManager {
     for (int i = 0; i < this.sector_to_index.size(); i++) {
       this.entities_by_sector.add(new ArrayList<Entity>());
     }
+  }
+  
+  void keyPressed() {
+    screen.keyPressed();
   }
 
   void setup() {
@@ -69,7 +76,8 @@ class ScreenManager {
           row.getFloat("Longitude"),
           row.getFloat("Latitude"),
           0.0, 0.0, 0.0,
-          new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
+          new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
+          new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary))
       );
       e.screen_update();
       this.entities.add(e);
