@@ -1,6 +1,6 @@
 /* //<>//
 
- Copyright (C) 2016 Mauricio Bustos (m@bustos.org)
+ Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
  
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  
- */
+*/
 
 ScreenManager screen_manager = new ScreenManager(new Geography());
   // Handles change over of screens and entities

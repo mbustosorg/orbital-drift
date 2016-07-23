@@ -1,3 +1,22 @@
+/*
+
+ Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+*/
+
 class ScreenManager {
   Screen screen;
     // Active screen being displayed
@@ -44,9 +63,7 @@ class ScreenManager {
                                   row.getFloat("Longitude"),
                                   row.getFloat("Latitude"),
                                   //x, y, 0.0
-                                  0.0, 0.0, 0.0,
-                                  new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
-                                  new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary))));
+                                  0.0, 0.0, 0.0, new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)));
       this.entities.get(i).screen_update();
       i++;
       if (this.entity_count > 0 && i >= this.entity_count) {

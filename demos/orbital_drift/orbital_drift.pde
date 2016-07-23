@@ -155,7 +155,7 @@ class PathPoint {
     pushMatrix();
     translate(center.x * (1.0 - transitioningRatio) + categoryCenter.x * transitioningRatio, center.y * (1.0 - transitioningRatio) + categoryCenter.y * transitioningRatio, 0.0);
     rotateX(rotation.x);
-    rotateY(rotation.y + pivot);
+    rotateY(rotation.y);
     rotateZ(rotation.z);
     translate(sphereRadius - sphereRadius / 1.5 * transitioningRatio, 0.0, 0.0);
     model = new PVector(modelX(0, 0, 0), modelY(0, 0, 0), modelZ(0, 0, 0));
@@ -166,7 +166,7 @@ class PathPoint {
     pushMatrix();
     translate(model.x, model.y, model.z);
     rotateX(rotation.x);
-    rotateY(rotation.y + pivot);
+    rotateY(rotation.y);
     rotateZ(rotation.z);
     float trail = (float(TrailCount) - float(index)) / float(TrailCount);
     fill(Colors[category], trail * 255.0);

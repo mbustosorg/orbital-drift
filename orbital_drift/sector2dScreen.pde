@@ -1,3 +1,22 @@
+/*
+
+ Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+*/
+
 class Sector2d extends Screen {
   private int state_index = 0;
     // transition stage between scenes
@@ -9,7 +28,6 @@ class Sector2d extends Screen {
   private float[] entity_transition_times;
     // How long should each item spend moving
 
-  private color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f, #ff7f00, #cab2d6, #6a3d9a};
   private IntDict sector_to_index;
   private ArrayList<ArrayList<Entity>> entities_by_sector;
 
@@ -46,7 +64,7 @@ class Sector2d extends Screen {
 
     float delay = 0.0;
     for (int i = 0; i < this.entities_by_sector.size(); i++) {
-      transitions.add(new entityTransition(this.entities_by_sector.get(i), delay, 1.05, this.Colors[i]));
+      transitions.add(new entityTransition(this.entities_by_sector.get(i), delay, 1.05, EntityTransitions.Colors[i]));
       delay += 0.75;
     }
   }
