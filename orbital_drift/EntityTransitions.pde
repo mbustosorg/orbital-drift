@@ -14,10 +14,11 @@
  
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
+
  */
 
 static class EntityTransitions {
+  static color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f, #ff7f00, #cab2d6, #6a3d9a};
   static float linear_interpolation(float delay_time, float elapsed, float transition_time) {
     if (delay_time > elapsed) {
       return 0.0;
@@ -52,4 +53,12 @@ static class EntityTransitions {
     e.position.y = (1.0 - factor) * e.initPosition.y + factor * y_end;
     e.position.z = (1.0 - factor) * e.initPosition.z + factor * z_end;
   }
-} //<>//
+  
+  static float AngleBoundary = 2.2;
+  static float AngularRotationBoundary = 0.01;
+  static int TrailCount = 30;
+  static float TransitioningStep = 0.001;
+  static int MaxTransitionStep = int(1 / TransitioningStep);
+  static float[] TransitionSteps = new float[MaxTransitionStep];
+  
+}

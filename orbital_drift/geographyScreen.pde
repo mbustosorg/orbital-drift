@@ -14,8 +14,8 @@
  
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
- */
+
+*/
 
 class Geography extends Screen {
   private int state_index = 0;
@@ -23,7 +23,7 @@ class Geography extends Screen {
   private float[] state_times = new float[] {10500, 750, 3000, 750};
   // Linear transition, wait, grow radius, wait
   private float state_time = 0.0;
-  // Current time on this state
+    // Current time on this state
   private float WorldRadius = 400.0;
   private float pivot = 0.0;
   private float PivotStep = -0.00001;

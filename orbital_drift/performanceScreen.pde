@@ -14,8 +14,8 @@
  
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
- */
+
+*/
 
 class PerformanceScreen extends Screen {
   
@@ -26,11 +26,24 @@ class PerformanceScreen extends Screen {
   private PVector MarketCenter = new PVector(0, 0, 0);
   private int ZeroMarketSize = 200;
   
+  int cameraTransition = 0;
+  PVector currentCamera = new PVector(0, 0, 0);
   private float pivot = 0.0;
+  PVector cameraInit = new PVector(sin(pivot) * 1000, 0, cos(pivot) * 1000);
   
   public PerformanceScreen() {
-    super("Performance", 15000);
+    super("Performance", 100000.0);
       // Duration = Sum of state_times
+        
+    for (int i = 0; i < 1 / EntityTransitions.TransitioningStep - 1; i++) {
+      float step = float(i) / (1.0 / EntityTransitions.TransitioningStep / 2.0);
+      if (step < 1) {
+        EntityTransitions.TransitionSteps[i] = step * step * step / 2.0;
+      } else {
+        step -= 2;
+        EntityTransitions.TransitionSteps[i] = (step * step * step + 2) / 2.0;      
+      }
+    }
   }
 
   void keyPressed() {
@@ -57,6 +70,10 @@ class PerformanceScreen extends Screen {
       Entity e = this.screen_manager.entities.get(i);
       e.draw();
     }
+    for (Path path : paths) {
+      path.transitioning = !path.transitioning;
+      path.transitionDelay = int(random(0, 1000));
+    }
   }
 
   void update_and_draw(float delta) {
@@ -75,19 +92,26 @@ class PerformanceScreen extends Screen {
       path.display();
     }
     if (follow != null) {
-      PVector first = follow.trails[paths.get(0).trailIndex].model;
+      PVector first = follow.trails[paths.get(0).trailIndex].position;
       translate(first.x, first.y, first.z);
       lights();
-      fill(follow.trails[paths.get(0).trailIndex].fillColor, 255.0);
       sphere(3);
-      camera(first.x * 1.5, first.y * 1.5, first.z * 1.5, // Eye
-             0, 0, 0,                                 // Center
-             0, 1, 0);                                // Up 
+      cameraTransition += 4;
+      if (cameraTransition > 998) cameraTransition = 998;
+      float factor = EntityTransitions.TransitionSteps[cameraTransition];
+      currentCamera = new PVector(factor * first.x * 1.5 + (1.0 - factor) * cameraInit.x, 
+                                  factor * first.y * 1.5 + (1.0 - factor) * cameraInit.y,  
+                                  factor * first.z * 1.5 + (1.0 - factor) * cameraInit.z);
     } else {
-      //camera(sin(pivot) * 1000, 0, cos(pivot) * 1000, // Eye
-      camera(sin(pivot) * 750, -400, cos(pivot) * 750,
-             0, 0, 0,                                 // Center
-             0, 1, 0);                                // Up 
+      cameraTransition -= 4;
+      if (cameraTransition < 0) cameraTransition = 0;
+      float factor = EntityTransitions.TransitionSteps[cameraTransition];
+      currentCamera = new PVector(factor * cameraInit.x + (1.0 - factor) * sin(pivot) * 1000, 
+                                  factor * cameraInit.y, 
+                                  factor * cameraInit.z + (1.0 - factor) * cos(pivot) * 1000);
     }
+    camera(currentCamera.x, currentCamera.y, currentCamera.z,
+           0, 0, 0,                                 
+           0, 1, 0);                                 
   }
 }

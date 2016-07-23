@@ -28,7 +28,6 @@ class Entity {
   float capitalization, radius;
   color fillColor;//, strokeColor;
 
-  PVector model; // Last known position
   PVector UniverseCenter = new PVector(0, 0, 0); // Center of the Universe 
   PVector categoryCenter; // Center of sector sphere
   Rotation rotation; // Current rotation

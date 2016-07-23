@@ -15,7 +15,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  
- */
+*/
 
 ScreenManager screen_manager = new ScreenManager(new Geography());
   // Handles change over of screens and entities
@@ -30,9 +30,10 @@ void setup() {
 
 void draw() {
   background(0);
-  lights();
   float draw_millis = millis();
   screen_manager.update(draw_millis - draw_last_millis);
+  lights();
+  println(frameRate);
   textSize(32);
   fill(150);
   text(

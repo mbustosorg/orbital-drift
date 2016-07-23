@@ -14,8 +14,8 @@
  
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
- */
+
+*/
 
 class ScreenManager {
   ArrayList<Entity> entities = new ArrayList<Entity>();
@@ -76,8 +76,9 @@ class ScreenManager {
           row.getFloat("Longitude"),
           row.getFloat("Latitude"),
           0.0, 0.0, 0.0,
-          new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
-          new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary))
+          new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
+          //new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
+          //new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary))
       );
       e.screen_update();
       this.entities.add(e);
