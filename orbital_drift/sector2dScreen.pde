@@ -29,7 +29,7 @@ class Sector2d extends Screen {
     }
     
     int industry_index = 0;
-    this.screens_next = new Screen[] {new Geography()};
+    this.screens_next = new Screen[] {new PerformanceScreen()};
     this.screens_chance = new int[] {100};
     this.entity_transition_times = new float[this.entities.size()];
     for (int i = 0; i < this.entity_transition_times.length; i++) {
