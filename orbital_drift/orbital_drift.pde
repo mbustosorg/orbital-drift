@@ -1,6 +1,6 @@
 /* //<>//
 
- Copyright (C) 2016 Mauricio Bustos (m@bustos.org)
+ Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
  
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -36,8 +36,9 @@ void draw() {
   textSize(32);
   fill(150);
   text(
-    String.format("Screen '%s', %.3f / %.1f", screen_manager.screen.name, screen_manager.screen.elapsed / 1000, screen_manager.screen.duration),
+    String.format("Screen '%s', %.3f / %.1f", screen_manager.screen.name, screen_manager.screen.elapsed , screen_manager.screen.duration),
     width * 0.25,
-    height * 0.95);
+    height * 0.75,
+    0.0);
   draw_last_millis = draw_millis;
 }

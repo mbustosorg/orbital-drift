@@ -1,3 +1,22 @@
+/*
+
+ Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ */
+
 class PerformanceScreen extends Screen {
   
   private ArrayList<Path> paths = new ArrayList<Path>();
@@ -12,19 +31,19 @@ class PerformanceScreen extends Screen {
   private float pivot = 0.0;
   
   public PerformanceScreen() {
-    super("Performance", 15.0);
+    super("Performance", 15000);
       // Duration = Sum of state_times
   }
 
-  void setup(ArrayList<Entity> entities) {
-    super.setup(entities);
-    
+  void setup(ScreenManager screen_manager) {
+    super.setup(screen_manager);
+
     this.screens_next = new Screen[] {new Geography()};
     this.screens_chance = new int[] {100};
-    
-    for (int i = 0; i < this.entities.size(); i++) {
-      paths.add(new Path(this.entities.get(i)));
-      Entity e = this.entities.get(i);
+
+    for (int i = 0; i < this.screen_manager.entities.size(); i++) {
+      paths.add(new Path(this.screen_manager.entities.get(i)));
+      Entity e = this.screen_manager.entities.get(i);
       e.draw();
     }
   }
@@ -59,20 +78,11 @@ class PerformanceScreen extends Screen {
              0, 1, 0);                                // Up 
     }
     
-    for (int i = 0; i < this.entities.size(); i++) {
-      Entity e = this.entities.get(i);
+    for (int i = 0; i < this.screen_manager.entities.size(); i++) {
+      Entity e = this.screen_manager.entities.get(i);
       e.draw();
     }
 
-  }
-
-  void teardown() {
-      // Sloppy reset for looping demo
-    for (Entity e : this.entities) {
-      e.radius = 5.0;
-      e.x = 0;
-      e.y = 0;
-    }
   }
 }
 class Path {
@@ -85,7 +95,7 @@ class Path {
   Path(Entity entity) {
     for (int i = 0; i < TrailCount; i++) {
       trails[i] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.longitude, entity.latitude, 
-                             entity.x, entity.y, entity.z, entity.rotation, entity.rotationIncrement);
+                             entity.position.x, entity.position.y, entity.position.z, entity.rotation, entity.rotationIncrement);
     }
   }
 
@@ -110,7 +120,7 @@ class Path {
     if (nextIndex == TrailCount) nextIndex = 0;
     Entity entity = trails[trailIndex];
     trails[nextIndex] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.longitude, entity.latitude, 
-                             entity.x, entity.y, entity.z, entity.rotation, entity.rotationIncrement);
+                             entity.position.x, entity.position.y, entity.position.z, entity.rotation, entity.rotationIncrement);
     trails[nextIndex].rotation.increment(trails[nextIndex].rotationIncrement);
 
   }

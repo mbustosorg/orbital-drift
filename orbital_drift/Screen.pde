@@ -1,12 +1,30 @@
+/*
+
+ Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
+ 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ */
 
 abstract class Screen {
   String name;
     // Title
   float duration;
-    // Total seconds screen will be displayed
+    // Total millis screen will be displayed
 
-  protected ArrayList<Entity> entities;
-    // Our main items to transition between Screens
+  protected ScreenManager screen_manager;
+    // Parent containing Entities, camera, and lookup tables
   float elapsed = 0;
     // Seconds screen has been displayed
   protected Screen[] screens_next;
@@ -20,26 +38,24 @@ abstract class Screen {
   }
 
   boolean is_time_elapsed() {
-    return this.elapsed / 1000 >= this.duration;
+    return this.elapsed >= this.duration;
   }
 
-  void setup(ArrayList<Entity> entities) {
-    this.entities = entities; 
+  void setup(ScreenManager screen_manager) {
+      // Responsible for entities, camera, and lights
+    this.screen_manager = screen_manager;
   }
 
   abstract void update_and_draw(float delta);
-  
+
   void update(float delta){
     elapsed += delta;
   }
   
   void draw() {
-    for (Entity e : this.entities) {
+    for (Entity e : this.screen_manager.entities) {
       e.draw();
     }
-  }
-
-  void teardown() {
   }
 
   Screen screen_next() {
