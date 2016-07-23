@@ -32,8 +32,10 @@ PVector MarketCenter = new PVector(0, 0, 0);
 int ZeroMarketSize = 200;
 int TrailCount = 30;
 int UniverseSize = 500;
-
+int cameraTransition = 0;
+PVector currentCamera = new PVector(0, 0, 0);
 float pivot = 0.0;
+PVector cameraInit = new PVector(sin(pivot) * 1000, 0, cos(pivot) * 1000);
 
 color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f, #ff7f00, #cab2d6, #6a3d9a};
 
@@ -78,14 +80,23 @@ void draw() {
     lights();
     fill(Colors[follow.trails[paths.get(0).trailIndex].category], 255.0);
     sphere(3);
-    camera(first.x * 1.5, first.y * 1.5, first.z * 1.5, // Eye
-           0, 0, 0,                                 // Center
-           0, 1, 0);                                // Up 
+    cameraTransition += 4;
+    if (cameraTransition > 998) cameraTransition = 998;
+    float factor = TransitionSteps[cameraTransition];
+    currentCamera = new PVector(factor * first.x * 1.5 + (1.0 - factor) * cameraInit.x, 
+                                factor * first.y * 1.5 + (1.0 - factor) * cameraInit.y,  
+                                factor * first.z * 1.5 + (1.0 - factor) * cameraInit.z);
   } else {
-    camera(sin(pivot) * 1000, 0, cos(pivot) * 1000, // Eye
-           0, 0, 0,                                 // Center
-           0, 1, 0);                                // Up 
+    cameraTransition -= 4;
+    if (cameraTransition < 0) cameraTransition = 0;
+    float factor = TransitionSteps[cameraTransition];
+    currentCamera = new PVector(factor * cameraInit.x + (1.0 - factor) * sin(pivot) * 1000, 
+                                factor * cameraInit.y, 
+                                factor * cameraInit.z + (1.0 - factor) * cos(pivot) * 1000);
   }
+  camera(currentCamera.x, currentCamera.y, currentCamera.z,
+         0, 0, 0,                                 
+         0, 1, 0);                                 
 }
 
 void keyPressed() {
@@ -95,6 +106,7 @@ void keyPressed() {
       path.transitionDelay = int(random(0, 1000));
     }
   } else if (key == 'f') {
+    cameraInit = new PVector(currentCamera.x, currentCamera.y, currentCamera.z);
     if (follow == null) {
       follow = paths.get(int(random(0, UniverseSize - 1)));
     } else follow = null;

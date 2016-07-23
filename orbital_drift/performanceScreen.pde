@@ -2,8 +2,6 @@ class PerformanceScreen extends Screen {
   
   private ArrayList<Path> paths = new ArrayList<Path>();
   
-  private float AngleBoundary = 2.2;
-  private float AngularRotationBoundary = 0.05;
   private Path follow = null;
   private float PivotSpeed = -0.01;
   private PVector MarketCenter = new PVector(0, 0, 0);
@@ -16,6 +14,20 @@ class PerformanceScreen extends Screen {
       // Duration = Sum of state_times
   }
 
+  void keyPressed() {
+    println("key");
+    if (key == ' ') {
+      for (Path path : paths) {
+        path.transitioning = !path.transitioning;
+        path.transitionDelay = int(random(0, 1000));
+      }
+    } else if (key == 'f') {
+      if (follow == null) {
+        follow = paths.get(int(random(0, entities.size() - 1)));
+      } else follow = null;
+    }
+  }
+  
   void setup(ArrayList<Entity> entities) {
     super.setup(entities);
     
@@ -54,16 +66,11 @@ class PerformanceScreen extends Screen {
              0, 0, 0,                                 // Center
              0, 1, 0);                                // Up 
     } else {
-      camera(sin(pivot) * 1000, 0, cos(pivot) * 1000, // Eye
+      //camera(sin(pivot) * 1000, 0, cos(pivot) * 1000, // Eye
+      camera(sin(pivot) * 750, -400, cos(pivot) * 750,
              0, 0, 0,                                 // Center
              0, 1, 0);                                // Up 
     }
-    
-    for (int i = 0; i < this.entities.size(); i++) {
-      Entity e = this.entities.get(i);
-      e.draw();
-    }
-
   }
 
   void teardown() {
@@ -74,51 +81,4 @@ class PerformanceScreen extends Screen {
       e.y = 0;
     }
   }
-}
-class Path {
-
-  private int TrailCount = 30;
-  private float TransitioningStep = 0.001;
-  private int MaxTransitionStep = int(1 / TransitioningStep);
-  private float[] TransitionSteps = new float[MaxTransitionStep];
-
-  Path(Entity entity) {
-    for (int i = 0; i < TrailCount; i++) {
-      trails[i] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.longitude, entity.latitude, 
-                             entity.x, entity.y, entity.z, entity.rotation, entity.rotationIncrement);
-    }
-  }
-
-  void display() {
-    int trailCursor = trailIndex;
-    for (int i = 0; i < TrailCount; i++) {
-      if (transitionDelay > 0) transitionDelay--;
-      else {
-        if (transitioning && transitioningStep < MaxTransitionStep - 1) transitioningStep += 1;
-        else if (!transitioning && transitioningStep > 0) transitioningStep -= 1;
-      }
-      trails[trailCursor].draw();
-      trailCursor--;
-      if (trailCursor < 0) trailCursor = TrailCount - 1;
-    }
-  }
-
-  void advance() {
-    trailIndex++;
-    if (trailIndex == TrailCount) trailIndex = 0;
-    int nextIndex = trailIndex + 1;
-    if (nextIndex == TrailCount) nextIndex = 0;
-    Entity entity = trails[trailIndex];
-    trails[nextIndex] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.longitude, entity.latitude, 
-                             entity.x, entity.y, entity.z, entity.rotation, entity.rotationIncrement);
-    trails[nextIndex].rotation.increment(trails[nextIndex].rotationIncrement);
-
-  }
-
-  Entity[] trails = new Entity[TrailCount];
-  int trailIndex = 0;
-
-  boolean transitioning = false;
-  int transitionDelay = 0;
-  int transitioningStep = 0;
 }

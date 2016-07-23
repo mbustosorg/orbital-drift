@@ -41,3 +41,7 @@ void draw() {
     height * 0.95);
   draw_last_millis = draw_millis;
 }
+
+void keyPressed() {
+  screen_manager.keyPressed();
+}

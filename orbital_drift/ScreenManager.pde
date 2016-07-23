@@ -3,6 +3,8 @@ class ScreenManager {
     // Active screen being displayed
   int entity_count = 0;
     // Sets max entities to create
+  private float AngleBoundary = 2.2;
+  private float AngularRotationBoundary = 0.05;
 
   private ArrayList<Entity> entities = new ArrayList<Entity>();
     // Our main items to transition between Screens
@@ -14,6 +16,10 @@ class ScreenManager {
   ScreenManager(int entity_count, Screen screen) {
     this.entity_count = entity_count;
     this.screen = screen;
+  }
+  
+  void keyPressed() {
+    screen.keyPressed();
   }
 
   void setup() {
@@ -39,8 +45,8 @@ class ScreenManager {
                                   row.getFloat("Latitude"),
                                   //x, y, 0.0
                                   0.0, 0.0, 0.0,
-                                  new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
-      ));
+                                  new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
+                                  new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary))));
       this.entities.get(i).screen_update();
       i++;
       if (this.entity_count > 0 && i >= this.entity_count) {

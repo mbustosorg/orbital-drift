@@ -18,7 +18,7 @@ class Sector2d extends Screen {
   public Sector2d() {
     super("Sector 2d", 15.0);
       // Duration = Sum of state_times
-    this.sector_to_index = new IntDict();
+    this.sector_to_index = new IntDict();  
     this.entities_by_sector = new ArrayList<ArrayList<Entity>>();
   }
 
