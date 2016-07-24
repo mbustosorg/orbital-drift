@@ -54,6 +54,7 @@ class PerformanceScreen extends Screen {
         path.transitionDelay = int(random(0, 1000));
       }
     } else if (key == 'f') {
+      cameraInit = new PVector(currentCamera.x, currentCamera.y, currentCamera.z);
       if (follow == null) {
         follow = paths.get(int(random(0, this.screen_manager.entities.size() - 1)));
       } else follow = null;
@@ -67,8 +68,6 @@ class PerformanceScreen extends Screen {
 
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       paths.add(new Path(this.screen_manager.entities.get(i)));
-      Entity e = this.screen_manager.entities.get(i);
-      e.draw();
     }
     for (Path path : paths) {
       path.transitioning = !path.transitioning;
@@ -95,20 +94,21 @@ class PerformanceScreen extends Screen {
     }
 
     if (follow != null) {
-      PVector first = follow.trails[paths.get(0).trailIndex].position;
-      translate(first.x, first.y, first.z);
+      Entity first = follow.trails[paths.get(0).trailIndex];
+      translate(first.position.x, first.position.y, first.position.z);
+      fill(first.fillColor);
       sphere(3);
       if (!is_paused) {
-        cameraTransition += 4;
+        cameraTransition += 5;
         if (cameraTransition > 998) cameraTransition = 998;
       }
       float factor = EntityTransitions.TransitionSteps[cameraTransition];
-      currentCamera = new PVector(factor * first.x * 1.5 + (1.0 - factor) * cameraInit.x, 
-                                  factor * first.y * 1.5 + (1.0 - factor) * cameraInit.y,  
-                                  factor * first.z * 1.5 + (1.0 - factor) * cameraInit.z);
+      currentCamera = new PVector(factor * first.position.x * 1.5 + (1.0 - factor) * cameraInit.x, 
+                                  factor * first.position.y * 1.5 + (1.0 - factor) * cameraInit.y,  
+                                  factor * first.position.z * 1.5 + (1.0 - factor) * cameraInit.z);
     } else {
       if (!is_paused) {
-        cameraTransition -= 4;
+        cameraTransition -= 5;
         if (cameraTransition < 0) cameraTransition = 0;
       }
       float factor = EntityTransitions.TransitionSteps[cameraTransition];

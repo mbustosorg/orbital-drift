@@ -55,8 +55,8 @@ static class EntityTransitions {
   }
   
   static float AngleBoundary = 2.2;
-  static float AngularRotationBoundary = 0.01;
-  static int TrailCount = 30;
+  static float AngularRotationBoundary = 0.003;
+  static int TrailCount = 10;
   static float TransitioningStep = 0.001;
   static int MaxTransitionStep = int(1 / TransitioningStep);
   static float[] TransitionSteps = new float[MaxTransitionStep];

@@ -24,7 +24,7 @@ class Geography extends Screen {
   // Linear transition, wait, grow radius, wait
   private float state_time = 0.0;
     // Current time on this state
-  private float WorldRadius = 400.0;
+  private float WorldRadius = 200.0;
   private float pivot = 0.0;
   private float PivotStep = -0.00001;
 

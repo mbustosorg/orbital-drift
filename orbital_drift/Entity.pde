@@ -67,11 +67,11 @@ class Entity {
     rotateX(rotation.x);
     rotateY(rotation.y);
     rotateZ(rotation.z);
-    //float trail = (float(TrailCount) - float(trailIndex)) / float(TrailCount);
-    //fill(this.fillColor, trail * 255.0);
-    //ellipse(0, 0, trail * this.radius, trail * this.radius);
-    fill(this.fillColor);
-    ellipse(0, 0, this.radius, this.radius);
+    float trail = (float(TrailCount) - float(trailIndex)) / float(TrailCount);
+    fill(this.fillColor, trail * 255.0);
+    ellipse(0, 0, trail * this.radius, trail * this.radius);
+    //fill(this.fillColor);
+    //ellipse(0, 0, this.radius, this.radius);
     popMatrix();
   }
 }
