@@ -38,6 +38,7 @@ class ScreenManager {
     // established for use across screens
   ArrayList<ArrayList<Entity>> entities_by_sector = new ArrayList<ArrayList<Entity>>();
     // Entities partitioned by sector
+  Camera orbitalCamera = new Camera();
 
   private Screen screen;
     // Active screen being displayed
@@ -46,6 +47,8 @@ class ScreenManager {
 
   private float AngleBoundary = 2.2;
   private float AngularRotationBoundary = 0.05;
+  
+  private boolean is_paused = false;
 
   ScreenManager(Screen screen) {
     this(0, screen);
@@ -60,6 +63,10 @@ class ScreenManager {
   }
   
   void keyPressed() {
+    if (key == 'p') {
+      this.is_paused = !this.is_paused; 
+    }
+    println(key, this.is_paused);
     screen.keyPressed();
   }
 
@@ -93,7 +100,20 @@ class ScreenManager {
   }
 
   void update(float delta) {
-    this.screen.update_and_draw(delta);
+    this.screen.update_and_draw(delta, this.is_paused);
+    textSize(12);
+    fill(150);
+
+    PVector vCameraEye = this.orbitalCamera.eye();
+    println(this.orbitalCamera.eyeX, this.orbitalCamera.eyeY, this.orbitalCamera.eyeZ, vCameraEye.mag());
+    PVector vTextEye = this.orbitalCamera.eye().setMag(700);
+    println(vTextEye, vTextEye.mag());
+    String message = String.format("Screen '%s', %.3f / %.1f", this.screen.name, this.screen.elapsed , this.screen.duration);
+    float mWidth = textWidth(message);
+    text(message,
+      vTextEye.x - mWidth/2,
+      vTextEye.y,
+      vTextEye.z);
     if (this.screen.is_time_elapsed()) {
       for (Entity e : this.entities) {
         e.screen_update(); 

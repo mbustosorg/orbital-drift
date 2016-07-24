@@ -46,7 +46,7 @@ abstract class Screen {
     this.screen_manager = screen_manager;
   }
 
-  abstract void update_and_draw(float delta);
+  abstract void update_and_draw(float delta, boolean is_paused);
 
   void update(float delta){
     elapsed += delta;

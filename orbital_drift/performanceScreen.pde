@@ -76,42 +76,46 @@ class PerformanceScreen extends Screen {
     }
   }
 
-  void update_and_draw(float delta) {
-    super.update(delta);
-
-    background(0);
-    lights();
-    pivot += PivotSpeed;
+  void update_and_draw(float delta, boolean is_paused) {
+    if (!is_paused) {
+      super.update(delta);
+      pivot += PivotSpeed;
+    }
     noFill();
     stroke(55, 55, 55);
     strokeWeight(5);
     ellipse(MarketCenter.x, MarketCenter.y, ZeroMarketSize * 2, ZeroMarketSize * 2);
     noStroke();
+
     for (Path path : paths) {
       path.advance();
-      path.display();
+      if (!is_paused) {
+        path.display();
+      }
     }
+
     if (follow != null) {
       PVector first = follow.trails[paths.get(0).trailIndex].position;
       translate(first.x, first.y, first.z);
-      lights();
       sphere(3);
-      cameraTransition += 4;
-      if (cameraTransition > 998) cameraTransition = 998;
+      if (!is_paused) {
+        cameraTransition += 4;
+        if (cameraTransition > 998) cameraTransition = 998;
+      }
       float factor = EntityTransitions.TransitionSteps[cameraTransition];
       currentCamera = new PVector(factor * first.x * 1.5 + (1.0 - factor) * cameraInit.x, 
                                   factor * first.y * 1.5 + (1.0 - factor) * cameraInit.y,  
                                   factor * first.z * 1.5 + (1.0 - factor) * cameraInit.z);
     } else {
-      cameraTransition -= 4;
-      if (cameraTransition < 0) cameraTransition = 0;
+      if (!is_paused) {
+        cameraTransition -= 4;
+        if (cameraTransition < 0) cameraTransition = 0;
+      }
       float factor = EntityTransitions.TransitionSteps[cameraTransition];
       currentCamera = new PVector(factor * cameraInit.x + (1.0 - factor) * sin(pivot) * 1000, 
                                   factor * cameraInit.y, 
                                   factor * cameraInit.z + (1.0 - factor) * cos(pivot) * 1000);
     }
-    camera(currentCamera.x, currentCamera.y, currentCamera.z,
-           0, 0, 0,                                 
-           0, 1, 0);                                 
+    this.screen_manager.orbitalCamera.update(currentCamera.x, currentCamera.y, currentCamera.z);                                 
   }
 }

@@ -52,28 +52,30 @@ class Sector2d extends Screen {
     }
   }
 
-  void update_and_draw(float delta) {
+  void update_and_draw(float delta, boolean is_paused) {
     // Per Industry, color all companies on a delay
     // After an industry is colored, start moving
-    super.update(delta);
-    ArrayList<entityTransition> toberemoved = new ArrayList<entityTransition>();
-    for (entityTransition et : this.transitions) {
-      et.update(delta);
-      if (et.elapsed > et.delay + et.transition + 5 * et.entities.size()) {
-        toberemoved.add(et);
+    if (!is_paused) {
+      super.update(delta);
+      this.state_time += delta;
+      ArrayList<entityTransition> toberemoved = new ArrayList<entityTransition>();
+      for (entityTransition et : this.transitions) {
+        et.update(delta);
+        if (et.elapsed > et.delay + et.transition + 5 * et.entities.size()) {
+          toberemoved.add(et);
+        }
       }
+      
+      this.transitions.removeAll(toberemoved);
+      // If you are being removed, queue up for next transition
     }
-    
-    this.transitions.removeAll(toberemoved);
-    // If you are being removed, queue up for next transition
     
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       Entity e = this.screen_manager.entities.get(i);
       e.draw();
     }
 
-    this.state_time += delta;
-    if (this.state_time > this.state_times[this.state_index]) {
+    if (!is_paused && this.state_time > this.state_times[this.state_index]) {
       this.state_index++;
       this.state_time = 0.0;
     }

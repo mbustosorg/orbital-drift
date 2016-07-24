@@ -34,13 +34,6 @@ void draw() {
   screen_manager.update(draw_millis - draw_last_millis);
   lights();
   println(frameRate);
-  textSize(32);
-  fill(150);
-  text(
-    String.format("Screen '%s', %.3f / %.1f", screen_manager.screen.name, screen_manager.screen.elapsed , screen_manager.screen.duration),
-    width * 0.25,
-    height * 0.75,
-    0.0);
   draw_last_millis = draw_millis;
 }
 

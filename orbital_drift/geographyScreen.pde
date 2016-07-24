@@ -46,37 +46,43 @@ class Geography extends Screen {
     }
   }
 
-  void update_and_draw(float delta) {
-    super.update(delta);
+  void update_and_draw(float delta, boolean is_paused) {
+    if (!is_paused) {
+      super.update(delta);
+      this.state_time += delta;
+    }
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       Entity e = this.screen_manager.entities.get(i);
-      if (this.state_index == 0) {
-        // Moving entities
-        float latitude = e.latitude * PI / 180.0;
-        float longitude = e.longitude * PI / 180.0;
-        float x = -WorldRadius * cos(latitude) * cos(longitude);
-        float y = -WorldRadius * sin(latitude);
-        float z = WorldRadius * cos(latitude) * sin(longitude);
-        PVector endPosition = new PVector (x, y, z);
-        
-        float scale = EntityTransitions.cubicInOut(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index] - this.entity_transition_times[i]);
-        e.position = e.initPosition.mult(1 - scale).add(endPosition.mult(scale));
-      } else if (this.state_index == 2) {
-        // Growing entities
-        e.radius = max(5.0, map(e.capitalization, 0.0, 550, 5, 25) * EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]));
+      if (!is_paused) {
+        if (this.state_index == 0) {
+          // Moving entities
+          float latitude = e.latitude * PI / 180.0;
+          float longitude = e.longitude * PI / 180.0;
+          float x = -WorldRadius * cos(latitude) * cos(longitude);
+          float y = -WorldRadius * sin(latitude);
+          float z = WorldRadius * cos(latitude) * sin(longitude);
+          PVector endPosition = new PVector (x, y, z);
+          
+          float scale = EntityTransitions.cubicInOut(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index] - this.entity_transition_times[i]);
+          e.position = e.initPosition.lerp(endPosition, scale);
+        } else if (this.state_index == 2) {
+          // Growing entities
+          e.radius = max(5.0, map(e.capitalization, 0.0, 550, 5, 25) * EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]));
+          float rr = max(5.0, map(e.capitalization, 0.0, 550, 5, 25) * EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]));
+          if (rr > 26) {
+            println(e.capitalization, map(e.capitalization, 0.0, 550, 5, 25), EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]), this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]);
+          }
+        }
+  
+        if (pivot > -PI) {
+          pivot += PivotStep;
+          this.screen_manager.orbitalCamera.update(sin(pivot) * 750, -WorldRadius, cos(pivot) * 750);
+        }
       }
-
       e.draw();
-      if (pivot > -PI) {
-        pivot += PivotStep;
-        camera(sin(pivot) * 750, -WorldRadius, cos(pivot) * 750, 
-          0, 0, 0, 
-          0, 1, 0);
-      }
     }
 
-    this.state_time += delta;
-    if (this.state_time > this.state_times[this.state_index]) {
+    if (!is_paused && this.state_time > this.state_times[this.state_index]) {
       this.state_index++;
       this.state_time = 0.0;
     }
