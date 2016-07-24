@@ -25,9 +25,8 @@ class Geography extends Screen {
   private float state_time = 0.0;
     // Current time on this state
   private float WorldRadius = 200.0;
-  private float pivot = 0.0;
-  private float PivotStep = -0.00001;
-
+  private int pivot = 0;
+  
   private float[] entity_transition_times;
   // How long should each item spend moving
 
@@ -73,13 +72,13 @@ class Geography extends Screen {
             println(e.capitalization, map(e.capitalization, 0.0, 550, 5, 25), EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]), this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]);
           }
         }
-  
-        if (pivot > -PI) {
-          pivot += PivotStep;
-          this.screen_manager.orbitalCamera.update(sin(pivot) * 750, -WorldRadius, cos(pivot) * 750);
-        }
       }
       e.draw();
+    }
+    pivot += 2;
+    if (pivot < EntityTransitions.MaxTransitionStep - 2) {
+      println(EntityTransitions.TransitionSteps[pivot] * -PI);
+      this.screen_manager.orbitalCamera.update(sin(EntityTransitions.TransitionSteps[pivot] * -PI) * 750, -WorldRadius, cos(EntityTransitions.TransitionSteps[pivot] * -PI) * 750);
     }
 
     if (!is_paused && this.state_time > this.state_times[this.state_index]) {

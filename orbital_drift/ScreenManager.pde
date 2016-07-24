@@ -60,6 +60,15 @@ class ScreenManager {
     for (int i = 0; i < this.sector_to_index.size(); i++) {
       this.entities_by_sector.add(new ArrayList<Entity>());
     }
+    for (int i = 0; i < 1 / EntityTransitions.TransitioningStep - 1; i++) {
+      float step = float(i) / (1.0 / EntityTransitions.TransitioningStep / 2.0);
+      if (step < 1) {
+        EntityTransitions.TransitionSteps[i] = step * step * step / 2.0;
+      } else {
+        step -= 2;
+        EntityTransitions.TransitionSteps[i] = (step * step * step + 2) / 2.0;      
+      }
+    }
   }
   
   void keyPressed() {

@@ -19,8 +19,6 @@
 
 class Path {
 
-  float transitioningRatio = 0.0;
-  
   Path(Entity entity) {
     for (int i = 0; i < EntityTransitions.TrailCount; i++) {
       trails[i] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.longitude, entity.latitude, 
@@ -44,7 +42,9 @@ class Path {
     trails[nextIndex].rotation.increment(trails[nextIndex].rotationIncrement);
     Entity currentEntity = trails[nextIndex];
     pushMatrix();
-    translate(0.0 * (1.0 - transitioningRatio) + currentEntity.categoryCenter.x * transitioningRatio, 0.0 * (1.0 - transitioningRatio) + currentEntity.categoryCenter.y * transitioningRatio, 0.0);
+    translate(center.x * (1.0 - transitioningRatio) + currentEntity.categoryCenter.x * transitioningRatio, 
+              center.y * (1.0 - transitioningRatio) + currentEntity.categoryCenter.y * transitioningRatio, 
+              center.z * (1.0 - transitioningRatio));
     rotateX(currentEntity.rotation.x);
     rotateY(currentEntity.rotation.y);
     rotateZ(currentEntity.rotation.z);
@@ -53,6 +53,12 @@ class Path {
     currentEntity.position.y = modelY(0, 0, 0);
     currentEntity.position.z = modelZ(0, 0, 0);
     popMatrix();
+  }
+
+  void zeroCenter() {
+    center.x = 0.0;
+    center.y = 0.0;
+    center.z = 0.0;
   }
 
   void display() {
@@ -74,6 +80,8 @@ class Path {
 
   Entity[] trails = new Entity[EntityTransitions.TrailCount];
   int trailIndex = 0;
+  float transitioningRatio = 0.0;
+  PVector center = new PVector(0.0, 0.0, 0.0);  
 
   boolean transitioning = false;
   int transitionDelay = 0;

@@ -35,15 +35,6 @@ class PerformanceScreen extends Screen {
     super("Performance", 100000.0);
       // Duration = Sum of state_times
         
-    for (int i = 0; i < 1 / EntityTransitions.TransitioningStep - 1; i++) {
-      float step = float(i) / (1.0 / EntityTransitions.TransitioningStep / 2.0);
-      if (step < 1) {
-        EntityTransitions.TransitionSteps[i] = step * step * step / 2.0;
-      } else {
-        step -= 2;
-        EntityTransitions.TransitionSteps[i] = (step * step * step + 2) / 2.0;      
-      }
-    }
   }
 
   void keyPressed() {
@@ -68,10 +59,6 @@ class PerformanceScreen extends Screen {
 
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       paths.add(new Path(this.screen_manager.entities.get(i)));
-    }
-    for (Path path : paths) {
-      path.transitioning = !path.transitioning;
-      path.transitionDelay = int(random(0, 1000));
     }
   }
 
