@@ -48,7 +48,7 @@ class Entity {
     this.longitude = longitude;
     this.latitude = latitude;
     this.capitalization = random(240, 547520) / 1000; // In billions
-    this.radius = 5.0;
+    this.radius = 3.0;
     this.fillColor = #00C8C8;
     this.sectorIndex = sectorIndex;
     this.categoryCenter = new PVector(UniverseCenter.x + ZeroMarketSize * 1.5 * cos(this.sectorIndex * PI / 5), UniverseCenter.y + ZeroMarketSize * 1.5 * sin(this.sectorIndex * PI / 5), 0.0);

@@ -22,7 +22,7 @@ static class EntityTransitions {
   static float linear_interpolation(float delay_time, float elapsed, float transition_time) {
     if (delay_time > elapsed) {
       return 0.0;
-    } else if (elapsed / 1000 >= transition_time) {
+    } else if (elapsed >= transition_time) {
       return 1.0;
     } else {
       return (elapsed - delay_time) / (transition_time - delay_time);

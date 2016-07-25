@@ -25,6 +25,8 @@ class Geography extends Screen {
   private float state_time = 0.0;
     // Current time on this state
   private float WorldRadius = 200.0;
+  private int EntityRadiusLowerBound = 3;
+  private int EntityRadiusUpperBound = 10;
   private int pivot = 0;
   
   private float[] entity_transition_times;
@@ -55,8 +57,8 @@ class Geography extends Screen {
       if (!is_paused) {
         if (this.state_index == 0) {
           // Moving entities
-          float latitude = e.latitude * PI / 180.0;
-          float longitude = e.longitude * PI / 180.0;
+          float latitude = random(e.latitude - 0.01, e.latitude + 0.01) * PI / 180.0;
+          float longitude = random(e.longitude - 0.01, e.longitude + 0.01) * PI / 180.0;
           float x = -WorldRadius * cos(latitude) * cos(longitude);
           float y = -WorldRadius * sin(latitude);
           float z = WorldRadius * cos(latitude) * sin(longitude);
@@ -66,10 +68,10 @@ class Geography extends Screen {
           e.position = e.initPosition.lerp(endPosition, scale);
         } else if (this.state_index == 2) {
           // Growing entities
-          e.radius = max(5.0, map(e.capitalization, 0.0, 550, 5, 25) * EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]));
-          float rr = max(5.0, map(e.capitalization, 0.0, 550, 5, 25) * EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]));
+          e.radius = max(EntityRadiusLowerBound, map(e.capitalization, 0.0, 550, EntityRadiusLowerBound, EntityRadiusUpperBound) * EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]));
+          float rr = max(EntityRadiusLowerBound, map(e.capitalization, 0.0, 550, EntityRadiusLowerBound, EntityRadiusUpperBound) * EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]));
           if (rr > 26) {
-            println(e.capitalization, map(e.capitalization, 0.0, 550, 5, 25), EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]), this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]);
+            println(e.capitalization, map(e.capitalization, 0.0, 550, EntityRadiusLowerBound, EntityRadiusUpperBound), EntityTransitions.linear_interpolation(this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]), this.entity_transition_times[i], this.state_time, this.state_times[this.state_index]);
           }
         }
       }
@@ -78,7 +80,7 @@ class Geography extends Screen {
     pivot += 2;
     if (pivot < EntityTransitions.MaxTransitionStep - 2) {
       println(EntityTransitions.TransitionSteps[pivot] * -PI);
-      this.screen_manager.orbitalCamera.update(sin(EntityTransitions.TransitionSteps[pivot] * -PI) * 750, -WorldRadius, cos(EntityTransitions.TransitionSteps[pivot] * -PI) * 750);
+      this.screen_manager.orbitalCamera.update(sin(EntityTransitions.TransitionSteps[pivot] * -PI) * 400, -WorldRadius, cos(EntityTransitions.TransitionSteps[pivot] * -PI) * 400);
     }
 
     if (!is_paused && this.state_time > this.state_times[this.state_index]) {
