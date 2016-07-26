@@ -77,10 +77,13 @@ class Geography extends Screen {
       }
       e.draw();
     }
-    pivot += 2;
+    
+    if (!is_paused) {
+      pivot += 2;
+    }
+
     if (pivot < EntityTransitions.MaxTransitionStep - 2) {
-      println(EntityTransitions.TransitionSteps[pivot] * -PI);
-      this.screen_manager.orbitalCamera.update(sin(EntityTransitions.TransitionSteps[pivot] * -PI) * 400, -WorldRadius, cos(EntityTransitions.TransitionSteps[pivot] * -PI) * 400);
+      this.screen_manager.orbitalCamera.orbitalUpdate(pivot, 400, -WorldRadius);
     }
 
     if (!is_paused && this.state_time > this.state_times[this.state_index]) {

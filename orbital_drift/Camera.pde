@@ -53,6 +53,10 @@ class Camera {
     camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ);
   }
   
+  void orbitalUpdate(int transition_step, float dependent, float independent) {
+    update(sin(EntityTransitions.TransitionSteps[transition_step] * -PI) * dependent, independent, cos(EntityTransitions.TransitionSteps[transition_step] * -PI) * dependent);
+  }
+  
   PVector eye(){
     return new PVector(this.eyeX, this.eyeY, this.eyeZ); 
   }

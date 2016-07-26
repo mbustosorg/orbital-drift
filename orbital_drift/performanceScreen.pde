@@ -74,10 +74,10 @@ class PerformanceScreen extends Screen {
     noStroke();
 
     for (Path path : paths) {
-      path.advance();
       if (!is_paused) {
-        path.display();
+        path.advance();
       }
+      path.display();
     }
 
     if (follow != null) {

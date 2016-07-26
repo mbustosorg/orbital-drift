@@ -39,6 +39,8 @@ class ScreenManager {
   ArrayList<ArrayList<Entity>> entities_by_sector = new ArrayList<ArrayList<Entity>>();
   // Entities partitioned by sector
   Camera orbitalCamera = new Camera();
+  
+  private Label debugLabel;
 
   private Screen screen;
   // Active screen being displayed
@@ -80,6 +82,7 @@ class ScreenManager {
   }
 
   void setup() {
+    debugLabel = new Label(new PVector(-width / 4, -height / 4 + 12 + 475, 0), this.orbitalCamera);
     Table table = loadTable("../data/constituents.csv", "header");
     int i = 0;
     for (TableRow row : table.rows()) {
@@ -93,8 +96,6 @@ class ScreenManager {
         row.getFloat("Latitude"), 
         0.0, 0.0, 0.0, 
         new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
-        //new Rotation(random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary), random(-AngleBoundary, AngleBoundary)), 
-        //new Rotation(0.0, 0.0, random(-AngularRotationBoundary, AngularRotationBoundary))
         );
       e.screen_update();
       this.entities.add(e);
@@ -110,22 +111,11 @@ class ScreenManager {
 
   void update(float delta) {
     this.screen.update_and_draw(delta, this.is_paused);
-    textSize(12);
-    fill(150);
+    if (this.is_paused) {
+      fill(150);
+      debugLabel.draw(String.format("Screen '%s', %.0f / %.0f", this.screen.name, this.screen.elapsed, this.screen.duration));
+    }
 
-    PVector vCameraEye = this.orbitalCamera.eye();
-    println(this.orbitalCamera.eyeX, this.orbitalCamera.eyeY, this.orbitalCamera.eyeZ, vCameraEye.mag());
-    PVector vTextEye = this.orbitalCamera.eye().setMag(700);
-    println(vTextEye, vTextEye.mag());
-    String message = String.format("Screen '%s', %.3f / %.1f", this.screen.name, this.screen.elapsed, this.screen.duration);
-    float mWidth = textWidth(message);
-    pushMatrix();
-    rotateY(-atan(this.orbitalCamera.eyeZ / this.orbitalCamera.eyeX) - PI / 2);
-    text(message, 0, 0, 0);
-    //         vTextEye.x - mWidth/2,
-    //         vTextEye.y,
-    //         vTextEye.z);
-    popMatrix();
     if (this.screen.is_time_elapsed()) {
       for (Entity e : this.entities) {
         e.screen_update();
