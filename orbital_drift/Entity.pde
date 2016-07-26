@@ -31,7 +31,6 @@ class Entity {
   PVector UniverseCenter = new PVector(0, 0, 0); // Center of the Universe 
   PVector categoryCenter; // Center of sector sphere
   Rotation rotation; // Current rotation
-  float ZeroMarketSize = 200; // Radius of the nominal universe
   int sectorIndex = 0;
   int trailIndex = 0;
   int TrailCount = 30;
@@ -51,7 +50,7 @@ class Entity {
     this.radius = 3.0;
     this.fillColor = #00C8C8;
     this.sectorIndex = sectorIndex;
-    this.categoryCenter = new PVector(UniverseCenter.x + ZeroMarketSize * 1.5 * cos(this.sectorIndex * PI / 5), UniverseCenter.y + ZeroMarketSize * 1.5 * sin(this.sectorIndex * PI / 5), 0.0);
+    this.categoryCenter = new PVector(UniverseCenter.x + EntityTransitions.ZeroMarketSize * 1.5 * cos(this.sectorIndex * PI / 5), UniverseCenter.y + EntityTransitions.ZeroMarketSize * 1.5 * sin(this.sectorIndex * PI / 5), 0.0);
     this.rotation = initRotation;
     this.rotationIncrement = initRotationIncrement;
   }

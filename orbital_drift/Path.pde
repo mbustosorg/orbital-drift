@@ -42,13 +42,23 @@ class Path {
     trails[nextIndex].rotation.increment(trails[nextIndex].rotationIncrement);
     Entity currentEntity = trails[nextIndex];
     pushMatrix();
-    translate(center.x * (1.0 - transitioningRatio) + currentEntity.categoryCenter.x * transitioningRatio, 
-              center.y * (1.0 - transitioningRatio) + currentEntity.categoryCenter.y * transitioningRatio, 
-              center.z * (1.0 - transitioningRatio));
-    rotateX(currentEntity.rotation.x);
-    rotateY(currentEntity.rotation.y);
-    rotateZ(currentEntity.rotation.z);
-    translate(currentEntity.ZeroMarketSize - currentEntity.ZeroMarketSize / 1.5 * transitioningRatio, 0.0, 0.0);
+    if (state == 0) {
+      translate(entity.position.x * (1.0 - transitioningRatio) + center.x * transitioningRatio, 
+                entity.position.y * (1.0 - transitioningRatio) + center.y * transitioningRatio, 
+                entity.position.z * (1.0 - transitioningRatio) + center.z * transitioningRatio);
+      rotateX(currentEntity.rotation.x);
+      rotateY(currentEntity.rotation.y);
+      rotateZ(currentEntity.rotation.z);
+      translate(initialMarketSize * transitioningRatio, 0.0, 0.0);
+    } else {
+      translate(center.x * (1.0 - transitioningRatio) + currentEntity.categoryCenter.x * transitioningRatio, 
+                center.x * (1.0 - transitioningRatio) + currentEntity.categoryCenter.y * transitioningRatio, 
+                center.z * (1.0 - transitioningRatio));      
+      rotateX(currentEntity.rotation.x);
+      rotateY(currentEntity.rotation.y);
+      rotateZ(currentEntity.rotation.z);
+      translate(initialMarketSize - EntityTransitions.ZeroMarketSize / 1.5 * transitioningRatio, 0.0, 0.0);
+    }
     currentEntity.position.x = modelX(0, 0, 0);
     currentEntity.position.y = modelY(0, 0, 0);
     currentEntity.position.z = modelZ(0, 0, 0);
@@ -60,7 +70,7 @@ class Path {
     center.y = 0.0;
     center.z = 0.0;
   }
-
+  
   void display() {
     int trailCursor = trailIndex;
     for (int i = 0; i < EntityTransitions.TrailCount; i++) {
@@ -83,6 +93,8 @@ class Path {
   float transitioningRatio = 0.0;
   PVector center = new PVector(0.0, 0.0, 0.0);  
 
+  float initialMarketSize = random(EntityTransitions.ZeroMarketSize - 10, EntityTransitions.ZeroMarketSize + 10);
+  int state = 0;
   boolean transitioning = false;
   int transitionDelay = 0;
   int transitioningStep = 0;

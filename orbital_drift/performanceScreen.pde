@@ -28,8 +28,10 @@ class PerformanceScreen extends Screen {
   
   int cameraTransition = 0;
   PVector currentCamera = new PVector(0, 0, 0);
-  private float pivot = 0.0;
+  private float pivot = PI;
   PVector cameraInit = new PVector(sin(pivot) * 1000, 0, cos(pivot) * 1000);
+  PVector cameraTransitionInit = null;
+  private int initialTransitionStep = 0;
   
   public PerformanceScreen() {
     super("Performance", 100000.0);
@@ -60,6 +62,7 @@ class PerformanceScreen extends Screen {
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       paths.add(new Path(this.screen_manager.entities.get(i)));
     }
+    cameraTransitionInit = new PVector(this.screen_manager.orbitalCamera.eyeX, this.screen_manager.orbitalCamera.eyeY, this.screen_manager.orbitalCamera.eyeZ);  
   }
 
   void update_and_draw(float delta, boolean is_paused) {
@@ -74,13 +77,31 @@ class PerformanceScreen extends Screen {
     noStroke();
 
     for (Path path : paths) {
+      if (path.state == 0) {
+        path.transitioningRatio = EntityTransitions.TransitionSteps[initialTransitionStep];
+      }
       if (!is_paused) {
         path.advance();
       }
       path.display();
     }
+    if (initialTransitionStep >= 0) {
+      initialTransitionStep += 3;
+    }
+    if (initialTransitionStep > EntityTransitions.MaxTransitionStep - 2) {
+      for (Path path : paths) {
+        path.state = 1;
+      }
+      initialTransitionStep = -1;
+    } 
 
-    if (follow != null) {
+    if (initialTransitionStep >=0 && initialTransitionStep <= EntityTransitions.MaxTransitionStep - 1) {
+      float factor = EntityTransitions.TransitionSteps[initialTransitionStep];
+      cameraTransition = initialTransitionStep;
+      currentCamera = new PVector(factor * cameraInit.x + (1.0 - factor) * cameraTransitionInit.x, 
+                                  factor * cameraInit.y + (1.0 - factor) * cameraTransitionInit.y,  
+                                  factor * cameraInit.z + (1.0 - factor) * cameraTransitionInit.z);
+    } else if (follow != null) {
       Entity first = follow.trails[paths.get(0).trailIndex];
       translate(first.position.x, first.position.y, first.position.z);
       fill(first.fillColor);
