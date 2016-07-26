@@ -17,7 +17,7 @@
  
 */
 
-class Entity {
+class Entity implements Comparable<Entity> {
   String symbol, name, sector, industry;
     // Key identifier, full name, sector partition, industry partition
   float longitude, latitude;
@@ -57,6 +57,16 @@ class Entity {
 
   void screen_update() {
     initPosition = new PVector(this.position.x, this.position.y, this.position.z);
+  }
+
+  int compareTo(Entity other) {
+    if(this.capitalization < other.capitalization) {
+      return -1;
+    } else if (this.capitalization > other.capitalization) {
+      return 1;
+    } else {
+      return 0; 
+    }
   }
 
   void draw() {
