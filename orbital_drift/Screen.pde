@@ -66,7 +66,7 @@ abstract class Screen {
      int chance_total = 0;
      for (int i = 0; i < screens_chance.length; i++) {
        int c = screens_chance[i];
-       if (chance > chance_total && chance < chance_total + c) {
+       if (chance > chance_total && chance <= chance_total + c) {
          return screens_next[i];
        }
 

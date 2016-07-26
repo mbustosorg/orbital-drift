@@ -89,17 +89,17 @@ class ScreenManager {
     int i = 0;
     for (TableRow row : table.rows()) {
       Entity e = new Entity(
-        row.getString("Symbol"), 
-        row.getString("Name"), 
-        row.getString("Sector"), 
+        row.getString("Symbol"),
+        row.getString("Name"),
+        row.getString("Sector"),
         this.sector_to_index.get(row.getString("Sector")), 
-        row.getString("Industry"), 
+        row.getString("Industry"),
         capFileDict.get(row.getString("Symbol")) / 1000000000.0,
-        row.getFloat("Longitude"), 
-        row.getFloat("Latitude"), 
-        0.0, 0.0, 0.0, 
+        row.getFloat("Longitude"),
+        row.getFloat("Latitude"),
+        0.0, 0.0, 0.0,
         new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
-        );
+      );
       if (capFileDict.hasKey(row.getString("Symbol"))) {
         EntityTransitions.SectorToCapRatio.set(row.getString("Sector"), EntityTransitions.SectorToCapRatio.get(row.getString("Sector")) + capFileDict.get(row.getString("Symbol")));
         totalCapitalization += capFileDict.get(row.getString("Symbol"));
@@ -112,7 +112,7 @@ class ScreenManager {
         break;
       }
     }
-    println("Total Captialization ($B): " + totalCapitalization);
+    println("Total Captialization ($B): " + totalCapitalization / 1000000000.0);
     for (String key : EntityTransitions.SectorToCapRatio.keys()) {
       EntityTransitions.SectorToCapRatio.set(key, EntityTransitions.SectorToCapRatio.get(key) / totalCapitalization);
       println("  Sector Proportion: (" + key + "):" + EntityTransitions.SectorToCapRatio.get(key));
@@ -125,6 +125,8 @@ class ScreenManager {
     if (this.is_paused) {
       fill(150);
       debugLabel.draw(String.format("Screen '%s', %.0f / %.0f", this.screen.name, this.screen.elapsed, this.screen.duration));
+    } else {
+      println(frameRate);
     }
 
     if (this.screen.is_time_elapsed()) {

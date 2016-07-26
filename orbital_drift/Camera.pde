@@ -22,6 +22,9 @@ class Camera {
   float centerX, centerY, centerZ;
   float upX, upY, upZ;
 
+  final float eyeXdefault = width / 2.0, eyeYdefault = height / 2.0, eyeZdefault = (height/2.0) / tan(PI*30.0 / 180.0);
+  final float centerXdefault = width / 2.0, centerYdefault = height / 2.0, centerZdefault = 0.0;
+
   Camera() {
     this.eyeX = width / 2.0;
     this.eyeY = height / 2.0;
@@ -34,8 +37,21 @@ class Camera {
     this.upZ = 0;
   }
 
+  boolean is_default() {
+    return this.eyeX == eyeXdefault && 
+      this.eyeY == eyeYdefault &&
+      this.eyeZ == eyeZdefault &&
+      this.centerX ==centerXdefault &&
+      this.centerY == centerYdefault &&
+      this.centerZ == centerZdefault;
+  }
+
   void update(float eyeX, float eyeY, float eyeZ) {
-    update(eyeX, eyeY, eyeZ, 0, 0, 0, 0, 1, 0); 
+    update(eyeX, eyeY, eyeZ, 0, 0, 0); 
+  }
+
+  void update(float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ) {
+    update(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, 0, 1, 0);
   }
 
   void update(float eyeX, float eyeY, float eyeZ, float centerX, float centerY, float centerZ, float upX, float upY, float upZ) {
@@ -59,5 +75,9 @@ class Camera {
   
   PVector eye(){
     return new PVector(this.eyeX, this.eyeY, this.eyeZ); 
+  }
+
+  PVector center(){
+    return new PVector(this.centerX, this.centerY, this.centerZ); 
   }
 }

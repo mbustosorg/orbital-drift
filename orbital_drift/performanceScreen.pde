@@ -34,9 +34,8 @@ class PerformanceScreen extends Screen {
   private int initialTransitionStep = 0;
   
   public PerformanceScreen() {
-    super("Performance", 100000.0);
+    super("Performance", 120000.0);
       // Duration = Sum of state_times
-        
   }
 
   void keyPressed() {
@@ -62,7 +61,7 @@ class PerformanceScreen extends Screen {
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       paths.add(new Path(this.screen_manager.entities.get(i)));
     }
-    cameraTransitionInit = new PVector(this.screen_manager.orbitalCamera.eyeX, this.screen_manager.orbitalCamera.eyeY, this.screen_manager.orbitalCamera.eyeZ);  
+    cameraTransitionInit = this.screen_manager.orbitalCamera.eye();  
   }
 
   void update_and_draw(float delta, boolean is_paused) {

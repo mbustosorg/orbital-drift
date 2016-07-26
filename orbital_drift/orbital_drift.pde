@@ -17,13 +17,14 @@
  
 */
 
-ScreenManager screen_manager = new ScreenManager(new Geography());
+ScreenManager screen_manager;
   // Handles change over of screens and entities
 float draw_last_millis;
   // Determine delta between frames
 
 void setup() {
   size(1000, 1000, P3D);
+  screen_manager = new ScreenManager(new Geography());
   screen_manager.setup();
   draw_last_millis = millis();
 }
@@ -33,7 +34,6 @@ void draw() {
   float draw_millis = millis();
   screen_manager.update(draw_millis - draw_last_millis);
   lights();
-  println(frameRate);
   draw_last_millis = draw_millis;
 }
 

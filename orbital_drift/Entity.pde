@@ -26,7 +26,7 @@ class Entity implements Comparable<Entity> {
   PVector initPosition = new PVector(0.0, 0.0, 0.0);
     // Initial values at screen setup
   float capitalization, radius;
-  color fillColor;//, strokeColor;
+  color fillColor;
 
   PVector UniverseCenter = new PVector(0, 0, 0); // Center of the Universe 
   PVector categoryCenter; // Center of sector sphere
@@ -46,7 +46,7 @@ class Entity implements Comparable<Entity> {
     this.industry = industry;
     this.longitude = longitude;
     this.latitude = latitude;
-    this.capitalization = capitalization; //random(240, 547520) / 1000; // In billions
+    this.capitalization = capitalization;
     this.radius = 3.0;
     this.fillColor = #00C8C8;
     this.sectorIndex = sectorIndex;
@@ -59,7 +59,7 @@ class Entity implements Comparable<Entity> {
     initPosition = new PVector(this.position.x, this.position.y, this.position.z);
   }
 
-  int compareTo(Entity other) {
+  public int compareTo(Entity other) {
     if(this.capitalization < other.capitalization) {
       return -1;
     } else if (this.capitalization > other.capitalization) {
@@ -79,8 +79,6 @@ class Entity implements Comparable<Entity> {
     float trail = (float(TrailCount) - float(trailIndex)) / float(TrailCount);
     fill(this.fillColor, trail * 255.0);
     ellipse(0, 0, trail * this.radius, trail * this.radius);
-    //fill(this.fillColor);
-    //ellipse(0, 0, this.radius, this.radius);
     popMatrix();
   }
 }

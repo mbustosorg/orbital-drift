@@ -20,7 +20,7 @@
 class Sector2d extends Screen {
   private int state_index = 0;
     // transition stage between scenes
-  private float[] state_times = new float[] {12500, 2500};
+  private float[] state_times = new float[] {18000, 500};
     // Linear transition, wait, grow radius, wait
   private float state_time = 0.0;
     // Current time on this state
@@ -31,7 +31,7 @@ class Sector2d extends Screen {
   private ArrayList<entityTransition> transitions = new ArrayList<entityTransition>();
 
   public Sector2d() {
-    super("Sector 2d", 15000);
+    super("Sector 2d", 18500);
       // Duration = Sum of state_times
   }
 
@@ -47,8 +47,8 @@ class Sector2d extends Screen {
 
     float delay = 0.0;
     for (int i = 0; i < this.screen_manager.entities_by_sector.size(); i++) {
-      transitions.add(new entityTransition(this.screen_manager.entities_by_sector.get(i), delay, 1050, this.screen_manager.sector_colors[i]));
-      delay += 750;
+      transitions.add(new entityTransition(this.screen_manager.entities_by_sector.get(i), delay, 1550, this.screen_manager.sector_colors[i]));
+      delay += 1600;
     }
   }
 
@@ -94,14 +94,14 @@ class entityTransition {
     this.transition = transition;
     this.fillColor = fillColor;
   }
-  
+
   void update(float delta) {
     this.elapsed += delta;
     if (this.elapsed >= this.delay) {
+      float t = (this.elapsed - this.delay) / (this.transition);
       for (int i = 0; i < this.entities.size(); i++) {
         Entity e = this.entities.get(i);
         if (this.elapsed  >= this.delay + 5 * i) {
-          float t = (this.elapsed - this.delay) / (this.transition);
           e.fillColor = lerpColor(#000000, this.fillColor, t);
         }
       }
