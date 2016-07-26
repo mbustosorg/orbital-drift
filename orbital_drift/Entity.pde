@@ -37,7 +37,7 @@ class Entity implements Comparable<Entity> {
 
   Rotation rotationIncrement;
 
-  Entity(String symbol, String name, String sector, int sectorIndex, String industry,
+  Entity(String symbol, String name, String sector, int sectorIndex, String industry, float capitalization,
          float longitude, float latitude, float x, float y, float z, Rotation initRotation, Rotation initRotationIncrement) {
     this.position = new PVector(x, y, z);
     this.symbol = symbol;
@@ -46,7 +46,7 @@ class Entity implements Comparable<Entity> {
     this.industry = industry;
     this.longitude = longitude;
     this.latitude = latitude;
-    this.capitalization = random(240, 547520) / 1000; // In billions
+    this.capitalization = capitalization; //random(240, 547520) / 1000; // In billions
     this.radius = 3.0;
     this.fillColor = #00C8C8;
     this.sectorIndex = sectorIndex;

@@ -57,7 +57,7 @@ class PerformanceScreen extends Screen {
   void setup(ScreenManager screen_manager) {
     super.setup(screen_manager);
     this.screens_next = new Screen[] {new Geography()};
-    this.screens_chance = new int[] {100};
+    this.screens_chance = new int[] {200};
 
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       paths.add(new Path(this.screen_manager.entities.get(i)));
@@ -74,6 +74,12 @@ class PerformanceScreen extends Screen {
     stroke(55, 55, 55);
     strokeWeight(5);
     ellipse(MarketCenter.x, MarketCenter.y, ZeroMarketSize * 2, ZeroMarketSize * 2);
+    pushMatrix();
+    rotateY(PI / 3);
+    ellipse(MarketCenter.x, MarketCenter.y, ZeroMarketSize * 2, ZeroMarketSize * 2);
+    rotateY(PI / 3);
+    ellipse(MarketCenter.x, MarketCenter.y, ZeroMarketSize * 2, ZeroMarketSize * 2);
+    popMatrix();
     noStroke();
 
     for (Path path : paths) {

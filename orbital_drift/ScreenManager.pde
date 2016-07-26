@@ -33,6 +33,7 @@ class ScreenManager {
     { "Telecommunications Services", 8}, 
     { "Utilities", 9}
     });
+  float totalCapitalization = 0.0;
   // Lookup from Sector to allow for lookups for color or partition
   color[] sector_colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f, #ff7f00, #cab2d6, #6a3d9a};
   // established for use across screens
@@ -46,10 +47,6 @@ class ScreenManager {
   // Active screen being displayed
   private int entity_count = 0;
   // Sets max entities to create when not 0
-
-  private float AngleBoundary = 2.2;
-  private float AngularRotationBoundary = 0.05;
-
   private boolean is_paused = false;
 
   ScreenManager(Screen screen) {
@@ -82,6 +79,11 @@ class ScreenManager {
   }
 
   void setup() {
+    Table capFile = loadTable("../data/ticket.csv", "header");  
+    FloatDict capFileDict = new FloatDict();
+    for (TableRow row : capFile.rows()) {
+      capFileDict.add(row.getString("Symbol"), row.getFloat("Capt"));
+    }
     debugLabel = new Label(new PVector(-width / 4, -height / 4 + 12 + 475, 0), this.orbitalCamera);
     Table table = loadTable("../data/constituents.csv", "header");
     int i = 0;
@@ -92,11 +94,16 @@ class ScreenManager {
         row.getString("Sector"), 
         this.sector_to_index.get(row.getString("Sector")), 
         row.getString("Industry"), 
+        capFileDict.get(row.getString("Symbol")) / 1000000000.0,
         row.getFloat("Longitude"), 
         row.getFloat("Latitude"), 
         0.0, 0.0, 0.0, 
         new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
         );
+      if (capFileDict.hasKey(row.getString("Symbol"))) {
+        EntityTransitions.SectorToCapRatio.set(row.getString("Sector"), EntityTransitions.SectorToCapRatio.get(row.getString("Sector")) + capFileDict.get(row.getString("Symbol")));
+        totalCapitalization += capFileDict.get(row.getString("Symbol"));
+      }
       e.screen_update();
       this.entities.add(e);
       this.entities_by_sector.get(this.sector_to_index.get(e.sector)).add(e);
@@ -105,7 +112,11 @@ class ScreenManager {
         break;
       }
     }
-
+    println("Total Captialization ($B): " + totalCapitalization);
+    for (String key : EntityTransitions.SectorToCapRatio.keys()) {
+      EntityTransitions.SectorToCapRatio.set(key, EntityTransitions.SectorToCapRatio.get(key) / totalCapitalization);
+      println("  Sector Proportion: (" + key + "):" + EntityTransitions.SectorToCapRatio.get(key));
+    }
     this.screen.setup(this);
   }
 

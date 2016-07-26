@@ -28,4 +28,16 @@ static class EntityTransitions implements AniConstants {
   static int MaxTransitionStep = int(1 / TransitioningStep);
   static float[] TransitionSteps = new float[MaxTransitionStep];
   
+  static FloatDict SectorToCapRatio = new FloatDict(new Object[][] {
+    { "Consumer Discretionary", 0.0}, 
+    { "Consumer Staples", 0.0}, 
+    { "Energy", 0.0}, 
+    { "Financials", 0.0}, 
+    { "Health Care", 0.0}, 
+    { "Industrials", 0.0}, 
+    { "Information Technology", 0.0}, 
+    { "Materials", 0.0}, 
+    { "Telecommunications Services", 0.0}, 
+    { "Utilities", 0.0}
+    });
 }

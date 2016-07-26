@@ -67,9 +67,9 @@ class Geography extends Screen {
           float t = this.state_time > this.entity_transition_times[i] ? this.state_time - this.entity_transition_times[i] : 0.0;
           float d = this.state_times[this.state_index] - this.entity_transition_times[i];
           d = d < t ? t : d;
-          e.position.x = EntityTransitions.CUBIC_IN.calcEasing(t, e.initPosition.x, x - e.initPosition.x, d);
-          e.position.y = EntityTransitions.LINEAR.calcEasing(t, e.initPosition.y, y - e.initPosition.y, d);
-          e.position.z = EntityTransitions.CUBIC_IN.calcEasing(t, e.initPosition.x, x - e.initPosition.x, d);
+          e.position.x = EntityTransitions.CUBIC_IN_OUT.calcEasing(t, e.initPosition.x, x, d);
+          e.position.y = EntityTransitions.CUBIC_IN_OUT.calcEasing(t, e.initPosition.y, y, d);
+          e.position.z = EntityTransitions.CUBIC_IN_OUT.calcEasing(t, e.initPosition.z, z, d);
         } else if (this.state_index == 2) {
           // Growing entities
           float t = this.state_time > this.entity_transition_times[i] ? this.state_time - this.entity_transition_times[i] : 0.0;
