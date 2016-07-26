@@ -54,6 +54,7 @@ static class EntityTransitions {
     e.position.z = (1.0 - factor) * e.initPosition.z + factor * z_end;
   }
   
+  static float ZeroMarketSize = 200; // Radius of the nominal universe
   static float AngleBoundary = 2.2;
   static float AngularRotationBoundary = 0.003;
   static int TrailCount = 10;
