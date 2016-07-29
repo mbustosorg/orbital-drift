@@ -37,7 +37,7 @@ static class EntityTransitions implements AniConstants {
     { "Industrials", 0.0}, 
     { "Information Technology", 0.0}, 
     { "Materials", 0.0}, 
-    { "Telecommunications Services", 0.0}, 
+    { "Telecommunication Services", 0.0}, 
     { "Utilities", 0.0}
     });
 }

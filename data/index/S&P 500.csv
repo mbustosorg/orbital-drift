@@ -1,0 +1,505 @@
+Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
+MMM,3M Company,Industrials,Industrial Conglomerates,"St. Paul, Minnesota",44.9537029,-93.0899578
+ABT,Abbott Laboratories,Health Care,Health Care Equipment & Services,"North Chicago, Illinois",42.325578,-87.8411818
+ABBV,AbbVie,Health Care,Pharmaceuticals,"North Chicago, Illinois",42.325578,-87.8411818
+ACN,Accenture plc,Information Technology,IT Consulting & Other Services,"Dublin, Ireland",53.3498053,-6.2603097
+ATVI,Activision Blizzard,Information Technology,Home Entertainment Software,"Santa Monica, California",34.0194543,-118.4911912
+AYI,Acuity Brands Inc,Industrials,Electrical Components & Equipment,"Atlanta, Georgia",33.7489954,-84.3879824
+ADBE,Adobe Systems Inc,Information Technology,Application Software,"San Jose, California",37.3382082,-121.8863286
+AAP,Advance Auto Parts,Consumer Discretionary,Automotive Retail,"Roanoke, Virginia",37.2709704,-79.9414266
+AES,AES Corp,Utilities,Independent Power Producers & Energy Traders,"Arlington, Virginia",38.8799697,-77.1067698
+AET,Aetna Inc,Health Care,Managed Health Care,"Hartford, Connecticut",41.76371109999999,-72.6850932
+AMG,Affiliated Managers Group Inc,Financials,Asset Management & Custody Banks,"Beverly, Massachusetts",42.5584283,-70.880049
+AFL,AFLAC Inc,Financials,Life & Health Insurance,"Columbus, Georgia",32.4609764,-84.9877094
+A,Agilent Technologies Inc,Health Care,Health Care Equipment & Services,"Santa Clara, California",37.3541079,-121.9552356
+APD,Air Products & Chemicals Inc,Materials,Industrial Gases,"Allentown, Pennsylvania",40.6084305,-75.4901833
+AKAM,Akamai Technologies Inc,Information Technology,Internet Software & Services,"Cambridge, Massachusetts",42.3736158,-71.10973349999999
+ALK,Alaska Air Group Inc,Industrials,Airlines,"Seattle, Washington",47.6062095,-122.3320708
+ALB,Albemarle Corp,Materials,Specialty Chemicals,"Baton Rouge, Louisiana",30.4582829,-91.1403196
+AA,Alcoa Inc,Materials,Aluminum,"New York, New York",40.7127837,-74.0059413
+ALXN,Alexion Pharmaceuticals,Health Care,Biotechnology,"Cheshire, Connecticut",41.5083668,-72.9106202
+ALLE,Allegion,Industrials,Building Products,"Dublin, Ireland",53.3498053,-6.2603097
+AGN,Allergan plc,Health Care,Pharmaceuticals,"Dublin, Ireland",53.3498053,-6.2603097
+ADS,Alliance Data Systems,Information Technology,Data Processing & Outsourced Services,"Plano, Texas",33.0198431,-96.6988856
+LNT,Alliant Energy Corp,Utilities,Electric Utilities,"Madison, Wisconsin",43.0730517,-89.4012302
+ALL,Allstate Corp,Financials,Property & Casualty Insurance,"Northfield Township, Illinois",42.1171608,-87.8353278
+GOOGL,Alphabet Inc Class A,Information Technology,Internet Software & Services,"Mountain View, California",37.3860517,-122.0838511
+GOOG,Alphabet Inc Class C,Information Technology,Internet Software & Services,"Mountain View, California",37.3860517,-122.0838511
+MO,Altria Group Inc,Consumer Staples,Tobacco,"Richmond, Virginia",37.5407246,-77.4360481
+AMZN,Amazon.com Inc,Consumer Discretionary,Internet Retail,"Seattle, Washington",47.6062095,-122.3320708
+AEE,Ameren Corp,Utilities,MultiUtilities,"St. Louis, Missouri",38.6270025,-90.19940419999999
+AAL,American Airlines Group,Industrials,Airlines,"Fort Worth, Texas",32.7554883,-97.3307658
+AEP,American Electric Power,Utilities,Electric Utilities,"Columbus, Ohio",39.9611755,-82.99879419999999
+AXP,American Express Co,Financials,Consumer Finance,"New York, New York",40.7127837,-74.0059413
+AIG,"American International Group, Inc.",Financials,Property & Casualty Insurance,"New York, New York",40.7127837,-74.0059413
+AMT,American Tower Corp A,Financials,Specialized REITs,"Boston, Massachusetts",42.3600825,-71.0588801
+AWK,American Water Works Company Inc,Utilities,Water Utilities,"Voorhees, New Jersey",39.8519447,-74.961517
+AMP,Ameriprise Financial,Financials,Diversified Financial Services,"Minneapolis, Minnesota",44.977753,-93.2650108
+ABC,AmerisourceBergen Corp,Health Care,Health Care Distribution & Services,"Chesterbrook, Pennsylvania",40.0756627,-75.45908159999999
+AME,Ametek,Industrials,Electrical Components & Equipment,"Berwyn, Pennsylvania",40.045824,-75.4395931
+AMGN,Amgen Inc,Health Care,Biotechnology,"Thousand Oaks, California",34.1705609,-118.8375937
+APH,Amphenol Corp A,Industrials,Electrical Components & Equipment,"Wallingford, Connecticut",41.4570108,-72.8230736
+APC,Anadarko Petroleum Corp,Energy,Oil & Gas Exploration & Production,"The Woodlands, Texas",30.1658207,-95.46126249999999
+ADI,"Analog Devices, Inc.",Information Technology,Semiconductors,"Norwood, Massachusetts",42.19439089999999,-71.19896949999999
+ANTM,Anthem Inc.,Health Care,Managed Health Care,"Indianapolis, Indiana",39.768403,-86.158068
+AON,Aon plc,Financials,Insurance Brokers,"London, United Kingdom",51.5073509,-0.1277583
+APA,Apache Corporation,Energy,Oil & Gas Exploration & Production,"Houston, Texas",29.7604267,-95.3698028
+AIV,Apartment Investment & Mgmt,Financials,REITs,"Denver, Colorado",39.7392358,-104.990251
+AAPL,Apple Inc.,Information Technology,Computer Hardware,"Cupertino, California",37.3229978,-122.0321823
+AMAT,Applied Materials Inc,Information Technology,Semiconductor Equipment,"Santa Clara, California",37.3541079,-121.9552356
+ADM,Archer-Daniels-Midland Co,Consumer Staples,Agricultural Products,"Decatur, Illinois",39.8403147,-88.9548001
+AJG,Arthur J. Gallagher & Co.,Financials,Insurance Brokers,"Itasca, Illinois",41.9750287,-88.0072909
+AIZ,Assurant Inc,Financials,Multi-line Insurance,"New York, New York",40.7127837,-74.0059413
+T,AT&T Inc,Telecommunication Services,Integrated Telecommunications Services,"Dallas, Texas",32.7766642,-96.79698789999999
+ADSK,Autodesk Inc,Information Technology,Application Software,"San Rafael, California",37.9735346,-122.5310874
+ADP,Automatic Data Processing,Information Technology,Internet Software & Services,"Roseland, New Jersey",40.8206555,-74.2937594
+AN,AutoNation Inc,Consumer Discretionary,Specialty Stores,"Fort Lauderdale, Florida",26.1224386,-80.13731740000001
+AZO,AutoZone Inc,Consumer Discretionary,Specialty Stores,"Memphis, Tennessee",35.1495343,-90.0489801
+AVGO,Avago Technologies,Information Technology,Semiconductors,"San Jose, California",37.3382082,-121.8863286
+AVB,"AvalonBay Communities, Inc.",Financials,Residential REITs,"Arlington, Virginia[3]",38.8435093,-77.0958055
+AVY,Avery Dennison Corp,Materials,Paper Packaging,"Glendale, California",34.1425078,-118.255075
+BHI,Baker Hughes Inc,Energy,Oil & Gas Equipment & Services,"Houston, Texas",29.7604267,-95.3698028
+BLL,Ball Corp,Materials,Metal & Glass Containers,"Broomfield, Colorado",39.9205411,-105.0866504
+BAC,Bank of America Corp,Financials,Banks,"Charlotte, North Carolina",35.2270869,-80.8431267
+BCR,Bard (C.R.) Inc.,Health Care,Health Care Equipment & Services,"Murray Hill, New Jersey",40.6951408,-74.4012651
+BAX,Baxter International Inc.,Health Care,Health Care Equipment & Services,"Deerfield, Illinois",42.1711365,-87.8445119
+BBT,BB&T Corporation,Financials,Banks,"Winston-Salem, North Carolina",36.09985959999999,-80.244216
+BDX,Becton Dickinson,Health Care,Health Care Equipment & Services,"Franklin Lakes, New Jersey",41.0167639,-74.2057011
+BBBY,Bed Bath & Beyond,Consumer Discretionary,Specialty Stores,"Union, New Jersey",40.6975898,-74.26316349999999
+BRK-B,Berkshire Hathaway,Financials,Multi-Sector Holdings,"Omaha, Nebraska",41.2523634,-95.99798829999999
+BBY,Best Buy Co. Inc.,Consumer Discretionary,Computer & Electronics Retail,"Richfield, Minnesota",44.8832982,-93.28300209999999
+BIIB,BIOGEN IDEC Inc.,Health Care,Biotechnology,"Weston, Massachusetts",42.3667625,-71.3031132
+BLK,BlackRock,Financials,Asset Management & Custody Banks,"New York, New York",40.7127837,-74.0059413
+HRB,Block H&R,Financials,Consumer Finance,"Kansas City, Missouri",39.0997265,-94.5785667
+BA,Boeing Company,Industrials,Aerospace & Defense,"Chicago, Illinois",41.8781136,-87.6297982
+BWA,BorgWarner,Consumer Discretionary,Auto Parts & Equipment,"Auburn Hills, Michigan",42.6875323,-83.2341028
+BXP,Boston Properties,Financials,REITs,"Boston, Massachusetts",42.3600825,-71.0588801
+BSX,Boston Scientific,Health Care,Health Care Equipment & Services,"Marlborough, Massachusetts[4]",42.371661,-71.594084
+BMY,Bristol-Myers Squibb,Health Care,Health Care Distributors & Services,"New York, New York",40.7127837,-74.0059413
+BF-B,Brown-Forman Corporation,Consumer Staples,Distillers & Vintners,"Louisville, Kentucky",38.2526647,-85.7584557
+CHRW,C. H. Robinson Worldwide,Industrials,Air Freight & Logistics,"Eden Prairie, Minnesota",44.8546856,-93.47078599999999
+CA,"CA, Inc.",Information Technology,Systems Software,"Islandia, New York",40.8042649,-73.1690019
+COG,Cabot Oil & Gas,Energy,Oil & Gas Exploration & Production,"Houston, Texas",29.7604267,-95.3698028
+CPB,Campbell Soup,Consumer Staples,Packaged Foods & Meats,"Camden, New Jersey",39.9259463,-75.1196199
+COF,Capital One Financial,Financials,Consumer Finance,"Tysons Corner, Virginia",38.9187222,-77.2310925
+CAH,Cardinal Health Inc.,Health Care,Health Care Distributors & Services,"Dublin, Ohio",40.0992294,-83.1140771
+KMX,Carmax Inc,Consumer Discretionary,Specialty Stores,"Richmond, Virginia",37.5407246,-77.4360481
+CCL,Carnival Corp.,Consumer Discretionary,"Hotels, Resorts & Cruise Lines","Miami, Florida",25.7616798,-80.1917902
+CAT,Caterpillar Inc.,Industrials,Construction & Farm Machinery & Heavy Trucks,"Peoria, Illinois",40.6936488,-89.5889864
+CBG,CBRE Group,Financials,Real Estate Services,"Los Angeles, California",34.0522342,-118.2436849
+CBS,CBS Corp.,Consumer Discretionary,Broadcasting & Cable TV,"New York, New York",40.7127837,-74.0059413
+CELG,Celgene Corp.,Health Care,Biotechnology,"Summit, New Jersey",40.7146376,-74.3646122
+CNC,Centene Corporation,Health Care,Managed Health Care,"St Louis, Missouri",38.6270025,-90.19940419999999
+CNP,CenterPoint Energy,Utilities,MultiUtilities,"Houston, Texas",29.7604267,-95.3698028
+CTL,CenturyLink Inc,Telecommunication Services,Integrated Telecommunications Services,"Monroe, Louisiana",32.5093109,-92.1193012
+CERN,Cerner,Health Care,Health Care Distributors & Services,"North Kansas City, Missouri",39.14290810000001,-94.5729781
+CF,CF Industries Holdings Inc,Materials,Fertilizers & Agricultural Chemicals,"Deerfield, Illinois",42.1711365,-87.8445119
+SCHW,Charles Schwab Corporation,Financials,Investment Banking & Brokerage,"San Francisco, California",37.7749295,-122.4194155
+CHK,Chesapeake Energy,Energy,Integrated Oil & Gas,"Oklahoma City, Oklahoma",35.4675602,-97.5164276
+CVX,Chevron Corp.,Energy,Integrated Oil & Gas,"San Ramon, California",37.7799273,-121.9780153
+CMG,Chipotle Mexican Grill,Consumer Discretionary,Restaurants,"Denver, Colorado",39.7392358,-104.990251
+CB,Chubb Limited,Financials,Property & Casualty Insurance,"Zurich, Switzerland",47.3768866,8.541694
+CHD,Church & Dwight,Consumer Staples,Household Products,"Ewing, New Jersey",40.2599864,-74.79091249999999
+CI,CIGNA Corp.,Health Care,Managed Health Care,"Philadelphia, Pennsylvania",39.9525839,-75.1652215
+XEC,Cimarex Energy,Energy,Oil & Gas Exploration & Production,"Denver, Colorado",39.7392358,-104.990251
+CINF,Cincinnati Financial,Financials,Property & Casualty Insurance,"Fairfield, Ohio",39.3454673,-84.5603187
+CTAS,Cintas Corporation,Industrials,Diversified Support Services,"Mason, Ohio",39.3600586,-84.309939
+CSCO,Cisco Systems,Information Technology,Networking Equipment,"San Jose, California",37.3382082,-121.8863286
+C,Citigroup Inc.,Financials,Banks,"New York, New York",40.7127837,-74.0059413
+CFG,Citizens Financial Group,Financials,Banks,"Providence, Rhode Island",41.8239891,-71.4128343
+CTXS,Citrix Systems,Information Technology,Internet Software & Services,"Fort Lauderdale, Florida",26.1224386,-80.13731740000001
+CME,CME Group Inc.,Financials,Diversified Financial Services,"Chicago, Illinois",41.8781136,-87.6297982
+CMS,CMS Energy,Utilities,MultiUtilities,"Jackson, Michigan",42.245869,-84.40134619999999
+COH,Coach Inc.,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","New York, New York",40.7127837,-74.0059413
+CTSH,Cognizant Technology Solutions,Information Technology,IT Consulting & Services,"Teaneck, New Jersey",40.8932469,-74.0116536
+CL,Colgate-Palmolive,Consumer Staples,Household Products,"New York, New York",40.7127837,-74.0059413
+CMCSA,Comcast A Corp,Consumer Discretionary,Broadcasting & Cable TV,"Philadelphia, Pennsylvania",39.9525839,-75.1652215
+CMA,Comerica Inc.,Financials,Banks,"Dallas, Texas",32.7766642,-96.79698789999999
+CAG,ConAgra Foods Inc.,Consumer Staples,Packaged Foods & Meats,"Omaha, Nebraska",41.2523634,-95.99798829999999
+CXO,Concho Resources,Energy,Oil & Gas Exploration & Production,"Midland, Texas",31.9973456,-102.0779146
+COP,ConocoPhillips,Energy,Oil & Gas Exploration & Production,"Houston, Texas",29.7604267,-95.3698028
+ED,Consolidated Edison,Utilities,Electric Utilities,"New York, New York",40.7127837,-74.0059413
+STZ,Constellation Brands,Consumer Staples,Distillers & Vintners,"Victor, New York",42.9825633,-77.4088794
+GLW,Corning Inc.,Industrials,Construction & Engineering,"Corning, New York",42.1428521,-77.05469029999999
+COST,Costco Co.,Consumer Staples,Hypermarkets & Super Centers,"Issaquah, Washington",47.5301011,-122.0326191
+CCI,Crown Castle International Corp.,Financials,REITs,"Houston, Texas",29.7604267,-95.3698028
+CSRA,CSRA Inc.,Information Technology,IT Consulting & Services,"Falls Church, Virginia",38.88233400000001,-77.1710914
+CSX,CSX Corp.,Industrials,Railroads,"Jacksonville, Florida",30.3321838,-81.65565099999999
+CMI,Cummins Inc.,Industrials,Industrial Machinery,"Columbus, Indiana",39.2014404,-85.9213796
+CVS,CVS Health,Consumer Staples,Drug Retail,"Woonsocket, Rhode Island",42.00287609999999,-71.51478390000001
+DHI,D. R. Horton,Consumer Discretionary,Homebuilding,"Fort Worth, Texas",32.7554883,-97.3307658
+DHR,Danaher Corp.,Industrials,Industrial Machinery,Washington D.C,38.9071923,-77.0368707
+DRI,Darden Restaurants,Consumer Discretionary,Restaurants,"Orlando, Florida",28.5383355,-81.3792365
+DVA,DaVita Inc.,Health Care,Health Care Facilities,"Denver, Colorado",39.7392358,-104.990251
+DE,Deere & Co.,Industrials,Construction & Farm Machinery & Heavy Trucks,"Moline, Illinois",41.5067003,-90.51513419999999
+DLPH,Delphi Automotive,Consumer Discretionary,Auto Parts & Equipment,"Gillingham, Kent, United Kingdom",51.386322,0.551438
+DAL,Delta Air Lines,Industrials,Airlines,"Atlanta, Georgia",33.7489954,-84.3879824
+XRAY,Dentsply Sirona,Health Care,Health Care Supplies,"York, Pennsylvania",39.9625984,-76.727745
+DVN,Devon Energy Corp.,Energy,Oil & Gas Exploration & Production,"Oklahoma City, Oklahoma",35.4675602,-97.5164276
+DO,Diamond Offshore Drilling,Energy,Oil & Gas Drilling,"Houston, Texas",29.7604267,-95.3698028
+DLR,Digital Realty Trust,Financials,Specialized REITs,"San Francisco, California",37.7749295,-122.4194155
+DFS,Discover Financial Services,Financials,Consumer Finance,"Riverwoods, Illinois",42.1675254,-87.897014
+DISCA,Discovery Communications-A,Consumer Discretionary,Broadcasting & Cable TV,"Silver Spring, Maryland",38.99066570000001,-77.026088
+DISCK,Discovery Communications-C,Consumer Discretionary,Broadcasting & Cable TV,"Silver Spring, Maryland",38.99066570000001,-77.026088
+DG,Dollar General,Consumer Discretionary,General Merchandise Stores,"Goodlettsville, Tennessee",36.3231066,-86.7133302
+DLTR,Dollar Tree,Consumer Discretionary,General Merchandise Stores,"Chesapeake, Virginia",36.7682088,-76.2874927
+D,Dominion Resources,Utilities,Electric Utilities,"Richmond, Virginia",37.5407246,-77.4360481
+DOV,Dover Corp.,Industrials,Industrial Machinery,"Downers Grove, Illinois",41.8089191,-88.01117459999999
+DOW,Dow Chemical,Materials,Diversified Chemicals,"Midland, Michigan",43.6155825,-84.2472116
+DPS,Dr Pepper Snapple Group,Consumer Staples,Soft Drinks,"Plano, Texas",33.0198431,-96.6988856
+DTE,DTE Energy Co.,Utilities,MultiUtilities,"Detroit, Michigan",42.331427,-83.0457538
+DD,Du Pont (E.I.),Materials,Diversified Chemicals,"Wilmington, Delaware",39.7390721,-75.5397878
+DUK,Duke Energy,Utilities,Electric Utilities,"Charlotte, North Carolina",35.2270869,-80.8431267
+DNB,Dun & Bradstreet,Industrials,Data Processing Services,"Short Hills, New Jersey",40.7483499,-74.3232194
+ETFC,E*Trade,Financials,Investment Banking & Brokerage,"New York, New York",40.7127837,-74.0059413
+EMN,Eastman Chemical,Materials,Diversified Chemicals,"Kingsport, Tennessee",36.548434,-82.5618186
+ETN,Eaton Corporation,Industrials,Industrial Conglomerates,"Dublin, Ireland",53.3498053,-6.2603097
+EBAY,eBay Inc.,Information Technology,Internet Software & Services,"San Jose, California",37.3382082,-121.8863286
+ECL,Ecolab Inc.,Materials,Specialty Chemicals,"St. Paul, Minnesota",44.9537029,-93.0899578
+EIX,Edison Int'l,Utilities,Electric Utilities,"Rosemead, California",34.0805651,-118.072846
+EW,Edwards Lifesciences,Health Care,Health Care Equipment & Services,"Irvine, California",33.6839473,-117.7946942
+EA,Electronic Arts,Information Technology,Home Entertainment Software,"Redwood City, California",37.48521520000001,-122.2363548
+EMC,EMC Corp.,Information Technology,IT Consulting & Services,"Hopkinton, Massachusetts",42.22869540000001,-71.5225646
+EMR,Emerson Electric Company,Industrials,Industrial Conglomerates,"Ferguson, Missouri",38.7442175,-90.3053915
+ENDP,Endo International,Health Care,Pharmaceuticals,"Dublin, Ireland",53.3498053,-6.2603097
+ETR,Entergy Corp.,Utilities,Electric Utilities,"New Orleans, Louisiana",29.95106579999999,-90.0715323
+EOG,EOG Resources,Energy,Oil & Gas Exploration & Production,"Houston, Texas",29.7604267,-95.3698028
+EQT,EQT Corporation,Energy,Oil & Gas Exploration & Production,"Pittsburgh, Pennsylvania",40.44062479999999,-79.9958864
+EFX,Equifax Inc.,Financials,Diversified Financial Services,"Atlanta, Georgia",33.7489954,-84.3879824
+EQIX,Equinix,Information Technology,Internet Software & Services,"Redwood City, California",37.48521520000001,-122.2363548
+EQR,Equity Residential,Financials,REITs,"Chicago, Illinois",41.8781136,-87.6297982
+ESS,Essex Property Trust Inc,Financials,Residential REITs,"Palo Alto, California",37.4418834,-122.1430195
+EL,Estee Lauder Cos.,Consumer Staples,Personal Products,"New York, New York",40.7127837,-74.0059413
+ES,Eversource Energy,Utilities,MultiUtilities,"Springfield, Massachusetts",42.1014831,-72.589811
+EXC,Exelon Corp.,Utilities,MultiUtilities,"Chicago, Illinois",41.8781136,-87.6297982
+EXPE,Expedia Inc.,Consumer Discretionary,"Hotels, Resorts & Cruise Lines","Bellevue, Washington",47.610377,-122.2006786
+EXPD,Expeditors Int'l,Industrials,Air Freight & Logistics,"Seattle, Washington",47.6062095,-122.3320708
+ESRX,Express Scripts,Health Care,Health Care Distributors & Services,"Cool Valley, Missouri",38.7278287,-90.310114
+EXR,Extra Space Storage,Financials,Specialized REITs,"Salt Lake City, UT",40.7607793,-111.8910474
+XOM,Exxon Mobil Corp.,Energy,Integrated Oil & Gas,"Irving, Texas",32.8140177,-96.9488945
+FFIV,F5 Networks,Information Technology,Networking Equipment,"Seattle, Washington",47.6062095,-122.3320708
+FB,Facebook,Information Technology,Internet Software & Services,"Menlo Park, California",37.4529598,-122.1817252
+FAST,Fastenal Co,Industrials,Building Products,"Winona, Minnesota",44.0553908,-91.6663523
+FRT,Federal Realty Investment Trust,Financials,Retail REITs,"Rockville, Maryland",39.0839973,-77.1527578
+FDX,FedEx Corporation,Industrials,Air Freight & Logistics,"Memphis, Tennessee",35.1495343,-90.0489801
+FIS,Fidelity National Information Services,Information Technology,Internet Software & Services,"Jacksonville, Florida",30.3321838,-81.65565099999999
+FITB,Fifth Third Bancorp,Financials,Banks,"Cincinnati, Ohio",39.1031182,-84.5120196
+FSLR,First Solar Inc,Information Technology,Semiconductors,"Tempe, Arizona",33.4255104,-111.9400054
+FE,FirstEnergy Corp,Utilities,Electric Utilities,"Akron, Ohio",41.0814447,-81.51900529999999
+FISV,Fiserv Inc,Information Technology,Internet Software & Services,"Brookfield, Wisconsin",43.0605671,-88.1064787
+FLIR,FLIR Systems,Industrials,Aerospace & Defense,"Wilsonville, Oregon",45.2998418,-122.7737062
+FLS,Flowserve Corporation,Industrials,Industrial Machinery,"Irving, Texas",32.8140177,-96.9488945
+FLR,Fluor Corp.,Industrials,Diversified Commercial Services,"Irving, Texas",32.8140177,-96.9488945
+FMC,FMC Corporation,Materials,Diversified Chemicals,"Philadelphia, Pennsylvania",39.9525839,-75.1652215
+FTI,FMC Technologies Inc.,Energy,Oil & Gas Equipment & Services,"Houston, Texas",29.7604267,-95.3698028
+FL,Foot Locker Inc,Consumer Discretionary,Apparel Retail,"New York, New York",40.7127837,-74.0059413
+F,Ford Motor,Consumer Discretionary,Automobile Manufacturers,"Dearborn, Michigan",42.3222599,-83.17631449999999
+FTV,Fortive Corp,Industrials,Industrial Machinery,"Everett, Washington",47.9789848,-122.2020794
+FBHS,Fortune Brands Home & Security,Industrials,Building Products,"Deerfield, Illinois",42.1711365,-87.8445119
+BEN,Franklin Resources,Financials,Asset Management & Custody Banks,"San Mateo, California",37.5629917,-122.3255254
+FCX,Freeport-McMoran Cp & Gld,Materials,Diversified Metals & Mining,"Phoenix, Arizona",33.4483771,-112.0740373
+FTR,Frontier Communications,Telecommunication Services,Integrated Telecommunications Services,"Stamford, Connecticut",41.0534302,-73.5387341
+GPS,Gap (The),Consumer Discretionary,Apparel Retail,"San Francisco, California",37.7749295,-122.4194155
+GRMN,Garmin Ltd.,Consumer Discretionary,Consumer Electronics,"Schaffhausen, Switzerland",47.6958897,8.6380488
+GD,General Dynamics,Industrials,Aerospace & Defense,"Falls Church, Virginia",38.88233400000001,-77.1710914
+GE,General Electric,Industrials,Industrial Conglomerates,"Fairfield, Connecticut",41.1408363,-73.2612615
+GGP,General Growth Properties Inc.,Financials,REITs,"Chicago, Illinois",41.8781136,-87.6297982
+GIS,General Mills,Consumer Staples,Packaged Foods & Meats,"Golden Valley, Minnesota",44.9917149,-93.3600034
+GM,General Motors,Consumer Discretionary,Automobile Manufacturers,"Detroit, Michigan",42.331427,-83.0457538
+GPC,Genuine Parts,Consumer Discretionary,Specialty Stores,"Atlanta, Georgia",33.7489954,-84.3879824
+GILD,Gilead Sciences,Health Care,Biotechnology,"Foster City, California",37.5585465,-122.2710788
+GPN,Global Payments Inc,Information Technology,Data Processing & Outsourced Services,"Atlanta, Georgia",33.7489954,-84.3879824
+GS,Goldman Sachs Group,Financials,Investment Banking & Brokerage,"New York, New York",40.7127837,-74.0059413
+GT,Goodyear Tire & Rubber,Consumer Discretionary,Tires & Rubber,"Akron, Ohio",41.0814447,-81.51900529999999
+GWW,Grainger (W.W.) Inc.,Industrials,Industrial Materials,"Lake Forest, Illinois",42.2586342,-87.840625
+HAL,Halliburton Co.,Energy,Oil & Gas Equipment & Services,"Houston, Texas",29.7604267,-95.3698028
+HBI,Hanesbrands Inc,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","Winston-Salem, North Carolina",36.09985959999999,-80.244216
+HOG,Harley-Davidson,Consumer Discretionary,Motorcycle Manufacturers,"Milwaukee, Wisconsin",43.0389025,-87.9064736
+HAR,Harman Int'l Industries,Consumer Discretionary,Consumer Electronics,"Stamford, Connecticut",41.0534302,-73.5387341
+HRS,Harris Corporation,Information Technology,Telecommunications Equipment,"Melbourne, Florida",28.0836269,-80.60810889999999
+HIG,Hartford Financial Svc.Gp.,Financials,Property & Casualty Insurance,"Hartford, Connecticut",41.76371109999999,-72.6850932
+HAS,Hasbro Inc.,Consumer Discretionary,Leisure Products,"Pawtucket, Rhode Island",41.878711,-71.38255579999999
+HCA,HCA Holdings,Health Care,Health Care Facilities,"Nashville, Tennessee",36.1626638,-86.7816016
+HCP,HCP Inc.,Financials,REITs,"Long Beach, California",33.7700504,-118.1937395
+HP,Helmerich & Payne,Energy,Oil & Gas Drilling,"Tulsa, Oklahoma[5]",35.8506265,-95.3215769
+HSIC,Henry Schein,Health Care,Health Care Distributors & Services,"Melville, New York",40.7934322,-73.41512139999999
+HES,Hess Corporation,Energy,Integrated Oil & Gas,"New York, New York",40.7127837,-74.0059413
+HPE,Hewlett Packard Enterprise,Information Technology,"Technology Hardware, Storage & Peripherals","Palo Alto, California",37.4418834,-122.1430195
+HOLX,Hologic,Health Care,Health Care Equipment,"Marlborough, Massachusetts",42.3459271,-71.5522874
+HD,Home Depot,Consumer Discretionary,Home Improvement Retail,"Atlanta, Georgia",33.7489954,-84.3879824
+HON,Honeywell Int'l Inc.,Industrials,Industrial Conglomerates,"Morristown, New Jersey",40.79676670000001,-74.4815438
+HRL,Hormel Foods Corp.,Consumer Staples,Packaged Foods & Meats,"Austin, Minnesota",43.6666296,-92.97463669999999
+HST,Host Hotels & Resorts,Financials,REITs,"Bethesda, Maryland",38.984652,-77.0947092
+HPQ,HP Inc.,Information Technology,Computer Hardware,"Palo Alto, California",37.4418834,-122.1430195
+HUM,Humana Inc.,Health Care,Managed Health Care,"Louisville, Kentucky",38.2526647,-85.7584557
+HBAN,Huntington Bancshares,Financials,Banks,"Columbus, Ohio",39.9611755,-82.99879419999999
+ITW,Illinois Tool Works,Industrials,Industrial Machinery,"Glenview, Illinois",42.0697509,-87.7878408
+ILMN,Illumina Inc,Health Care,Life Sciences Tools & Services,"San Diego, California",32.715738,-117.1610838
+IR,Ingersoll-Rand PLC,Industrials,Industrial Conglomerates,"Dublin, Ireland",53.3498053,-6.2603097
+INTC,Intel Corp.,Information Technology,Semiconductors,"Santa Clara, California",37.3541079,-121.9552356
+ICE,Intercontinental Exchange,Financials,Diversified Financial Services,"Atlanta, Georgia",33.7489954,-84.3879824
+IBM,International Bus. Machines,Information Technology,IT Consulting & Services,"Armonk, New York",41.1264849,-73.71401949999999
+IP,International Paper,Materials,Paper Products,"Memphis, Tennessee",35.1495343,-90.0489801
+IPG,Interpublic Group,Consumer Discretionary,Advertising,"New York, New York",40.7127837,-74.0059413
+IFF,Intl Flavors & Fragrances,Materials,Specialty Chemicals,"New York, New York",40.7127837,-74.0059413
+INTU,Intuit Inc.,Information Technology,Internet Software & Services,"Mountain View, California",37.3860517,-122.0838511
+ISRG,Intuitive Surgical Inc.,Health Care,Health Care Equipment & Services,"Sunnyvale, California",37.36883,-122.0363496
+IVZ,Invesco Ltd.,Financials,Asset Management & Custody Banks,"Atlanta, Georgia",33.7489954,-84.3879824
+IRM,Iron Mountain Incorporated,Industrials,Data Processing Services,"Boston, Massachusetts",42.3600825,-71.0588801
+JBHT,J. B. Hunt Transport Services,Industrials,Trucking,"Lowell, Arkansas",36.2553543,-94.1307587
+JEC,Jacobs Engineering Group,Industrials,Industrial Conglomerates,"Pasadena, California",34.1477849,-118.1445155
+JNJ,Johnson & Johnson,Health Care,Health Care Equipment & Services,"New Brunswick, New Jersey",40.4862157,-74.4518188
+JCI,Johnson Controls,Consumer Discretionary,Auto Parts & Equipment,"Milwaukee, Wisconsin",43.0389025,-87.9064736
+JPM,JPMorgan Chase & Co.,Financials,Banks,"New York, New York",40.7127837,-74.0059413
+JNPR,Juniper Networks,Information Technology,Networking Equipment,"Sunnyvale, California",37.36883,-122.0363496
+KSU,Kansas City Southern,Industrials,Railroads,"Kansas City, Missouri",39.0997265,-94.5785667
+K,Kellogg Co.,Consumer Staples,Packaged Foods & Meats,"Battle Creek, Michigan",42.3211522,-85.17971419999999
+KEY,KeyCorp,Financials,Banks,"Cleveland, Ohio",41.49932,-81.6943605
+KMB,Kimberly-Clark,Consumer Staples,Household Products,"Irving, Texas",32.8140177,-96.9488945
+KIM,Kimco Realty,Financials,REITs,"New Hyde Park, New York",40.7351018,-73.6879082
+KMI,Kinder Morgan,Energy,Oil & Gas Refining & Marketing & Transportation,"Houston, Texas",29.7604267,-95.3698028
+KLAC,KLA-Tencor Corp.,Information Technology,Semiconductor Equipment,"Milpitas, California",37.4323341,-121.8995741
+KSS,Kohl's Corp.,Consumer Discretionary,General Merchandise Stores,"Menomonee Falls, Wisconsin",43.1788967,-88.1173132
+KHC,Kraft Heinz Co,Consumer Staples,Packaged Foods & Meats,"Northfield, Illinois",42.09975,-87.7808967
+KR,Kroger Co.,Consumer Staples,Food Retail,"Cincinnati, Ohio",39.1031182,-84.5120196
+LB,L Brands Inc.,Consumer Discretionary,Apparel Retail,"Columbus, Ohio",39.9611755,-82.99879419999999
+LLL,L-3 Communications Holdings,Industrials,Industrial Conglomerates,"New York, New York",40.7127837,-74.0059413
+LH,Laboratory Corp. of America Holding,Health Care,Health Care Facilities,"Burlington, North Carolina",36.0956918,-79.43779909999999
+LRCX,Lam Research,Information Technology,Semiconductor Equipment,"Fremont, California",37.5482697,-121.9885719
+LM,Legg Mason,Financials,Asset Management & Custody Banks,"Baltimore, Maryland",39.2903848,-76.6121893
+LEG,Leggett & Platt,Industrials,Industrial Conglomerates,"Carthage, Missouri",37.176447,-94.31022279999999
+LEN,Lennar Corp.,Consumer Discretionary,Homebuilding,"Miami, Florida",25.7616798,-80.1917902
+LUK,Leucadia National Corp.,Financials,Multi-Sector Holdings,"New York, New York",40.7127837,-74.0059413
+LVLT,Level 3 Communications,Telecommunication Services,Alternative Carriers,"Broomfield, Colorado",39.9205411,-105.0866504
+LLY,Lilly (Eli) & Co.,Health Care,Pharmaceuticals,"Indianapolis, Indiana",39.768403,-86.158068
+LNC,Lincoln National,Financials,Multi-line Insurance,"Radnor, Pennsylvania",40.0462208,-75.3599105
+LLTC,Linear Technology Corp.,Information Technology,Semiconductors,"Milpitas, California",37.4323341,-121.8995741
+LKQ,LKQ Corporation,Consumer Discretionary,Distributors,"Chicago, Illinois",41.8781136,-87.6297982
+LMT,Lockheed Martin Corp.,Industrials,Aerospace & Defense,"Bethesda, Maryland",38.984652,-77.0947092
+L,Loews Corp.,Financials,Multi-Sector Holdings,"New York, New York",40.7127837,-74.0059413
+LOW,Lowe's Cos.,Consumer Discretionary,Home Improvement Retail,"Mooresville, North Carolina",35.5848596,-80.8100724
+LYB,LyondellBasell,Materials,Diversified Chemicals,"Rotterdam, Netherlands",51.9244201,4.4777325
+MTB,M&T Bank Corp.,Financials,Banks,"Buffalo, New York",42.88644679999999,-78.8783689
+MAC,Macerich,Financials,Retail REITs,"Santa Monica, California",34.0194543,-118.4911912
+M,Macy's Inc.,Consumer Discretionary,Department Stores,"Cincinnati, Ohio",39.1031182,-84.5120196
+MNK,Mallinckrodt Plc,Health Care,Pharmaceuticals,"Dublin, Ireland",53.3498053,-6.2603097
+MRO,Marathon Oil Corp.,Energy,Oil & Gas Exploration & Production,"Houston, Texas",29.7604267,-95.3698028
+MPC,Marathon Petroleum,Energy,Oil & Gas Refining & Marketing & Transportation,"Findlay, Ohio",41.04422,-83.6499321
+MAR,Marriott Int'l.,Consumer Discretionary,"Hotels, Resorts & Cruise Lines","Bethesda, Maryland",38.984652,-77.0947092
+MMC,Marsh & McLennan,Financials,Insurance Brokers,"New York, New York",40.7127837,-74.0059413
+MLM,Martin Marietta Materials,Materials,Construction Materials,"Raleigh, North Carolina",35.7795897,-78.6381787
+MAS,Masco Corp.,Industrials,Building Products,"Taylor, Michigan",42.240872,-83.2696509
+MA,Mastercard Inc.,Information Technology,Internet Software & Services,"Harrison, New York",40.9700171,-73.7176337
+MAT,Mattel Inc.,Consumer Discretionary,Leisure Products,"El Segundo, California",33.9191799,-118.4164652
+MKC,McCormick & Co.,Consumer Staples,Packaged Foods & Meats,"Sparks, Maryland",39.5309389,-76.6458043
+MCD,McDonald's Corp.,Consumer Discretionary,Restaurants,"Oak Brook, Illinois",41.8397865,-87.95355339999999
+MCK,McKesson Corp.,Health Care,Health Care Distributors & Services,"San Francisco, California",37.7749295,-122.4194155
+MJN,Mead Johnson,Consumer Staples,Packaged Foods & Meats,"Glenview, Illinois",42.0697509,-87.7878408
+MDT,Medtronic plc,Health Care,Health Care Equipment & Services,"Dublin, Ireland",53.3498053,-6.2603097
+MRK,Merck & Co.,Health Care,Pharmaceuticals,"Whitehouse Station, New Jersey",40.6155663,-74.7702576
+MET,MetLife Inc.,Financials,Life & Health Insurance,"New York, New York",40.7127837,-74.0059413
+KORS,Michael Kors Holdings,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","New York, New York",40.7127837,-74.0059413
+MCHP,Microchip Technology,Information Technology,Semiconductors,"Chandler, Arizona",33.3061605,-111.8412502
+MU,Micron Technology,Information Technology,Semiconductors,"Boise, Idaho",43.6187102,-116.2146068
+MSFT,Microsoft Corp.,Information Technology,Systems Software,"Redmond, Washington",47.6739881,-122.121512
+MHK,Mohawk Industries,Consumer Discretionary,Home Furnishings,"Amsterdam, New York",42.9377453,-74.190356
+TAP,Molson Coors Brewing Company,Consumer Staples,Brewers,"Denver, Colorado",39.7392358,-104.990251
+MDLZ,Mondelez International,Consumer Staples,Packaged Foods & Meats,"Northfield, Illinois",42.09975,-87.7808967
+MON,Monsanto Co.,Materials,Fertilizers & Agricultural Chemicals,"Creve Coeur, Missouri",38.6608855,-90.42261800000001
+MNST,Monster Beverage,Consumer Staples,Soft Drinks,"Corona, California",33.8752935,-117.5664384
+MCO,Moody's Corp,Financials,Diversified Financial Services,"New York, New York",40.7127837,-74.0059413
+MS,Morgan Stanley,Financials,Investment Banking & Brokerage,"New York, New York",40.7127837,-74.0059413
+MSI,Motorola Solutions Inc.,Information Technology,Telecommunications Equipment,"Schaumburg, Illinois",42.0333607,-88.0834059
+MUR,Murphy Oil,Energy,Integrated Oil & Gas,"El Dorado, Arkansas",33.20763,-92.6662674
+MYL,Mylan N.V.,Health Care,Pharmaceuticals,"Amsterdam, Netherlands",52.3702157,4.895167900000001
+NDAQ,NASDAQ OMX Group,Financials,Diversified Financial Services,"New York, New York",40.7127837,-74.0059413
+NOV,National Oilwell Varco Inc.,Energy,Oil & Gas Equipment & Services,"Houston, Texas",29.7604267,-95.3698028
+NAVI,Navient,Financials,Consumer Finance,"Newark, Delaware",39.6837226,-75.74965720000002
+NTAP,NetApp,Information Technology,Internet Software & Services,"Sunnyvale, California",37.36883,-122.0363496
+NFLX,Netflix Inc.,Information Technology,Internet Software & Services,"Los Gatos, California",37.2358078,-121.9623751
+NWL,Newell Rubbermaid Co.,Consumer Discretionary,Housewares & Specialties,"Sandy Springs, Georgia",33.9304352,-84.3733147
+NFX,Newfield Exploration Co,Energy,Oil & Gas Exploration & Production,"Houston, Texas",29.7604267,-95.3698028
+NEM,Newmont Mining Corp. (Hldg. Co.),Materials,Gold,"Denver, Colorado",39.7392358,-104.990251
+NWSA,News Corp. Class A,Consumer Discretionary,Publishing,"New York, New York",40.7127837,-74.0059413
+NWS,News Corp. Class B,Consumer Discretionary,Publishing,"New York, New York",40.7127837,-74.0059413
+NEE,NextEra Energy,Utilities,MultiUtilities,"Juno Beach, Florida",26.8797819,-80.0533743
+NLSN,Nielsen Holdings,Industrials,Research & Consulting Services,"New York, New York",40.7127837,-74.0059413
+NKE,Nike,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","Washington County, Oregon",45.5469616,-123.1386021
+NI,NiSource Inc.,Utilities,MultiUtilities,"Merrillville, Indiana",41.4828144,-87.33281389999999
+NBL,Noble Energy Inc,Energy,Oil & Gas Exploration & Production,"Houston, Texas",29.7604267,-95.3698028
+JWN,Nordstrom,Consumer Discretionary,Department Stores,"Seattle, Washington",47.6062095,-122.3320708
+NSC,Norfolk Southern Corp.,Industrials,Railroads,"Norfolk, Virginia",36.8507689,-76.28587259999999
+NTRS,Northern Trust Corp.,Financials,Asset Management & Custody Banks,"Chicago, Illinois",41.8781136,-87.6297982
+NOC,Northrop Grumman Corp.,Industrials,Aerospace & Defense,"West Falls Church, Virginia",38.8645565,-77.1877587
+NRG,NRG Energy,Utilities,Independent Power Producers & Energy Traders,"Princeton, New Jersey",40.3572976,-74.6672226
+NUE,Nucor Corp.,Materials,Steel,"Charlotte, North Carolina",35.2270869,-80.8431267
+NVDA,Nvidia Corporation,Information Technology,Semiconductors,"Santa Clara, California",37.3541079,-121.9552356
+ORLY,O'Reilly Automotive,Consumer Discretionary,Specialty Stores,"Springfield, Missouri",37.2089572,-93.29229889999999
+OXY,Occidental Petroleum,Energy,Oil & Gas Exploration & Production,"Los Angeles, California",34.0522342,-118.2436849
+OMC,Omnicom Group,Consumer Discretionary,Advertising,"New York, New York",40.7127837,-74.0059413
+OKE,ONEOK,Energy,Oil & Gas Exploration & Production,"Tulsa, Oklahoma",36.1539816,-95.99277500000001
+ORCL,Oracle Corp.,Information Technology,Application Software,"Redwood Shores, California",37.5364134,-122.2455364
+OI,Owens-Illinois Inc,Materials,Metal & Glass Containers,"Perrysburg, Ohio",41.556996,-83.627157
+PCAR,PACCAR Inc.,Industrials,Construction & Farm Machinery & Heavy Trucks,"Bellevue, Washington",47.610377,-122.2006786
+PH,Parker-Hannifin,Industrials,Industrial Conglomerates,"Cleveland, Ohio",41.49932,-81.6943605
+PDCO,Patterson Companies,Health Care,Health Care Supplies,"St. Paul, Minnesota",44.9537029,-93.0899578
+PAYX,Paychex Inc.,Information Technology,Internet Software & Services,"Penfield, New York",43.1303407,-77.475551
+PYPL,PayPal,Information Technology,Data Processing & Outsourced Services,"San Jose, California",37.3382082,-121.8863286
+PNR,Pentair Ltd.,Industrials,Industrial Conglomerates,"Worsley, UK",53.50754,-2.391199
+PBCT,People's United Financial,Financials,Thrifts & Mortgage Finance,"Bridgeport, Connecticut",41.1865478,-73.19517669999999
+PEP,PepsiCo Inc.,Consumer Staples,Soft Drinks,"Purchase, New York",41.04093049999999,-73.71457459999999
+PKI,PerkinElmer,Health Care,Health Care Equipment & Services,"Waltham, Massachusetts",42.3764852,-71.2356113
+PRGO,Perrigo,Health Care,Pharmaceuticals,"Dublin, Ireland",53.3498053,-6.2603097
+PFE,Pfizer Inc.,Health Care,Pharmaceuticals,"New York, New York",40.7127837,-74.0059413
+PCG,PG&E Corp.,Utilities,MultiUtilities,"San Francisco, California",37.7749295,-122.4194155
+PM,Philip Morris International,Consumer Staples,Tobacco,"New York, New York",40.7127837,-74.0059413
+PSX,Phillips 66,Energy,Oil & Gas Refining & Marketing & Transportation,"Houston, Texas",29.7604267,-95.3698028
+PNW,Pinnacle West Capital,Utilities,MultiUtilities,"Phoenix, Arizona",33.4483771,-112.0740373
+PXD,Pioneer Natural Resources,Energy,Oil & Gas Exploration & Production,"Irving, Texas",32.8140177,-96.9488945
+PBI,Pitney-Bowes,Industrials,Office Services & Supplies,"Stamford, Connecticut",41.0534302,-73.5387341
+PNC,PNC Financial Services,Financials,Banks,"Pittsburgh, Pennsylvania",40.44062479999999,-79.9958864
+RL,Polo Ralph Lauren Corp.,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","New York, New York",40.7127837,-74.0059413
+PPG,PPG Industries,Materials,Diversified Chemicals,"Pittsburgh, Pennsylvania",40.44062479999999,-79.9958864
+PPL,PPL Corp.,Utilities,Electric Utilities,"Allentown, Pennsylvania",40.6084305,-75.4901833
+PX,Praxair Inc.,Materials,Industrial Gases,"Danbury, Connecticut",41.394817,-73.4540111
+PCLN,Priceline.com Inc,Consumer Discretionary,"Hotels, Resorts & Cruise Lines","Norwalk, Connecticut",41.11774399999999,-73.4081575
+PFG,Principal Financial Group,Financials,Diversified Financial Services,"Des Moines, Iowa",41.6005448,-93.6091064
+PG,Procter & Gamble,Consumer Staples,Personal Products,"Cincinnati, Ohio",39.1031182,-84.5120196
+PGR,Progressive Corp.,Financials,Property & Casualty Insurance,"Mayfield Village, Ohio",41.5519952,-81.4392828
+PLD,Prologis,Financials,Diversified Financial Services,"San Francisco, California",37.7749295,-122.4194155
+PRU,Prudential Financial,Financials,Diversified Financial Services,"Newark, New Jersey",40.735657,-74.1723667
+PEG,Public Serv. Enterprise Inc.,Utilities,Electric Utilities,"Newark, New Jersey",40.735657,-74.1723667
+PSA,Public Storage,Financials,REITs,"Glendale, California",34.1425078,-118.255075
+PHM,Pulte Homes Inc.,Consumer Discretionary,Homebuilding,"Atlanta, Georgia",33.7489954,-84.3879824
+PVH,PVH Corp.,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","New York, New York",40.7127837,-74.0059413
+QRVO,Qorvo,Information Technology,Semiconductors,"Hillsboro, Oregon",45.5228939,-122.989827
+QCOM,QUALCOMM Inc.,Information Technology,Semiconductors,"San Diego, California",32.715738,-117.1610838
+PWR,Quanta Services Inc.,Industrials,Industrial Conglomerates,"Houston, Texas",29.7604267,-95.3698028
+DGX,Quest Diagnostics,Health Care,Health Care Facilities,"Madison, New Jersey",40.7598227,-74.417097
+RRC,Range Resources Corp.,Energy,Oil & Gas Exploration & Production,"Fort Worth, Texas",32.7554883,-97.3307658
+RTN,Raytheon Co.,Industrials,Aerospace & Defense,"Waltham, Massachusetts",42.3764852,-71.2356113
+O,Realty Income Corporation,Financials,REITs,"San Diego, California",32.715738,-117.1610838
+RHT,Red Hat Inc.,Information Technology,Systems Software,"Raleigh, North Carolina",35.7795897,-78.6381787
+REGN,Regeneron,Health Care,Biotechnology,"Tarrytown, New York",41.0762077,-73.85874609999999
+RF,Regions Financial Corp.,Financials,Diversified Financial Services,"Birmingham, Alabama",33.5206608,-86.80248999999999
+RSG,Republic Services Inc,Industrials,Industrial Conglomerates,"Phoenix, Arizona",33.4483771,-112.0740373
+RAI,Reynolds American Inc.,Consumer Staples,Tobacco,"Winston-Salem, North Carolina",36.09985959999999,-80.244216
+RHI,Robert Half International,Industrials,Human Resource & Employment Services,"Menlo Park, California",37.4529598,-122.1817252
+ROK,Rockwell Automation Inc.,Industrials,Industrial Conglomerates,"Milwaukee, Wisconsin",43.0389025,-87.9064736
+COL,Rockwell Collins,Industrials,Industrial Conglomerates,"Cedar Rapids, Iowa",41.9778795,-91.6656232
+ROP,Roper Industries,Industrials,Industrial Conglomerates,"Sarasota, Florida",27.3364347,-82.53065269999999
+ROST,Ross Stores,Consumer Discretionary,Apparel Retail,"Pleasanton, California",37.6624312,-121.8746789
+RCL,Royal Caribbean Cruises Ltd,Consumer Discretionary,"Hotels, Resorts & Cruise Lines","Miami, Florida",25.7616798,-80.1917902
+R,Ryder System,Industrials,Industrial Conglomerates,"Miami, Florida",25.7616798,-80.1917902
+SPGI,"S&P Global, Inc.",Financials,Diversified Financial Services,"New York, New York",40.7127837,-74.0059413
+CRM,Salesforce.com,Information Technology,Internet Software & Services,"San Francisco, California",37.7749295,-122.4194155
+SCG,SCANA Corp,Utilities,MultiUtilities,"Cayce, South Carolina",33.96570910000001,-81.0739827
+SLB,Schlumberger Ltd.,Energy,Oil & Gas Equipment & Services,"Curaçao, Kingdom of the Netherlands",12.1015919,-68.8935078
+SNI,Scripps Networks Interactive Inc.,Consumer Discretionary,Broadcasting & Cable TV,"Cincinnati, Ohio",39.1031182,-84.5120196
+STX,Seagate Technology,Information Technology,Computer Storage & Peripherals,"Dublin, Ireland",53.3498053,-6.2603097
+SEE,Sealed Air Corp.(New),Materials,Paper Packaging,"Elmwood Park, New Jersey",40.9039878,-74.118476
+SRE,Sempra Energy,Utilities,MultiUtilities,"San Diego, California",32.715738,-117.1610838
+SHW,Sherwin-Williams,Materials,Specialty Chemicals,"Cleveland, Ohio",41.49932,-81.6943605
+SIG,Signet Jewelers,Consumer Discretionary,Specialty Stores,"Hamilton, Bermuda",32.294816,-64.781375
+SPG,Simon Property Group Inc,Financials,REITs,"Indianapolis, Indiana",39.768403,-86.158068
+SWKS,Skyworks Solutions,Information Technology,Semiconductors,"Woburn, Massachusetts",42.4792618,-71.1522765
+SLG,SL Green Realty,Financials,Office REITs,"New York, New York",40.7127837,-74.0059413
+SJM,Smucker (J.M.),Consumer Staples,Packaged Foods & Meats,"Orrville, Ohio",40.8436663,-81.7640212
+SNA,Snap-On Inc.,Consumer Discretionary,Household Appliances,"Kenosha, Wisconsin",42.5847425,-87.82118539999999
+SO,Southern Co.,Utilities,Electric Utilities,"Atlanta, Georgia",33.7489954,-84.3879824
+LUV,Southwest Airlines,Industrials,Airlines,"Dallas, Texas",32.7766642,-96.79698789999999
+SWN,Southwestern Energy,Energy,Oil & Gas Exploration & Production,"Houston, Texas[6]",29.8228216,-95.64563330000001
+SE,Spectra Energy Corp.,Energy,Oil & Gas Refining & Marketing & Transportation,"Houston, Texas",29.7604267,-95.3698028
+STJ,St Jude Medical,Health Care,Health Care Equipment & Services,"Little Canada, Minnesota",45.02691009999999,-93.0877196
+SWK,Stanley Black & Decker,Consumer Discretionary,Household Appliances,"New Britain, Connecticut",41.6612104,-72.7795419
+SPLS,Staples Inc.,Consumer Discretionary,Specialty Stores,"Framingham, Massachusetts",42.279286,-71.4161565
+SBUX,Starbucks Corp.,Consumer Discretionary,Restaurants,"Seattle, Washington",47.6062095,-122.3320708
+HOT,Starwood Hotels & Resorts,Consumer Discretionary,"Hotels, Resorts & Cruise Lines","White Plains, New York",41.03398620000001,-73.7629097
+STT,State Street Corp.,Financials,Diversified Financial Services,"Boston, Massachusetts",42.3600825,-71.0588801
+SRCL,Stericycle Inc,Industrials,Industrial Conglomerates,"Lake Forest, Illinois",42.2586342,-87.840625
+SYK,Stryker Corp.,Health Care,Health Care Equipment & Services,"Kalamazoo, Michigan",42.2917069,-85.5872286
+STI,SunTrust Banks,Financials,Banks,"Atlanta, Georgia",33.7489954,-84.3879824
+SYMC,Symantec Corp.,Information Technology,Application Software,"Mountain View, California",37.3860517,-122.0838511
+SYF,Synchrony Financial,Financials,Consumer Finance,"Stamford, Connecticut",41.0534302,-73.5387341
+SYY,Sysco Corp.,Consumer Staples,Food Distributors,"Houston, Texas",29.7604267,-95.3698028
+TROW,T. Rowe Price Group,Financials,Diversified Financial Services,"Baltimore, Maryland",39.2903848,-76.6121893
+TGT,Target Corp.,Consumer Discretionary,General Merchandise Stores,"Minneapolis, Minnesota",44.977753,-93.2650108
+TEL,TE Connectivity Ltd.,Information Technology,Electronic Equipment & Instruments,"Schaffhausen, Switzerland",47.6958897,8.6380488
+TGNA,Tegna,Consumer Discretionary,Publishing,"McLean, Virginia",38.9338676,-77.1772604
+TDC,Teradata Corp.,Information Technology,Application Software,"Miamisburg, Ohio",39.6428362,-84.2866083
+TSO,Tesoro Petroleum Co.,Energy,Oil & Gas Refining & Marketing & Transportation,"San Antonio, Texas",29.4241219,-98.49362819999999
+TXN,Texas Instruments,Information Technology,Semiconductors,"Dallas, Texas",32.7766642,-96.79698789999999
+TXT,Textron Inc.,Industrials,Industrial Conglomerates,"Providence, Rhode Island",41.8239891,-71.4128343
+BK,The Bank of New York Mellon Corp.,Financials,Banks,"New York, New York",40.7127837,-74.0059413
+CLX,The Clorox Company,Consumer Staples,Household Products,"Oakland, California",37.8043637,-122.2711137
+KO,The Coca Cola Company,Consumer Staples,Soft Drinks,"Atlanta, Georgia",33.7489954,-84.3879824
+HSY,The Hershey Company,Consumer Staples,Packaged Foods & Meats,"Hershey, Pennsylvania",40.2859239,-76.65024679999999
+MOS,The Mosaic Company,Materials,Fertilizers & Agricultural Chemicals,"Plymouth, Minnesota",45.0105194,-93.4555093
+TRV,The Travelers Companies Inc.,Financials,Property & Casualty Insurance,"New York, New York",40.7127837,-74.0059413
+DIS,The Walt Disney Company,Consumer Discretionary,Broadcasting & Cable TV,"Burbank, California",34.1808392,-118.3089661
+TMO,Thermo Fisher Scientific,Health Care,Health Care Equipment & Services,"Waltham, Massachusetts",42.3764852,-71.2356113
+TIF,Tiffany & Co.,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","New York, New York",40.7127837,-74.0059413
+TWX,Time Warner Inc.,Consumer Discretionary,Broadcasting & Cable TV,"New York, New York",40.7127837,-74.0059413
+TJX,TJX Companies Inc.,Consumer Discretionary,Apparel Retail,"Framingham, Massachusetts",42.279286,-71.4161565
+TMK,Torchmark Corp.,Financials,Life & Health Insurance,"McKinney, Texas",33.1972465,-96.6397822
+TSS,Total System Services,Information Technology,Internet Software & Services,"Columbus, Georgia",32.4609764,-84.9877094
+TSCO,Tractor Supply Company,Consumer Discretionary,Specialty Retail,"Brentwood, Tennessee",36.0331164,-86.78277720000001
+TDG,TransDigm Group,Industrials,Aerospace & Defense,"Cleveland, Ohio",41.49932,-81.6943605
+RIG,Transocean,Energy,Oil & Gas Drilling,"Vernier, Switzerland",46.2122638,6.1052686
+TRIP,TripAdvisor,Consumer Discretionary,Internet Retail,"Newton, Massachusetts",42.3370413,-71.20922139999999
+FOXA,Twenty-First Century Fox Class A,Consumer Discretionary,Publishing,"New York, New York",40.7127837,-74.0059413
+FOX,Twenty-First Century Fox Class B,Consumer Discretionary,Publishing,"New York, New York",40.7127837,-74.0059413
+TYC,Tyco International,Industrials,Industrial Conglomerates,"Schaffhausen, Switzerland",47.6958897,8.6380488
+TSN,Tyson Foods,Consumer Staples,Packaged Foods & Meats,"Springdale, Arkansas",36.18674420000001,-94.1288141
+USB,U.S. Bancorp,Financials,Banks,"Minneapolis, Minnesota",44.977753,-93.2650108
+UDR,UDR Inc,Financials,Residential REITs,"Highlands Ranch, Colorado",39.5480789,-104.9739333
+ULTA,Ulta Salon Cosmetics & Fragrance Inc,Consumer Discretionary,Specialty Stores,"Bolingbrook, Illinois",41.69864159999999,-88.0683955
+UA,Under Armour,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","Baltimore, Maryland",39.2903848,-76.6121893
+UNP,Union Pacific,Industrials,Railroads,"Omaha, Nebraska",41.2523634,-95.99798829999999
+UAL,United Continental Holdings,Industrials,Airlines,"Chicago, Illinois",41.8781136,-87.6297982
+UNH,United Health Group Inc.,Health Care,Managed Health Care,"Minnetonka, Minnesota",44.9211836,-93.4687489
+UPS,United Parcel Service,Industrials,Air Freight & Logistics,"Atlanta, Georgia",33.7489954,-84.3879824
+URI,"United Rentals, Inc.",Industrials,Trading Companies & Distributors,"Stamford, Connecticut",41.0534302,-73.5387341
+UTX,United Technologies,Industrials,Industrial Conglomerates,"Hartford, Connecticut",41.76371109999999,-72.6850932
+UHS,"Universal Health Services, Inc.",Health Care,Health Care Facilities,"King of Prussia, Pennsylvania",40.1012856,-75.3835525
+UNM,Unum Group,Financials,Diversified Financial Services,"Chattanooga, Tennessee",35.0456297,-85.3096801
+URBN,Urban Outfitters,Consumer Discretionary,Apparel Retail,"Philadelphia, Pennsylvania",39.9525839,-75.1652215
+VFC,V.F. Corp.,Consumer Discretionary,"Apparel, Accessories & Luxury Goods","Greensboro, North Carolina",36.0726354,-79.7919754
+VLO,Valero Energy,Energy,Oil & Gas Refining & Marketing & Transportation,"San Antonio, Texas",29.4241219,-98.49362819999999
+VAR,Varian Medical Systems,Health Care,Health Care Equipment & Services,"Palo Alto, California",37.4418834,-122.1430195
+VTR,Ventas Inc,Financials,Diversified Financial Services,"Chicago, Illinois",41.8781136,-87.6297982
+VRSN,Verisign Inc.,Information Technology,Internet Software & Services,"Dulles, Virginia",38.9558546,-77.44781929999999
+VRSK,Verisk Analytics,Industrials,Research & Consulting Services,"Jersey City, New Jersey",40.72815749999999,-74.0776417
+VZ,Verizon Communications,Telecommunication Services,Integrated Telecommunications Services,"New York, New York",40.7127837,-74.0059413
+VRTX,Vertex Pharmaceuticals Inc,Health Care,Biotechnology,"Cambridge, Massachusetts",42.3736158,-71.10973349999999
+VIAB,Viacom Inc.,Consumer Discretionary,Broadcasting & Cable TV,"New York, New York",40.7127837,-74.0059413
+V,Visa Inc.,Information Technology,Internet Software & Services,"San Francisco, California",37.7749295,-122.4194155
+VNO,Vornado Realty Trust,Financials,REITs,"New York, New York",40.7127837,-74.0059413
+VMC,Vulcan Materials,Materials,Construction Materials,"Birmingham, Alabama",33.5206608,-86.80248999999999
+WMT,Wal-Mart Stores,Consumer Staples,Hypermarkets & Super Centers,"Bentonville, Arkansas",36.3728538,-94.2088172
+WBA,Walgreens Boots Alliance,Consumer Staples,Drug Retail,"Deerfield, Illinois",42.1711365,-87.8445119
+WM,Waste Management Inc.,Industrials,Environmental Services,"Houston, Texas",29.7604267,-95.3698028
+WAT,Waters Corporation,Health Care,Health Care Distributors & Services,"Milford, Massachusetts",42.1398577,-71.5163049
+WFC,Wells Fargo,Financials,Banks,"San Francisco, California",37.7749295,-122.4194155
+HCN,Welltower Inc.,Financials,REITs,"Toledo, Ohio",41.6639383,-83.55521200000001
+WDC,Western Digital,Information Technology,Computer Storage & Peripherals,"Irvine, California",33.6839473,-117.7946942
+WU,Western Union Co,Information Technology,Internet Software & Services,"Englewood, Colorado",39.6477653,-104.9877597
+WRK,Westrock Co,Materials,Paper Packaging,"Richmond, Virginia",37.5407246,-77.4360481
+WY,Weyerhaeuser Corp.,Financials,REITs,"Federal Way, Washington",47.3223221,-122.3126222
+WHR,Whirlpool Corp.,Consumer Discretionary,Household Appliances,"Benton Harbor, Michigan",42.1167065,-86.45418939999999
+WFM,Whole Foods Market,Consumer Staples,Food Retail,"Austin, Texas",30.267153,-97.7430608
+WMB,Williams Cos.,Energy,Oil & Gas Exploration & Production,"Tulsa, Oklahoma",36.1539816,-95.99277500000001
+WLTW,Willis Towers Watson,Financials,Insurance Brokers,"London, United Kingdom",51.5073509,-0.1277583
+WEC,Wisconsin Energy Corporation,Utilities,Electric Utilities,"Milwaukee, Wisconsin",43.0389025,-87.9064736
+WYN,Wyndham Worldwide,Consumer Discretionary,"Hotels, Resorts & Cruise Lines","Parsippany, New Jersey",40.8652865,-74.41738769999999
+WYNN,Wynn Resorts Ltd,Consumer Discretionary,Casinos & Gaming,"Las Vegas, Nevada",36.1699412,-115.1398296
+XEL,Xcel Energy Inc,Utilities,MultiUtilities,"Minneapolis, Minnesota",44.977753,-93.2650108
+XRX,Xerox Corp.,Information Technology,IT Consulting & Services,"Norwalk, Connecticut",41.11774399999999,-73.4081575
+XLNX,Xilinx Inc,Information Technology,Semiconductors,"San Jose, California",37.3382082,-121.8863286
+XL,XL Capital,Financials,Property & Casualty Insurance,"Hamilton, Bermuda",32.294816,-64.781375
+XYL,Xylem Inc.,Industrials,Industrial Conglomerates,"White Plains, New York",41.03398620000001,-73.7629097
+YHOO,Yahoo Inc.,Information Technology,Internet Software & Services,"Sunnyvale, California",37.36883,-122.0363496
+YUM,Yum! Brands Inc,Consumer Discretionary,Restaurants,"Louisville, Kentucky",38.2526647,-85.7584557
+ZBH,Zimmer Biomet Holdings,Health Care,Health Care Equipment & Services,"Warsaw, Indiana",41.2381,-85.8530469
+ZION,Zions Bancorp,Financials,Banks,"Salt Lake City, Utah",40.7607793,-111.8910474
+ZTS,Zoetis,Health Care,Pharmaceuticals,"Florham Park, New Jersey",40.787878,-74.3882072

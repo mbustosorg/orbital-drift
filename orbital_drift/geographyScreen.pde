@@ -21,7 +21,7 @@ import java.util.Collections;
 class Geography extends Screen {
   private int state_index = 0;
   // transition stage between scenes
-  private float[] state_times = new float[] {1500, 8500, 750, 2500, 750};
+  private float[] state_times = new float[] {5000, 8500, 750, 2500, 750};
   // Linear transition, wait, grow radius, wait
   private float state_time = 0.0;
   // Current time on this state
@@ -39,7 +39,7 @@ class Geography extends Screen {
   // How long should each item spend moving
 
   public Geography() {
-    super("Geography", 14000);
+    super("Geography", 17500);
     // Duration = Sum of state_times
   }
 

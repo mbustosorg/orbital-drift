@@ -1,0 +1,61 @@
+Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
+TSX,AEM,Agnico Eagle Mines Limited,Materials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,AGU,Agrium Inc.,Materials,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,ATD.B,Alimentation Couche-Tard Inc.,Consumer Staples,,"Laval, Quebec, Canada",45.6066487,-73.712409
+TSX,ARX,ARC Resources Ltd.,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,BMO,Bank of Montreal,Financials,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,BNS,Bank of Nova Scotia,Financials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,ABX,Barrick Gold Corporation,Materials,,"Toronto, Canada",43.653226,-79.3831843
+TSX,BCE,BCE Inc.,Telecommunication Services,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,BB,BlackBerry Limited,Information Technology,,"Waterloo, Ontario, Canada",43.4642578,-80.5204096
+TSX,BBD.B,Bombardier Inc.,Industrials,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,BAM.A,Brookfield Asset Management Inc.,Financials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,CCO,Cameco Corporation,Energy,,"Saskatoon, Saskatchewan,Canada",52.1332144,-106.6700458
+TSX,CM,Canadian Imperial Bank of Commerce,Financials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,CNR,Canadian National Railway Company,Industrials,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,CNQ,Canadian Natural Resources Limited,Energy,,"Calgary, Alberta",51.0486151,-114.0708459
+TSX,CP,Canadian Pacific Railway Limited,Industrials,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,CTC.A,"Canadian Tire Corporation, Limited",Consumer Discretionary,,"Toronto, Ontario",43.653226,-79.3831843
+TSX,CVE,Cenovus Energy Inc.,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,GIB.A,CGI Group Inc.,Information Technology,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,CSU,Constellation Software Inc.,Information Technology,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,CPG,Crescent Point Energy Corp.,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,DOL,Dollarama Inc.,Consumer Discretionary,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,ELD,Eldorado Gold Corporation,Materials,,"Vancouver, British Columbia, Canada",49.2827291,-123.1207375
+TSX,EMA,Emera Incorporated,Utilities,,"Halifax, Nova Scotia,Canada",44.6488625,-63.5753196
+TSX,ENB,Enbridge Inc.,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,ECA,Encana Corporation,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,FM,First Quantum Minerals Ltd.,Materials,,"Vancouver, BC,Canada",49.2827291,-123.1207375
+TSX,FTS,Fortis Inc.,Utilities,,"St. John's, Newfoundland and Labrador, Canada",47.5605413,-52.7128315
+TSX,FNV,Franco-Nevada Corporation,Materials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,WN,George Weston Limited,Consumer Staples,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,GIL,Gildan Activewear Inc.,Consumer Discretionary,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,G,Goldcorp Inc.,Materials,,"Vancouver, British Columbia, Canada",49.2827291,-123.1207375
+TSX,HSE,Husky Energy Inc.,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,IMO,Imperial Oil Limited,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,IPL,Inter Pipeline Ltd.,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,K,Kinross Gold Corporation,Materials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,L,Loblaw Companies Limited,Consumer Staples,,"Brampton, Ontario, Canada",43.7315479,-79.7624177
+TSX,MG,Magna International Inc.,Consumer Discretionary,,"Aurora, Ontario, Canada",44.00648,-79.450396
+TSX,MFC,Manulife Financial Corporation,Financials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,MRU,Metro Inc.,Consumer Staples,,"Montreal, Quebec, Canada",45.5016889,-73.567256
+TSX,NA,National Bank of Canada,Financials,,"Montreal, Quebec,Canada",45.5016889,-73.567256
+TSX,PPL,Pembina Pipeline Corporation,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,POT,Potash Corporation of Saskatchewan Inc.,Materials,,"Saskatoon, Saskatchewan, Canada",52.1332144,-106.6700458
+TSX,POW,Power Corporation of Canada,Financials,,"Montreal, Quebec,Canada",45.5016889,-73.567256
+TSX,QSR,Restaurant Brands International Inc.,Consumer Discretionary,,"Oakville, Ontario,Canada",43.467517,-79.6876659
+TSX,RCI.B,Rogers Communications Inc.,Telecommunication Services,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,RY,Royal Bank of Canada,Financials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,SAP,Saputo Inc.,Consumer Staples,,"Montreal, Quebec,Canada",45.5016889,-73.567256
+TSX,SJR.B,Shaw Communications Inc.,Telecommunication Services,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,SLW,Silver Wheaton Corp.,Materials,,"Vancouver, BC,Canada",49.2827291,-123.1207375
+TSX,SNC,SNC-Lavalin Group Inc.,Industrials,,"Montreal, Quebec,Canada",45.5016889,-73.567256
+TSX,SLF,Sun Life Financial Inc.,Financials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,SU,Suncor Energy Inc.,Energy,,"Montreal, Quebec,Canada",45.5016889,-73.567256
+TSX,TCK.B,Teck Resources Limited,Materials,,"Vancouver, BC,Canada",49.2827291,-123.1207375
+TSX,T,Telus Corporation,Telecommunication Services,,"Vancouver, BC,Canada",49.2827291,-123.1207375
+TSX,TRI,Thomson Reuters Corporation,Consumer Discretionary,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,TD,Toronto-Dominion Bank,Financials,,"Toronto, Ontario, Canada",43.653226,-79.3831843
+TSX,TRP,TransCanada Corporation,Energy,,"Calgary, Alberta, Canada",51.0486151,-114.0708459
+TSX,VRX,"Valeant Pharmaceuticals International, Inc.",Health Care,,"Laval, Quebec, Canada",45.6066487,-73.712409
+TSX,YRI,Yamana Gold Inc.,Materials,,"Toronto, Ontario, Canada",43.653226,-79.3831843

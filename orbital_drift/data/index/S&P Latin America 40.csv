@@ -1,0 +1,41 @@
+Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
+BMV,ALFA A,ALFA,Industrials,Conglomerate,"Monterrey, Mexico",25.6866142,-100.3161126
+BMV,AMX L,América Móvil,Telecommunication Services,Telecommunications,"Mexico City,Mexico",19.4326077,-99.133208
+NYSE,BBD,Banco Bradesco,Financials,Banking,"São Paulo, Brazil",-23.5505199,-46.6333094
+NYSE,BSAC,Banco Santander Chile,Financials,Banking,"Santiago, Chile",-33.4488897,-70.6692655
+BCS,CHILE,Banco de Chile,Financials,Banking,"Santiago, Chile",-33.4488897,-70.6692655
+BM&F Bovespa,BBAS3,Banco do Brasil,Financials,Banking,"Brasília, Federal District,Brazil",-15.7942287,-47.8821658
+NYSE,CIB,Bancolombia,Financials,Banking,"Medellín, Colombia",6.2530408,-75.5645737
+BM&F Bovespa,BVMF3,BM&F Bovespa,Financials,Stock Exchange,"São Paulo, Brazil",-23.5505199,-46.6333094
+NYSE,BRFS,BRF S.A.,Consumer Staples,Food processing,"São Paulo, Brazil",-23.5505199,-46.6333094
+BM&F Bovespa,CCRO3,CCR S.A.,Industrials,Transportation,"São Paulo, Brazil",-23.5505199,-46.6333094
+BMV,CEMEX CPO,Cemex,Materials,Cement,"Monterrey, Mexico",25.6866142,-100.3161126
+BCS,CENCOSUD,Cencosud,Consumer Staples,Retail,"Santiago, Chile",-33.4488897,-70.6692655
+BM&F Bovespa,CIEL3,Cielo S.A.,Information Technology,Financial services,"Barueri, Brazil",-23.5113691,-46.872942
+NYSE,BVN,Compañía de Minas Buenaventura,Materials,Mining,"Lima, Peru",-12.046374,-77.0427934
+NYSE,CIG,Companhia Energetica de Minas Gerais (CEMIG),Utilities,Energy,"Belo Horizonte, MG, Brazil",-19.9166813,-43.9344931
+NYSE,SID,Companhia Siderúrgica Nacional,Materials,Steel,"São Paulo, Brazil",-23.5505199,-46.6333094
+NYSE,ABEV,Companhia de Bebidas das Americas (AmBev),Consumer Staples,Beverages,"São Paulo, Brazil",-23.5505199,-46.6333094
+NYSE,CPL,CPFL Energia,Utilities,Energy,"Campinas, Brazil",-22.9099384,-47.0626332
+NYSE,BAP,Credicorp,Financials,Banking,"Perú Lima, Peru",-12.046374,-77.0427934
+NYSE,EC,Ecopetrol,Energy,Oil,"Bogotá, Colombia",4.7109886,-74.072092
+BMV,ELEKTRA,Grupo Elektra,Consumer Discretionary,Retail,"Mexico City, Mexico",19.4326077,-99.133208
+NYSE,EOC,Empresa Nacional de Electricidad (Endesa),Utilities,Energy,"Santiago, Chile",-33.4488897,-70.6692655
+NYSE,ERJ,Empresa Brasileira de Aeronáutica (Embraer),Industrials,Aerospace/Defense,"São Paulo, Brazil",-23.5505199,-46.6333094
+BCS,CMPC,Empresas CMPC,Materials,Paper/Pulp,"Santiago, Chile",-33.4488897,-70.6692655
+BCS,COPEC,Empresas Copec,Energy,Energy,"Santiago, Chile",-33.4488897,-70.6692655
+NYSE,ENI,Enersis,Utilities,Energy,"Santiago, Chile",-33.4488897,-70.6692655
+BMV,FEMSA UBD,Fomento Económico Mexicano (FEMSA),Consumer Staples,Beverages,"Monterrey, Mexico",25.6866142,-100.3161126
+NYSE,GGB,Gerdau,Materials,Steel,"Porto Alegre, Brazil",-30.0346471,-51.2176584
+BMV,GFNORTE O,Grupo Financiero Banorte,Financials,Banking,"Monterrey, Mexico",25.6866142,-100.3161126
+BMV,TLEVISA CPO,Grupo Televisa,Consumer Discretionary,Media,"Mexico City, Mexico",19.4326077,-99.133208
+NYSE,ITUB,Itaú Unibanco,Financials,Banking,"São Paulo, Brazil",-23.5505199,-46.6333094
+BM&F Bovespa,ITSA4,Itaúsa Investimentos Itau,Financials,,"São Paulo, Brazil",-23.5505199,-46.6333094
+NYSE,LFL,LATAM Airlines Group,Industrials,Airline,"Santiago, Chile",-33.4488897,-70.6692655
+NYSE,PBR.A,Petrobras,Energy,Oil,"Rio de Janeiro, RJ, Brazil",-22.9068467,-43.1728965
+BCS,FALABELLA,S.A.C.I. Falabella,Consumer Discretionary,Retail,"Santiago, Chile",-33.4488897,-70.6692655
+NYSE,SQM,Sociedad Química y Minera de Chile,Materials,Agricultural Chemicals,"Santiago, Chile",-33.4488897,-70.6692655
+NYSE,SCCO,Southern Copper Corp.,Materials,Mining,"Mexico City, México",19.4326077,-99.133208
+BM&F Bovespa,UGPA3,Ultrapar Participacoes S.A.,Energy,Energy,"São Paulo, Brazil",-23.5505199,-46.6333094
+NYSE,VALE.P,Vale,Materials,Mining,"Rio de Janeiro, RJ, Brazil",-22.9068467,-43.1728965
+BMV,WALMEX V,Wal-Mart de México,Consumer Staples,Retail,"Mexico City, Mexico",19.4326077,-99.133208

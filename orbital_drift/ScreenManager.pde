@@ -30,7 +30,7 @@ class ScreenManager {
     { "Industrials", 5}, 
     { "Information Technology", 6}, 
     { "Materials", 7}, 
-    { "Telecommunications Services", 8}, 
+    { "Telecommunication Services", 8}, 
     { "Utilities", 9}
     });
   float totalCapitalization = 0.0;
@@ -79,37 +79,53 @@ class ScreenManager {
   }
 
   void setup() {
-    Table capFile = loadTable("../data/ticket.csv", "header");  
+    String datapath = dataPath("index/");
+    File dataDirectory = new File(datapath);
+    String[] fileNames = dataDirectory.list();
+    Table capFile = loadTable(dataPath("ticket.csv"), "header");  
     FloatDict capFileDict = new FloatDict();
     for (TableRow row : capFile.rows()) {
       capFileDict.add(row.getString("Symbol"), row.getFloat("Capt"));
     }
     debugLabel = new Label(new PVector(-width / 4, -height / 4 + 12 + 475, 0), this.orbitalCamera);
-    Table table = loadTable("../data/constituents.csv", "header");
-    int i = 0;
-    for (TableRow row : table.rows()) {
-      Entity e = new Entity(
-        row.getString("Symbol"),
-        row.getString("Name"),
-        row.getString("Sector"),
-        this.sector_to_index.get(row.getString("Sector")), 
-        row.getString("Industry"),
-        capFileDict.get(row.getString("Symbol")) / 1000000000.0,
-        row.getFloat("Longitude"),
-        row.getFloat("Latitude"),
-        0.0, 0.0, 0.0,
-        new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
-      );
-      if (capFileDict.hasKey(row.getString("Symbol"))) {
-        EntityTransitions.SectorToCapRatio.set(row.getString("Sector"), EntityTransitions.SectorToCapRatio.get(row.getString("Sector")) + capFileDict.get(row.getString("Symbol")));
-        totalCapitalization += capFileDict.get(row.getString("Symbol"));
-      }
-      e.screen_update();
-      this.entities.add(e);
-      this.entities_by_sector.get(this.sector_to_index.get(e.sector)).add(e);
-      i++;
-      if (this.entity_count > 0 && i >= this.entity_count) {
-        break;
+
+    for (String filename : fileNames) {
+      println(filename);
+      Table table = loadTable(datapath + "/" + filename, "header");
+      int i = 0;
+      for (TableRow row : table.rows()) {
+        float capt = 0.0;
+        if (capFileDict.hasKey(row.getString("Symbol"))) {
+          capt = capFileDict.get(row.getString("Symbol"));
+        }
+  
+        if (!this.sector_to_index.hasKey(row.getString("Sector"))) {
+          println(">>", row.getString("Symbol")); 
+        }
+  
+        Entity e = new Entity(
+          row.getString("Symbol"),
+          row.getString("Name"),
+          row.getString("Sector"),
+          this.sector_to_index.get(row.getString("Sector")), 
+          row.getString("Industry"),
+          capt / 1000000000.0,
+          row.getFloat("Longitude"),
+          row.getFloat("Latitude"),
+          0.0, 0.0, 0.0,
+          new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
+        );
+        if (capFileDict.hasKey(row.getString("Symbol"))) {
+          EntityTransitions.SectorToCapRatio.set(row.getString("Sector"), EntityTransitions.SectorToCapRatio.get(row.getString("Sector")) + capFileDict.get(row.getString("Symbol")));
+          totalCapitalization += capFileDict.get(row.getString("Symbol"));
+        }
+        e.screen_update();
+        this.entities.add(e);
+        this.entities_by_sector.get(this.sector_to_index.get(e.sector)).add(e);
+        i++;
+        if (this.entity_count > 0 && i >= this.entity_count) {
+          break;
+        }
       }
     }
     println("Total Captialization ($B): " + totalCapitalization / 1000000000.0);
