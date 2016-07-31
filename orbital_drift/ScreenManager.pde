@@ -18,6 +18,14 @@
  */
 
 class ScreenManager {
+  YahooDataFeed datafeed = new YahooDataFeed();
+  ArrayList<TickerData> tickerData = new ArrayList<TickerData>();
+    // New information to push to entities
+  float tickerUpdateRate = 5 * 60 * 1000.00, tickerUpdateElapsed = 0.0;
+    // 5 minutes * 60 seconds * 1000 millis
+  float tickerDataPushRate, tickerDataPushElapsed = 0.0;
+    // How often do we push data to entities
+    
   ArrayList<Entity> entities = new ArrayList<Entity>();
   // Our main items to transition between Screens
 
@@ -41,20 +49,15 @@ class ScreenManager {
   // Entities partitioned by sector
   Camera orbitalCamera = new Camera();
   
+  private HashMap<String, Entity> symbol_to_entity = new HashMap<String, Entity>();
+  
   private Label debugLabel;
 
   private Screen screen;
   // Active screen being displayed
-  private int entity_count = 0;
-  // Sets max entities to create when not 0
   private boolean is_paused = false;
 
   ScreenManager(Screen screen) {
-    this(0, screen);
-  }
-
-  ScreenManager(int entity_count, Screen screen) {
-    this.entity_count = entity_count;
     this.screen = screen;
     for (int i = 0; i < this.sector_to_index.size(); i++) {
       this.entities_by_sector.add(new ArrayList<Entity>());
@@ -74,7 +77,6 @@ class ScreenManager {
     if (key == 'p') {
       this.is_paused = !this.is_paused;
     }
-    println(key, this.is_paused);
     screen.keyPressed();
   }
 
@@ -82,67 +84,88 @@ class ScreenManager {
     String datapath = dataPath("index/");
     File dataDirectory = new File(datapath);
     String[] fileNames = dataDirectory.list();
-    Table capFile = loadTable(dataPath("ticket.csv"), "header");  
-    FloatDict capFileDict = new FloatDict();
-    for (TableRow row : capFile.rows()) {
-      capFileDict.add(row.getString("Symbol"), row.getFloat("Capt"));
-    }
+
     debugLabel = new Label(new PVector(-width / 4, -height / 4 + 12 + 475, 0), this.orbitalCamera);
 
     for (String filename : fileNames) {
-      println(filename);
+      print(filename);
       Table table = loadTable(datapath + "/" + filename, "header");
-      int i = 0;
+      println(":", table.getColumnCount(), "x", table.getRowCount());
       for (TableRow row : table.rows()) {
-        float capt = 0.0;
-        if (capFileDict.hasKey(row.getString("Symbol"))) {
-          capt = capFileDict.get(row.getString("Symbol"));
-        }
-  
         if (!this.sector_to_index.hasKey(row.getString("Sector"))) {
-          println(">>", row.getString("Symbol")); 
+          println("!! Unknown Sector", row.getString("Symbol")); 
         }
-  
+
         Entity e = new Entity(
+          row.getString("Exchange"),
           row.getString("Symbol"),
           row.getString("Name"),
           row.getString("Sector"),
           this.sector_to_index.get(row.getString("Sector")), 
           row.getString("Industry"),
-          capt / 1000000000.0,
+          0.0,
           row.getFloat("Longitude"),
           row.getFloat("Latitude"),
           0.0, 0.0, 0.0,
           new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
         );
-        if (capFileDict.hasKey(row.getString("Symbol"))) {
-          EntityTransitions.SectorToCapRatio.set(row.getString("Sector"), EntityTransitions.SectorToCapRatio.get(row.getString("Sector")) + capFileDict.get(row.getString("Symbol")));
-          totalCapitalization += capFileDict.get(row.getString("Symbol"));
-        }
         e.screen_update();
+        symbol_to_entity.put(e.symbol, e);  
         this.entities.add(e);
         this.entities_by_sector.get(this.sector_to_index.get(e.sector)).add(e);
-        i++;
-        if (this.entity_count > 0 && i >= this.entity_count) {
-          break;
-        }
       }
     }
-    println("Total Captialization ($B): " + totalCapitalization / 1000000000.0);
+
+    this.tickerData = datafeed.data_by_entities(this.entities);
+    println ("ArrayList<TickerData>", this.tickerData.size());
+    for (TickerData t : this.tickerData) {
+      Entity e = this.symbol_to_entity.get(t.symbol);
+      if (e != null) {
+        e.capitalization = t.capitalizationB;
+        EntityTransitions.SectorToCapRatio.set(e.sector, EntityTransitions.SectorToCapRatio.get(e.sector) + e.capitalization);
+        totalCapitalization += e.capitalization;
+      } else {
+        println("No entity found for symbol", t.symbol);
+      }
+    }
+
+    println("Total Captialization ($B): " + totalCapitalization);
     for (String key : EntityTransitions.SectorToCapRatio.keys()) {
       EntityTransitions.SectorToCapRatio.set(key, EntityTransitions.SectorToCapRatio.get(key) / totalCapitalization);
-      println("  Sector Proportion: (" + key + "):" + EntityTransitions.SectorToCapRatio.get(key));
+      println(String.format("  %05.2f%% - %s", EntityTransitions.SectorToCapRatio.get(key) * 100, key));
     }
+
+    this.tickerDataPushRate = this.tickerUpdateRate / this.entities.size();
     this.screen.setup(this);
   }
 
   void update(float delta) {
+    this.tickerUpdateElapsed += delta;
+    if (this.tickerUpdateElapsed >= this.tickerUpdateRate) {
+        // Update ticker data 
+      this.tickerUpdateElapsed = 0.0;
+      thread("tickerDataRequestAndPopulate");
+    }
+
+    this.tickerDataPushElapsed += delta;
+    if (this.tickerData.size() > 0 && this.tickerDataPushElapsed >= this.tickerDataPushRate) {
+        // Push ticker data to entities over `tickerUpdateRate'
+      this.tickerDataPushElapsed = 0.0;
+      TickerData td = this.tickerData.remove(0);
+      Entity e = this.symbol_to_entity.get(td.symbol);
+      if (e != null) {
+        e.ticker_update(td);
+      } else {
+        println("!!", "TickerData for unknown entity. Symbol: ", td.symbol);
+      }
+    }
+
     this.screen.update_and_draw(delta, this.is_paused);
     if (this.is_paused) {
       fill(150);
       debugLabel.draw(String.format("Screen '%s', %.0f / %.0f", this.screen.name, this.screen.elapsed, this.screen.duration));
     } else {
-      println(frameRate);
+      //println(frameRate);
     }
 
     if (this.screen.is_time_elapsed()) {

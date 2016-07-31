@@ -1,4 +1,4 @@
-/* //<>// //<>//
+/* //<>//
 
  Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
  
@@ -39,4 +39,9 @@ void draw() {
 
 void keyPressed() {
   screen_manager.keyPressed();
+}
+
+public void tickerDataRequestAndPopulate() {
+  this.screen_manager.tickerData.addAll(this.screen_manager.datafeed.data_by_entities(this.screen_manager.entities));
+  println(">>Thread complete: tickerDataRequestAndPopulate", this.screen_manager.tickerData.size());
 }

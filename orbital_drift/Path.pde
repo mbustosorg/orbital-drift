@@ -21,7 +21,7 @@ class Path {
 
   Path(Entity entity) {
     for (int i = 0; i < EntityTransitions.TrailCount; i++) {
-      trails[i] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.capitalization, entity.longitude, entity.latitude, 
+      trails[i] = new Entity(entity.exchange, entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.capitalization, entity.longitude, entity.latitude, 
                              entity.position.x, entity.position.y, entity.position.z,
                              new Rotation(random(-EntityTransitions.AngleBoundary, EntityTransitions.AngleBoundary), random(-EntityTransitions.AngleBoundary, EntityTransitions.AngleBoundary), random(-EntityTransitions.AngleBoundary, EntityTransitions.AngleBoundary)), 
                              new Rotation(0.0, 0.0, random(-EntityTransitions.AngularRotationBoundary, EntityTransitions.AngularRotationBoundary)));
@@ -35,7 +35,7 @@ class Path {
     int nextIndex = trailIndex + 1;
     if (nextIndex == EntityTransitions.TrailCount) nextIndex = 0;
     Entity entity = trails[trailIndex];
-    trails[nextIndex] = new Entity(entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.capitalization, entity.longitude, entity.latitude, 
+    trails[nextIndex] = new Entity(entity.exchange, entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.capitalization, entity.longitude, entity.latitude, 
                                    entity.position.x, entity.position.y, entity.position.z,
                                    entity.rotation, entity.rotationIncrement);
     trails[nextIndex].fillColor = EntityTransitions.Colors[entity.sectorIndex];

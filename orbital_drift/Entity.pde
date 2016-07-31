@@ -18,14 +18,20 @@
 */
 
 class Entity implements Comparable<Entity> {
-  String symbol, name, sector, industry;
-    // Key identifier, full name, sector partition, industry partition
+  String exchange, symbol, name, sector, industry;
+    // Exchange, Key identifier, full name, sector partition, industry partition
   float longitude, latitude;
     // headquarter location
+
+  
+  Date lastTradeDate;
+  float capitalization, dayChangePercentage;
+  Integer volumeDay, volumeAvg;
+    
   PVector position;
   PVector initPosition = new PVector(0.0, 0.0, 0.0);
     // Initial values at screen setup
-  float capitalization, radius;
+  float radius;
   color fillColor;
 
   PVector UniverseCenter = new PVector(0, 0, 0); // Center of the Universe 
@@ -37,9 +43,10 @@ class Entity implements Comparable<Entity> {
 
   Rotation rotationIncrement;
 
-  Entity(String symbol, String name, String sector, int sectorIndex, String industry, float capitalization,
+  Entity(String exchange, String symbol, String name, String sector, int sectorIndex, String industry, float capitalization,
          float longitude, float latitude, float x, float y, float z, Rotation initRotation, Rotation initRotationIncrement) {
     this.position = new PVector(x, y, z);
+    this.exchange = exchange;
     this.symbol = symbol;
     this.name = name;
     this.sector = sector;
@@ -55,10 +62,6 @@ class Entity implements Comparable<Entity> {
     this.rotationIncrement = initRotationIncrement;
   }
 
-  void screen_update() {
-    initPosition = new PVector(this.position.x, this.position.y, this.position.z);
-  }
-
   public int compareTo(Entity other) {
     if(this.capitalization < other.capitalization) {
       return -1;
@@ -66,6 +69,21 @@ class Entity implements Comparable<Entity> {
       return 1;
     } else {
       return 0; 
+    }
+  }
+
+  void screen_update() {
+      //Resets initial position on screen change
+    initPosition = new PVector(this.position.x, this.position.y, this.position.z);
+  }
+
+  void ticker_update(TickerData td) {
+      // TODO: Trigger display animation
+    if (lastTradeDate == null || lastTradeDate.before(td.lastTradeDate)) {
+      this.lastTradeDate = td.lastTradeDate;
+      this.capitalization = td.capitalizationB;
+      this.volumeDay = td.volumeDay;
+      this.volumeAvg = td.volumeAvg;
     }
   }
 

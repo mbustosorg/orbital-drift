@@ -8,11 +8,11 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,RDSA,ROYAL DUTCH SHELL PLC CLASS A,Energy,,United Kingdom,55.378051,-3.435973
 ,GSK,GLAXOSMITHKLINE PLC,Health Care,,United Kingdom,55.378051,-3.435973
 ,BP/,BP PLC,Energy,,United Kingdom,55.378051,-3.435973
-,RDSB,ROYAL DUTCH SHELL PLC CLASS B,Energy,,United Kingdom,55.378051,-3.435973
+,RDSB,ROYAL DUTCH SHELL PLC,Energy,,United Kingdom,55.378051,-3.435973
 ,NOVOB,NOVO NORDISK CLASS B,Health Care,,Denmark,56.26392,9.501785
 ,ABI,ANHEUSER BUSCH INBEV SA,Consumer Staples,,Belgium,50.503887,4.469936
 ,SAN,SANOFI SA,Health Care,,France,46.227638,2.213749
-,BAYN,BAYER AG,Health Care,,Germany,51.165691,10.451526
+,BAYN.DE,BAYER AG,Health Care,,Germany,51.165691,10.451526
 ,SIE,SIEMENS AG,Industrials,,Germany,51.165691,10.451526
 ,SAP,SAP,Information Technology,,Germany,51.165691,10.451526
 ,VOD,VODAFONE GROUP PLC,Telecommunication Services,,United Kingdom,55.378051,-3.435973
@@ -69,7 +69,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,FRE,FRESENIUS SE AND CO KGAA,Health Care,,Germany,51.165691,10.451526
 ,SREN,SWISS RE AG,Financials,,Switzerland,46.818188,8.227512
 ,NDA,NORDEA BANK,Financials,,Sweden,60.128161,18.643501
-,HM B,HENNES & MAURITZ,Consumer Discretionary,,Sweden,60.128161,18.643501
+,HM,HENNES & MAURITZ,Consumer Discretionary,,Sweden,60.128161,18.643501
 ,DPW,DEUTSCHE POST AG,Industrials,,Germany,51.165691,10.451526
 ,BMW,BAYERISCHE MOTORENWERKE AG BMW,Consumer Discretionary,,Germany,51.165691,10.451526
 ,LIN,LINDE AG,Materials,,Germany,51.165691,10.451526
@@ -84,7 +84,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,SAF,SAFRAN SA,Industrials,,France,46.227638,2.213749
 ,MUV2,MUNICH REINSURANCE COMPANY,Financials,,Germany,51.165691,10.451526
 ,RI,PERNOD RICARD SA,Consumer Staples,,France,46.227638,2.213749
-,ERIC B,ERICSSON B,Information Technology,,Sweden,60.128161,18.643501
+,ERIC,ERICSSON,Information Technology,,Sweden,60.128161,18.643501
 ,STAN,STANDARD CHARTERED PLC,Financials,,United Kingdom,55.378051,-3.435973
 ,BA.,BAE SYSTEMS PLC,Industrials,,United Kingdom,55.378051,-3.435973
 ,CON,CONTINENTAL AG,Consumer Discretionary,,Germany,51.165691,10.451526
@@ -92,8 +92,8 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,HEN3,HENKEL AG & CO KGAA PREF,Consumer Staples,,Germany,51.165691,10.451526
 ,VIV,VIVENDI SA,Consumer Discretionary,,France,46.227638,2.213749
 ,CSGN,CREDIT SUISSE GROUP AG AG,Financials,,Switzerland,46.818188,8.227512
-,ASSA B,ASSA ABLOY B,Industrials,,Sweden,60.128161,18.643501
-,SWED A,SWEDBANK,Financials,,Sweden,60.128161,18.643501
+,ASSA,ASSA ABLOY,Industrials,,Sweden,60.128161,18.643501
+,SWED,SWEDBANK,Financials,,Sweden,60.128161,18.643501
 ,EOAN,E.ON N,Utilities,,Germany,51.165691,10.451526
 ,REL,RELX PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
 ,AV.,AVIVA PLC,Financials,,United Kingdom,55.378051,-3.435973
@@ -105,7 +105,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,AMS,AMADEUS IT HOLDING SA,Information Technology,,Spain,40.463667,-3.74922
 ,KNEBV,KONE,Industrials,,Finland,61.92411,25.748151
 ,FME,FRESENIUS MEDICAL CARE AG,Health Care,,Germany,51.165691,10.451526
-,SCA B,SVENSKA CELLULOSA B,Consumer Staples,,Sweden,60.128161,18.643501
+,SCA,SVENSKA CELLULOSA,Consumer Staples,,Sweden,60.128161,18.643501
 ,DBK,DEUTSCHE BANK AG,Financials,,Germany,51.165691,10.451526
 ,EXPN,EXPERIAN PLC,Industrials,,United Kingdom,55.378051,-3.435973
 ,GIVN,GIVAUDAN SA,Materials,,Switzerland,46.818188,8.227512
@@ -114,8 +114,8 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,REN,RELX NV,Consumer Discretionary,,Netherlands,52.132633,5.291266
 ,RNO,RENAULT PAR SA,Consumer Discretionary,,France,46.227638,2.213749
 ,RR,ROLLS-ROYCE HOLDINGS PLC,Industrials,,United Kingdom,55.378051,-3.435973
-,ATCO A,ATLAS COPCO AB-A SHS,Industrials,,Sweden,60.128161,18.643501
-,SHB A,SVENSKA HANDELSBANKEN-A SHS,Financials,,Sweden,60.128161,18.643501
+,ATCO,ATLAS COPCO AB-A SHS,Industrials,,Sweden,60.128161,18.643501
+,SHB,SVENSKA HANDELSBANKEN-A SHS,Financials,,Sweden,60.128161,18.643501
 ,ATLN,ACTELION LTD,Health Care,,Switzerland,46.818188,8.227512
 ,CNA,CENTRICA PLC,Utilities,,United Kingdom,55.378051,-3.435973
 ,STL,STATOIL ASA,Energy,,Norway,60.472024,8.468946
@@ -123,16 +123,16 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,G,ASSICURAZIONI GENERALI,Financials,,Italy,41.87194,12.56738
 ,VNA,VONOVIA SE,Financials,,Germany,51.165691,10.451526
 ,TSCO,TESCO PLC,Consumer Staples,,United Kingdom,55.378051,-3.435973
-,VOLV B,VOLVO CLASS B,Industrials,,Sweden,60.128161,18.643501
+,VOLV,VOLVO,Industrials,,Sweden,60.128161,18.643501
 ,AKZA,AKZO NOBEL NV,Materials,,Netherlands,52.132633,5.291266
 ,LGEN,LEGAL & GENERAL GROUP PLC,Financials,,United Kingdom,55.378051,-3.435973
 ,DB1,DEUTSCHE BOERSE AG,Financials,,Germany,51.165691,10.451526
 ,SN,SMITH & NEPHEW PLC,Health Care,,United Kingdom,55.378051,-3.435973
-,INVE B,INVESTOR B,Financials,,Sweden,60.128161,18.643501
+,INVE,INVESTOR,Financials,,Sweden,60.128161,18.643501
 ,VWS,VESTAS WIND SYSTEMS A/S,Industrials,,Denmark,56.26392,9.501785
 ,CA,CARREFOUR SA,Consumer Staples,,France,46.227638,2.213749
 ,PNDORA,PANDORA A/S,Consumer Discretionary,,Denmark,56.26392,9.501785
-,SEB A,SKANDINAVISKA ENSKILDA BANKEN,Financials,,Sweden,60.128161,18.643501
+,SEB,SKANDINAVISKA ENSKILDA BANKEN,Financials,,Sweden,60.128161,18.643501
 ,PUB,PUBLICIS GROUPE SA,Consumer Discretionary,,France,46.227638,2.213749
 ,CAP,CAPGEMINI,Information Technology,,France,46.227638,2.213749
 ,AAL,ANGLO AMERICAN PLC,Materials,,United Kingdom,55.378051,-3.435973
@@ -158,7 +158,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,TEL,TELENOR ASA,Telecommunication Services,,Norway,60.472024,8.468946
 ,LAND,LAND SECURITIES GROUP REIT PLC,Financials,,United Kingdom,55.378051,-3.435973
 ,DSM,KONINKLIJKE DSM NV,Materials,,Netherlands,52.132633,5.291266
-,NZYM B,NOVOZYMES B,Materials,,Denmark,56.26392,9.501785
+,NZYM,NOVOZYMES,Materials,,Denmark,56.26392,9.501785
 ,HEI,HEIDELBERGCEMENT AG,Materials,,Germany,51.165691,10.451526
 ,LSE,LONDON STOCK EXCHANGE GROUP PLC,Financials,,United Kingdom,55.378051,-3.435973
 ,MT,ARCELORMITTAL SA,Materials,,France,46.227638,2.213749
@@ -169,14 +169,14 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,UPM1V,UPM-KYMMENE,Materials,,Finland,61.92411,25.748151
 ,RRS,RANDGOLD RESOURCES LTD,Materials,,United Kingdom,55.378051,-3.435973
 ,VIE,VEOLIA ENVIRONNEMENT VE SA,Utilities,,France,46.227638,2.213749
-,CARL B,CARLSBERG AS CL B,Consumer Staples,,Denmark,56.26392,9.501785
-,PSON,PEARSON PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
+,CARL,CARLSBERG,Consumer Staples,,Denmark,56.26392,9.501785
+,PSO,PEARSON PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
 ,AENA,AENA SA,Industrials,,Spain,40.463667,-3.74922
 ,DNB,DNB,Financials,,Norway,60.472024,8.468946
 ,SGE,SAGE GROUP PLC,Information Technology,,United Kingdom,55.378051,-3.435973
 ,BNZL,BUNZL PLC,Industrials,,United Kingdom,55.378051,-3.435973
 ,CCL,CARNIVAL PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
-,ATCO B,ATLAS COPCO AB-B SHS,Industrials,,Sweden,60.128161,18.643501
+,ATCO,ATLAS COPCO AB-B SHS,Industrials,,Sweden,60.128161,18.643501
 ,UCB,UCB SA,Health Care,,Belgium,50.503887,4.469936
 ,KGF,KINGFISHER PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
 ,ATL,ATLANTIA,Industrials,,Italy,41.87194,12.56738
@@ -185,7 +185,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,LONN,LONZA GROUP AG,Health Care,,Switzerland,46.818188,8.227512
 ,REE,RED ELECTRICA CORPORACION SA,Utilities,,Spain,40.463667,-3.74922
 ,SIK,SIKA AG,Materials,,Switzerland,46.818188,8.227512
-,HEXA B,HEXAGON B,Information Technology,,Sweden,60.128161,18.643501
+,HEXA,HEXAGON,Information Technology,,Sweden,60.128161,18.643501
 ,GEN,GENMAB,Health Care,,Denmark,56.26392,9.501785
 ,TKA,THYSSENKRUPP AG,Materials,,Germany,51.165691,10.451526
 ,CDI,CHRISTIAN DIOR,Consumer Discretionary,,France,46.227638,2.213749
@@ -207,9 +207,9 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,SY1,SYMRISE AG,Materials,,Germany,51.165691,10.451526
 ,RMS,HERMES INTERNATIONAL,Consumer Discretionary,,France,46.227638,2.213749
 ,RWE,RWE AG,Utilities,,Germany,51.165691,10.451526
-,COLOB,COLOPLAST B,Health Care,,Denmark,56.26392,9.501785
-,MAERSK B,A P MOLLER MAERSK B,Industrials,,Denmark,56.26392,9.501785
-,SKA B,SKANSKA B,Industrials,,Sweden,60.128161,18.643501
+,COLOB,COLOPLAST,Health Care,,Denmark,56.26392,9.501785
+,MAERSK,A P MOLLER MAERSK,Industrials,,Denmark,56.26392,9.501785
+,SKA,SKANSKA,Industrials,,Sweden,60.128161,18.643501
 ,DSV,DSV A/S,Industrials,,Denmark,56.26392,9.501785
 ,JMAT,JOHNSON MATTHEY PLC,Materials,,United Kingdom,55.378051,-3.435973
 ,IHG,INTERCONTINENTAL HOTELS GROUP PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
@@ -254,17 +254,17 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,TW.,TAYLOR WIMPEY PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
 ,SMIN,SMITHS GROUP PLC,Industrials,,United Kingdom,55.378051,-3.435973
 ,CBK,COMMERZBANK AG,Financials,,Germany,51.165691,10.451526
-,ELUX B,ELECTROLUX B,Consumer Discretionary,,Sweden,60.128161,18.643501
+,ELUX,ELECTROLUX,Consumer Discretionary,,Sweden,60.128161,18.643501
 ,BAB,BABCOCK INTERNATIONAL GROUP PLC,Industrials,,United Kingdom,55.378051,-3.435973
 ,ENG,ENAGAS SA,Utilities,,Spain,40.463667,-3.74922
 ,DLG,DIRECT LINE INSURANCE PLC,Financials,,United Kingdom,55.378051,-3.435973
 ,TEN,TENARIS SA,Energy,,Italy,41.87194,12.56738
 ,FCA,FIAT CHRYSLER AUTOMOBILES NV,Consumer Discretionary,,Italy,41.87194,12.56738
 ,AKE,ARKEMA,Materials,,France,46.227638,2.213749
-,KINV B,KINNEVIK,Financials,,Sweden,60.128161,18.643501
+,KINV,KINNEVIK,Financials,,Sweden,60.128161,18.643501
 ,CHR,CHR HANSEN HOLDING,Materials,,Denmark,56.26392,9.501785
 ,CABK,CAIXABANK SA,Financials,,Spain,40.463667,-3.74922
-,SKF B,SKF B,Industrials,,Sweden,60.128161,18.643501
+,SKF,SKF,Industrials,,Sweden,60.128161,18.643501
 ,BOL,BOLIDEN,Materials,,Sweden,60.128161,18.643501
 ,BIR,BANK OF IRELAND STK EUR0.64,Financials,,Ireland,53.41291,-8.24389
 ,AGN,AEGON NV,Financials,,Netherlands,52.132633,5.291266
@@ -289,7 +289,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,PFG,PROVIDENT FINANCIAL PLC,Financials,,United Kingdom,55.378051,-3.435973
 ,CLN,CLARIANT AG,Materials,,Switzerland,46.818188,8.227512
 ,TPK,TRAVIS PERKINS PLC,Industrials,,United Kingdom,55.378051,-3.435973
-,SECU B,SECURITAS B,Industrials,,Sweden,60.128161,18.643501
+,SECU,SECURITAS,Industrials,,Sweden,60.128161,18.643501
 ,STERV,STORA ENSO OYJ,Materials,,Finland,61.92411,25.748151
 ,ATC,ALTICE CLASS A NV,Consumer Discretionary,,Netherlands,52.132633,5.291266
 ,RTO,RENTOKIL INITIAL PLC,Industrials,,United Kingdom,55.378051,-3.435973
@@ -340,7 +340,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,MMB,LAGARDERE,Consumer Discretionary,,France,46.227638,2.213749
 ,UBI,UNIONE DI BANCHE ITALIANE,Financials,,Italy,41.87194,12.56738
 ,DMGT,DAILY MAIL AND GENERAL TRUST NON V,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
-,TEL2 B,TELE2 B,Telecommunication Services,,Sweden,60.128161,18.643501
+,TEL2,TELE2,Telecommunication Services,,Sweden,60.128161,18.643501
 ,EMG,MAN GROUP PLC,Financials,,United Kingdom,55.378051,-3.435973
 ,SUBC,SUBSEA SA,Energy,,Norway,60.472024,8.468946
 ,LHA,DEUTSCHE LUFTHANSA AG,Industrials,,Germany,51.165691,10.451526
@@ -353,7 +353,7 @@ Exchange,Symbol,Name,Sector,Industry,Headquarters,Latitude,Longitude
 ,HAS,HAYS PLC,Industrials,,United Kingdom,55.378051,-3.435973
 ,ANA,ACCIONA SA,Utilities,,Spain,40.463667,-3.74922
 ,ISPR,INTESA SANPAOLO SAVING,Financials,,Italy,41.87194,12.56738
-,HOLM B,HOLMEN B,Materials,,Sweden,60.128161,18.643501
+,HOLM,HOLMEN,Materials,,Sweden,60.128161,18.643501
 ,GAM,GAM HOLDING AG,Financials,,Switzerland,46.818188,8.227512
 ,LAD,LADBROKES PLC,Consumer Discretionary,,United Kingdom,55.378051,-3.435973
 ,PNL,POSTNL N.V.,Industrials,,Netherlands,52.132633,5.291266

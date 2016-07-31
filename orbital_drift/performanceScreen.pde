@@ -39,7 +39,6 @@ class PerformanceScreen extends Screen {
   }
 
   void keyPressed() {
-    println("key: ", key);
     if (key == ' ') {
       for (Path path : paths) {
         path.transitioning = !path.transitioning;
