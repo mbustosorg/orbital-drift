@@ -33,6 +33,7 @@ class Entity implements Comparable<Entity> {
     // Initial values at screen setup
   float radius;
   color fillColor;
+  float colorAlpha;
 
   PVector UniverseCenter = new PVector(0, 0, 0); // Center of the Universe 
   PVector categoryCenter; // Center of sector sphere
@@ -56,6 +57,7 @@ class Entity implements Comparable<Entity> {
     this.capitalization = capitalization;
     this.radius = 3.0;
     this.fillColor = #00C8C8;
+    this.colorAlpha = 255;
     this.sectorIndex = sectorIndex;
     this.categoryCenter = new PVector(UniverseCenter.x + EntityTransitions.ZeroMarketSize * 1.5 * cos(this.sectorIndex * PI / 5), UniverseCenter.y + EntityTransitions.ZeroMarketSize * 1.5 * sin(this.sectorIndex * PI / 5), 0.0);
     this.rotation = initRotation;
@@ -95,7 +97,7 @@ class Entity implements Comparable<Entity> {
     rotateY(rotation.y);
     rotateZ(rotation.z);
     float trail = (float(TrailCount) - float(trailIndex)) / float(TrailCount);
-    fill(this.fillColor, trail * 255.0);
+    fill(this.fillColor, trail * this.colorAlpha);
     ellipse(0, 0, trail * this.radius, trail * this.radius);
     popMatrix();
   }

@@ -60,7 +60,7 @@ class YahooDataFeed {
       }
 
       try {
-        Thread.sleep(200);
+        Thread.sleep(100);
       } catch (Exception e) { }
       tickerData.addAll(data_by_symbols(symbol.substring(0, symbol.length() - 1)));
     }
