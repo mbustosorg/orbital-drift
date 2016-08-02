@@ -20,6 +20,7 @@
 class Path {
 
   Path(Entity entity) {
+    modelEntity = entity;
     for (int i = 0; i < EntityTransitions.TrailCount; i++) {
       trails[i] = new Entity(entity.exchange, entity.symbol, entity.name, entity.sector, entity.sectorIndex, entity.industry, entity.capitalization, entity.longitude, entity.latitude, 
                              entity.position.x, entity.position.y, entity.position.z,
@@ -57,12 +58,14 @@ class Path {
       rotateX(currentEntity.rotation.x);
       rotateY(currentEntity.rotation.y);
       rotateZ(currentEntity.rotation.z);
-      //translate(initialMarketSize - EntityTransitions.ZeroMarketSize * EntityTransitions.SectorToCapRatio.get(currentEntity.sector) * transitioningRatio * 4.0, 0.0, 0.0);
-      translate(initialMarketSize - EntityTransitions.ZeroMarketSize / 10.5 * transitioningRatio, 0.0, 0.0);
+      translate(initialMarketSize * (1.0 - transitioningRatio) + 200 * sqrt(EntityTransitions.SectorToCapRatio.get(currentEntity.sector)) * transitioningRatio, 0.0, 0.0);
     }
     currentEntity.position.x = modelX(0, 0, 0);
     currentEntity.position.y = modelY(0, 0, 0);
     currentEntity.position.z = modelZ(0, 0, 0);
+    modelEntity.position.x = currentEntity.position.x;
+    modelEntity.position.y = currentEntity.position.y;
+    modelEntity.position.z = currentEntity.position.z;
     popMatrix();
   }
 
@@ -89,6 +92,7 @@ class Path {
     }
   }
 
+  Entity modelEntity = null;
   Entity[] trails = new Entity[EntityTransitions.TrailCount];
   int trailIndex = 0;
   float transitioningRatio = 0.0;

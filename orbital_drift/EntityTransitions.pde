@@ -22,7 +22,7 @@ static class EntityTransitions implements AniConstants {
   static color[] Colors = {#a6cee3, #1f78b4, #b2df8a, #33a02c, #fb9a99, #e31a1c, #fdbf6f, #ff7f00, #cab2d6, #6a3d9a};
   static float ZeroMarketSize = 200; // Radius of the nominal universe
   static float AngleBoundary = 2.2;
-  static float AngularRotationBoundary = 0.003;
+  static float AngularRotationBoundary = 0.001;
   static int TrailCount = 10;
   static float TransitioningStep = 0.001;
   static int MaxTransitionStep = int(1 / TransitioningStep);
