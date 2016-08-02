@@ -20,16 +20,18 @@
 class ScreenManager {
   YahooDataFeed datafeed = new YahooDataFeed();
   ArrayList<TickerData> tickerData = new ArrayList<TickerData>();
-    // New information to push to entities
+  // New information to push to entities
   float tickerUpdateRate = 5 * 60 * 1000.00, tickerUpdateElapsed = 0.0;
-    // 5 minutes * 60 seconds * 1000 millis
+  // 5 minutes * 60 seconds * 1000 millis
   float tickerDataPushRate, tickerDataPushElapsed = 0.0;
-    // How often do we push data to entities
-    
+  // How often do we push data to entities
+
+  HashMap<String, ArrayList<Entity>> entities_by_index = new HashMap<String, ArrayList<Entity>>();
+  // Entity grouping showing all possible options going into `entities'
   ArrayList<Entity> entities = new ArrayList<Entity>();
   // Our main items to transition between Screens
 
-  IntDict sector_to_index = new IntDict(new Object[][] {
+  IntDict sector_to_id = new IntDict(new Object[][] {
     { "Consumer Discretionary", 0}, 
     { "Consumer Staples", 1}, 
     { "Energy", 2}, 
@@ -48,9 +50,9 @@ class ScreenManager {
   ArrayList<ArrayList<Entity>> entities_by_sector = new ArrayList<ArrayList<Entity>>();
   // Entities partitioned by sector
   Camera orbitalCamera = new Camera();
-  
+
   private HashMap<String, Entity> symbol_to_entity = new HashMap<String, Entity>();
-  
+
   private Label debugLabel;
 
   private Screen screen;
@@ -59,7 +61,7 @@ class ScreenManager {
 
   ScreenManager(Screen screen) {
     this.screen = screen;
-    for (int i = 0; i < this.sector_to_index.size(); i++) {
+    for (int i = 0; i < this.sector_to_id.size(); i++) {
       this.entities_by_sector.add(new ArrayList<Entity>());
     }
     for (int i = 0; i < 1 / EntityTransitions.TransitioningStep - 1; i++) {
@@ -91,29 +93,33 @@ class ScreenManager {
       print(filename);
       Table table = loadTable(datapath + "/" + filename, "header");
       println(":", table.getColumnCount(), "x", table.getRowCount());
+      ArrayList<Entity> entity_index = new ArrayList<Entity>();
       for (TableRow row : table.rows()) {
-        if (!this.sector_to_index.hasKey(row.getString("Sector"))) {
-          println("!! Unknown Sector", row.getString("Symbol")); 
+        if (!this.sector_to_id.hasKey(row.getString("Sector"))) {
+          println("!! Unknown Sector", row.getString("Symbol"));
         }
 
         Entity e = new Entity(
-          row.getString("Exchange"),
-          row.getString("Symbol"),
-          row.getString("Name"),
-          row.getString("Sector"),
-          this.sector_to_index.get(row.getString("Sector")), 
-          row.getString("Industry"),
-          0.0,
-          row.getFloat("Longitude"),
-          row.getFloat("Latitude"),
-          0.0, 0.0, 0.0,
+          row.getString("Exchange"), 
+          row.getString("Symbol"), 
+          row.getString("Name"), 
+          row.getString("Sector"), 
+          this.sector_to_id.get(row.getString("Sector")), 
+          row.getString("Industry"), 
+          0.0, 
+          row.getFloat("Longitude"), 
+          row.getFloat("Latitude"), 
+          0.0, 0.0, 0.0, 
           new Rotation(0.0, 0.0, 0.0), new Rotation(0.0, 0.0, 0.0)
-        );
+          );
         e.screen_update();
         symbol_to_entity.put(e.symbol, e);  
-        this.entities.add(e);
-        this.entities_by_sector.get(this.sector_to_index.get(e.sector)).add(e);
+        entity_index.add(e);
+        this.entities_by_sector.get(this.sector_to_id.get(e.sector)).add(e);
       }
+
+      this.entities_by_index.put(filename.substring(0, filename.indexOf('.')), entity_index);
+      this.entities.addAll(entity_index);
     }
 
     this.tickerData = datafeed.data_by_entities(this.entities);
@@ -142,14 +148,14 @@ class ScreenManager {
   void update(float delta) {
     this.tickerUpdateElapsed += delta;
     if (this.tickerUpdateElapsed >= this.tickerUpdateRate) {
-        // Update ticker data 
+      // Update ticker data 
       this.tickerUpdateElapsed = 0.0;
       thread("tickerDataRequestAndPopulate");
     }
 
     this.tickerDataPushElapsed += delta;
     if (this.tickerData.size() > 0 && this.tickerDataPushElapsed >= this.tickerDataPushRate) {
-        // Push ticker data to entities over `tickerUpdateRate'
+      // Push ticker data to entities over `tickerUpdateRate'
       this.tickerDataPushElapsed = 0.0;
       TickerData td = this.tickerData.remove(0);
       Entity e = this.symbol_to_entity.get(td.symbol);
@@ -169,11 +175,27 @@ class ScreenManager {
     }
 
     if (this.screen.is_time_elapsed()) {
+      this.screen.teardown();
       for (Entity e : this.entities) {
         e.screen_update();
       }
       this.screen = this.screen.screen_next();
       this.screen.setup(this);
+    }
+  }
+
+  public void entities_update(ArrayList<Entity> new_entities) {
+    this.entities = new_entities;
+    ArrayList<String> symbols = new ArrayList<String>();
+    for (Entity e : this.entities) {
+      symbols.add(e.symbol);
+    }
+
+    for (int i = this.tickerData.size() - 1; i >= 0; i --) {
+      TickerData td = this.tickerData.get(i);
+      if (!symbols.contains(td.symbol)) {
+        this.tickerData.remove(td);
+      }
     }
   }
 }

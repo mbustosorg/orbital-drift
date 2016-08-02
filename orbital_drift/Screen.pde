@@ -58,8 +58,9 @@ abstract class Screen {
     }
   }
 
-  void keyPressed() {
-  }
+  void keyPressed() { }
+
+  void teardown() { }
 
   Screen screen_next() {
      float chance = random(100);

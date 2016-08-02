@@ -30,6 +30,8 @@ class Geography extends Screen {
   private int EntityRadiusUpperBound = 15;
   private int pivot = 0;
 
+  ArrayList<Entity> SnP_500;
+
   PVector cameraEye, cameraCenter;
   float cameraInitialX = sin(EntityTransitions.TransitionSteps[2] * -PI) * 400;
   float cameraInitialY = -WorldRadius;
@@ -61,6 +63,8 @@ class Geography extends Screen {
       this.cameraEye = this.screen_manager.orbitalCamera.eye();
       this.cameraCenter = this.screen_manager.orbitalCamera.center();
     }
+
+    this.SnP_500 = this.screen_manager.entities_by_index.get("S&P 500");
   }
 
   void update_and_draw(float delta, boolean is_paused) {
@@ -79,7 +83,7 @@ class Geography extends Screen {
         float eyeY = EntityTransitions.CUBIC_IN_OUT.calcEasing(this.state_time, this.cameraEye.y, cameraInitialY - this.cameraEye.y, this.state_times[this.state_index]);
         float eyeZ = EntityTransitions.CUBIC_IN_OUT.calcEasing(this.state_time, this.cameraEye.z, cameraInitialZ - this.cameraEye.z, this.state_times[this.state_index]);
         this.screen_manager.orbitalCamera.update(eyeX, eyeY, eyeZ, 0,0,0);
-     } 
+     }
     for (int i = 0; i < this.screen_manager.entities.size(); i++) {
       Entity e = this.screen_manager.entities.get(i);
       if (!is_paused) {
@@ -105,8 +109,13 @@ class Geography extends Screen {
           // Growing entities
           float cap = map(e.capitalization, 0.0, 550, EntityRadiusLowerBound, EntityRadiusUpperBound);
           e.radius = EntityTransitions.BOUNCE_IN_OUT.calcEasing(this.state_time, 3.0, cap - 3.0, this.state_times[this.state_index]);
+          if (!this.SnP_500.contains(e)) {
+            
+            e.colorAlpha = 255 - EntityTransitions.LINEAR.calcEasing(this.state_time, 0, 255, this.state_times[this.state_index]);
+          }
         }
       }
+
       e.draw();
     }
 
@@ -124,5 +133,9 @@ class Geography extends Screen {
       this.state_index++;
       this.state_time = 0.0;
     }
+  }
+  
+  void teardown() {
+    this.screen_manager.entities_update(this.SnP_500);
   }
 }
