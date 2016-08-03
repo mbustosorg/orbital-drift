@@ -32,7 +32,7 @@ class Entity implements Comparable<Entity> {
   PVector initPosition = new PVector(0.0, 0.0, 0.0);
     // Initial values at screen setup
   float radius;
-  color fillColor;
+  color fillColor, pfillColor;
   float colorAlpha;
 
   PVector UniverseCenter = new PVector(0, 0, 0); // Center of the Universe 
@@ -57,8 +57,11 @@ class Entity implements Comparable<Entity> {
     this.capitalization = capitalization;
     this.radius = 3.0;
     this.fillColor = #00C8C8;
+    this.pfillColor = #00C8C8;
     this.colorAlpha = 255;
     this.sectorIndex = sectorIndex;
+    this.volumeDay = 0;
+    this.volumeAvg = 0;
     this.categoryCenter = new PVector(UniverseCenter.x + EntityTransitions.ZeroMarketSize * 1.5 * cos(this.sectorIndex * PI / 5), UniverseCenter.y + EntityTransitions.ZeroMarketSize * 1.5 * sin(this.sectorIndex * PI / 5), 0.0);
     this.rotation = initRotation;
     this.rotationIncrement = initRotationIncrement;
@@ -76,7 +79,8 @@ class Entity implements Comparable<Entity> {
 
   void screen_update() {
       //Resets initial position on screen change
-    initPosition = new PVector(this.position.x, this.position.y, this.position.z);
+    this.initPosition = new PVector(this.position.x, this.position.y, this.position.z);
+    this.pfillColor = this.fillColor;
   }
 
   void ticker_update(TickerData td) {
@@ -99,10 +103,10 @@ class Entity implements Comparable<Entity> {
     if (trailIndex > 0) {      
       float trail = (float(TrailCount) - float(trailIndex)) / float(TrailCount);
       fill(this.fillColor, trail * this.colorAlpha);
-      rect(0, 0, trail * this.radius, trail * this.radius);
+      ellipse(0, 0, trail * this.radius, trail * this.radius);
     } else {
       fill(this.fillColor, this.colorAlpha);
-      rect(0, 0, this.radius, this.radius);
+      ellipse(0, 0, this.radius, this.radius);
     }
 
     popMatrix();

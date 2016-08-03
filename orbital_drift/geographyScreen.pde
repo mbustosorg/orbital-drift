@@ -50,7 +50,8 @@ class Geography extends Screen {
     super.setup(screen_manager);
     this.screens_next = new Screen[] {new Sector2d()};
     this.screens_chance = new int[] {100};
-    this.entity_transition_times = new float[this.screen_manager.entities.size()];
+    //this.entity_transition_times = new float[this.screen_manager.entities.size()];
+    this.entity_transition_times = new float[1500];
     Collections.sort(this.screen_manager.entities);
     for (int i = 0; i < this.entity_transition_times.length; i++) {
       this.entity_transition_times[i] = 5.5 * i;
@@ -74,12 +75,6 @@ class Geography extends Screen {
       this.state_time += delta;
     }
      if (this.state_index == 0) {
-        if (!is_paused) {
-          println(this.state_time, this.state_times[this.state_index], this.screen_manager.orbitalCamera.eye(), this.screen_manager.orbitalCamera.center());
-          println(this.cameraEye.x, cameraInitialX - this.cameraEye.x, EntityTransitions.LINEAR.calcEasing(this.state_time, this.cameraEye.x, cameraInitialX - this.cameraEye.x, this.state_times[this.state_index]));
-          println(this.cameraEye.y, cameraInitialY - this.cameraEye.y, EntityTransitions.LINEAR.calcEasing(this.state_time, this.cameraEye.y, cameraInitialY - this.cameraEye.y, this.state_times[this.state_index]));
-          println(this.cameraEye.z, cameraInitialZ - this.cameraEye.z, EntityTransitions.LINEAR.calcEasing(this.state_time, this.cameraEye.z, cameraInitialZ - this.cameraEye.z, this.state_times[this.state_index]));
-        }
         float eyeX = EntityTransitions.CUBIC_IN_OUT.calcEasing(this.state_time, this.cameraEye.x, cameraInitialX - this.cameraEye.x, this.state_times[this.state_index]);
         float eyeY = EntityTransitions.CUBIC_IN_OUT.calcEasing(this.state_time, this.cameraEye.y, cameraInitialY - this.cameraEye.y, this.state_times[this.state_index]);
         float eyeZ = EntityTransitions.CUBIC_IN_OUT.calcEasing(this.state_time, this.cameraEye.z, cameraInitialZ - this.cameraEye.z, this.state_times[this.state_index]);
@@ -92,6 +87,7 @@ class Geography extends Screen {
           e.radius = 3.0;
           e.rotation = new Rotation(0.0, 0.0, 0.0);
           e.rotationIncrement = new Rotation(0.0, 0.0, 0.0);
+          e.fillColor = lerpColor(e.pfillColor, #00C8C8, this.state_time / this.state_times[this.state_index]);
         } else if (this.state_index == 1) {
           // Moving entities
           float latitude = random(e.latitude - 0.01, e.latitude + 0.01) * PI / 180.0;
@@ -111,7 +107,7 @@ class Geography extends Screen {
           float cap = map(e.capitalization, 0.0, 550, EntityRadiusLowerBound, EntityRadiusUpperBound);
           e.radius = EntityTransitions.BOUNCE_IN_OUT.calcEasing(this.state_time, 3.0, cap - 3.0, this.state_times[this.state_index]);
           if (!this.SnP_500.contains(e)) {
-            //e.colorAlpha = 255 - EntityTransitions.LINEAR.calcEasing(this.state_time, 0, 255, this.state_times[this.state_index]);
+            e.colorAlpha = 255 - EntityTransitions.LINEAR.calcEasing(this.state_time, 0, 255, this.state_times[this.state_index]);
           }
         }
       }
@@ -136,6 +132,6 @@ class Geography extends Screen {
   }
   
   void teardown() {
-    //this.screen_manager.entities_update(this.SnP_500);
+    this.screen_manager.entities_update(this.SnP_500);
   }
 }

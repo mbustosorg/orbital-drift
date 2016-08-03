@@ -23,12 +23,19 @@ float draw_last_millis;
   // Determine delta between frames
 
 PMatrix3D originalMatrix;
+  // Original Tranformation Matrix
+
+PFont headingFont, detailFont, monoFont;
 
 void setup() {
-  //size(1000, 1000, P3D);
-  fullScreen(P3D);
-  
+  size(1000, 1000, P3D);
+  //fullScreen(P3D);
   originalMatrix = getMatrix((PMatrix3D)null);
+  
+  headingFont = createFont("assets/fonts/Patua_One/PatuaOne-Regular.ttf", 32);
+  detailFont = createFont("assets/fonts/Raleway/Raleway-Regular.ttf", 28);
+  monoFont = createFont("assets/fonts/Roboto_Mono/RobotoMono-Regular.ttf", 32);
+  
   screen_manager = new ScreenManager(new Geography());
   screen_manager.setup();
   draw_last_millis = millis();

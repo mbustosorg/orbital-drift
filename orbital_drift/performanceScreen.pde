@@ -32,7 +32,9 @@ class PerformanceScreen extends Screen {
   PVector cameraInit = new PVector(sin(pivot) * 1000, 0, cos(pivot) * 1000);
   PVector cameraTransitionInit = null;
   private int initialTransitionStep = 0;
-  
+
+  private EntityLabel focusEntityInfo;
+
   public PerformanceScreen() {
     super("Performance", 120000.0);
       // Duration = Sum of state_times
@@ -48,7 +50,11 @@ class PerformanceScreen extends Screen {
       cameraInit = new PVector(currentCamera.x, currentCamera.y, currentCamera.z);
       if (follow == null) {
         follow = paths.get(int(random(0, this.screen_manager.entities.size() - 1)));
-      } else follow = null;
+        this.focusEntityInfo = new EntityLabel(follow.modelEntity, new PVector(100, 100, 0));
+      } else {
+        follow = null;
+        this.focusEntityInfo.setDone();
+      }
     }
   }
   
@@ -122,6 +128,10 @@ class PerformanceScreen extends Screen {
                                   factor * cameraInit.y, 
                                   factor * cameraInit.z + (1.0 - factor) * cos(pivot) * 1000);
     }
-    this.screen_manager.orbitalCamera.update(currentCamera.x, currentCamera.y, currentCamera.z);                                 
+    
+    this.screen_manager.orbitalCamera.update(currentCamera.x, currentCamera.y, currentCamera.z);
+    if (this.focusEntityInfo != null) {
+      this.focusEntityInfo.draw(delta);
+    }
   }
 }

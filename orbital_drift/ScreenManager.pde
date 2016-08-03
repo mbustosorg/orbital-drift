@@ -31,6 +31,9 @@ class ScreenManager {
   // Entity grouping showing all possible options going into `entities'
   ArrayList<Entity> entities = new ArrayList<Entity>();
   // Our main items to transition between Screens
+  Integer entityIndexKey = -1, indexSelectionCursor = 0;
+  // Which item in entities_by_index are we using
+
 
   IntDict sector_to_id = new IntDict(new Object[][] {
     { "Consumer Discretionary", 0}, 
@@ -53,8 +56,6 @@ class ScreenManager {
   Camera orbitalCamera = new Camera();
 
   private HashMap<String, Entity> symbol_to_entity = new HashMap<String, Entity>();
-
-  private Label debugLabel;
 
   private Screen screen;
   // Active screen being displayed
@@ -82,6 +83,24 @@ class ScreenManager {
     } else if (key == 't') {
       this.is_text_displayed = !this.is_text_displayed;
     }
+
+    if (this.is_text_displayed) {
+      if (keyCode == UP) {
+        indexSelectionCursor = indexSelectionCursor - 1 >= 0 ? indexSelectionCursor - 1 : this.entities_by_index.size() - 1;
+      } else if (keyCode == DOWN) {
+        indexSelectionCursor = indexSelectionCursor + 1 > this.entities_by_index.size() - 1 ? 0 : indexSelectionCursor + 1;
+      } else if (keyCode == ENTER && indexSelectionCursor != entityIndexKey) {
+        int ii = 0;
+        for (Map.Entry e : this.entities_by_index.entrySet()) {
+          if (ii == indexSelectionCursor) {
+            this.entities_update((ArrayList<Entity>)e.getValue());
+            break;
+          }
+          ii++;
+        }
+      }
+    }
+
     screen.keyPressed();
   }
 
@@ -89,9 +108,6 @@ class ScreenManager {
     String datapath = dataPath("index/");
     File dataDirectory = new File(datapath);
     String[] fileNames = dataDirectory.list();
-
-    //debugLabel = new Label(new PVector(-width / 4, -height / 4 + 12 + 475, 0), this.orbitalCamera);
-    debugLabel = new Label(new PVector(100, 100, 0), this.orbitalCamera);
 
     for (String filename : fileNames) {
       print(filename);
@@ -126,12 +142,17 @@ class ScreenManager {
       this.entities.addAll(entity_index);
     }
 
+    this.entities_by_index.put("S&P 1200", this.entities);
     this.tickerData = datafeed.data_by_entities(this.entities);
     println ("ArrayList<TickerData>", this.tickerData.size());
     for (TickerData t : this.tickerData) {
       Entity e = this.symbol_to_entity.get(t.symbol);
       if (e != null) {
+        println(e.symbol, t.capitalizationB, t.dayChangePercentage, t.volumeDay, t.volumeAvg);
         e.capitalization = t.capitalizationB;
+        e.dayChangePercentage = t.dayChangePercentage;
+        e.volumeDay = t.volumeDay;
+        e.volumeAvg = t.volumeAvg;
         EntityTransitions.SectorToCapRatio.set(e.sector, EntityTransitions.SectorToCapRatio.get(e.sector) + e.capitalization);
         totalCapitalization += e.capitalization;
       } else {
@@ -145,6 +166,15 @@ class ScreenManager {
       println(String.format("  %05.2f%% - %s", EntityTransitions.SectorToCapRatio.get(key) * 100, key));
     }
 
+    int ii = 0;
+    for (Map.Entry e : this.entities_by_index.entrySet()) {
+      if (this.entities == e.getValue()) {
+        entityIndexKey = ii;
+        indexSelectionCursor = ii;
+        break;
+      }
+      ii++;
+    }
     this.screen.setup(this);
   }
 
@@ -175,6 +205,7 @@ class ScreenManager {
     this.screen.update_and_draw(delta, this.is_paused);
     if (this.is_text_displayed) {
       // Technical information displayed for testing purposes
+      textFont(monoFont);
       pushStyle();
       int textsize = 24;
       textSize(textsize);
@@ -209,23 +240,23 @@ class ScreenManager {
           round(this.orbitalCamera.eyeX), round(this.orbitalCamera.eyeY), round(this.orbitalCamera.eyeZ));
       text(cameraInfo, width / 2 - textWidth(cameraInfo) / 2, height - textDescent());
         // Bottom Center
-      int indexInUseIndex = -1, ii = 0;
+      int ii = 0;
       float indexNameLengthMax = 0.0;
       String[] indexNames = new String[this.entities_by_index.size()];
       for (Map.Entry e : this.entities_by_index.entrySet()) {
         indexNames[ii] = e.getKey().toString();
         indexNameLengthMax = max(indexNameLengthMax, textWidth(indexNames[ii]));
-        if (this.entities == e.getValue()) {
-          indexInUseIndex = ii;
-        }
         ii++;
       }
 
       for (int i = 0; i < indexNames.length; i++) {
          int rowFromBottom = indexNames.length - i;
          text(indexNames[i], width - indexNameLengthMax, height - textDescent() - textsize * rowFromBottom);
-         if (indexInUseIndex == i) {
-           text(">>", width - indexNameLengthMax - textWidth(">>"), height - textDescent() - textsize * rowFromBottom);
+         if (entityIndexKey == i) {
+           text("*", width - indexNameLengthMax - textWidth("*"), height - textDescent() - textsize * rowFromBottom);
+         }
+         if (indexSelectionCursor == i) {
+           text(">", width - indexNameLengthMax - textWidth(">*"), height - textDescent() - textsize * rowFromBottom);
          }
       }
         // Bottom Right
@@ -233,7 +264,7 @@ class ScreenManager {
       popMatrix();
       popStyle();
     } else {
-      println(frameRate);
+      //println(frameRate);
     }
 
     if (this.screen.is_time_elapsed()) {
@@ -247,10 +278,25 @@ class ScreenManager {
   }
 
   public void entities_update(ArrayList<Entity> new_entities) {
+    for (Entity e : this.entities) {
+      e.colorAlpha = 0;
+    }
+
     this.entities = new_entities;
+    int ii = 0;
+    for (Map.Entry e : this.entities_by_index.entrySet()) {
+      if (this.entities == e.getValue()) {
+        entityIndexKey = ii;
+        indexSelectionCursor = ii;
+        break;
+      }
+      ii++;
+    }    
+    
     ArrayList<String> symbols = new ArrayList<String>();
     for (Entity e : this.entities) {
       symbols.add(e.symbol);
+      e.colorAlpha = 255;
     }
 
     for (int i = this.tickerData.size() - 1; i >= 0; i --) {
@@ -258,6 +304,11 @@ class ScreenManager {
       if (!symbols.contains(td.symbol)) {
         this.tickerData.remove(td);
       }
+    }
+    
+    if (this.tickerData.size() == 0) {
+      this.tickerUpdateElapsed = 0.0;
+      thread("tickerDataRequestAndPopulate");
     }
   }
 }
