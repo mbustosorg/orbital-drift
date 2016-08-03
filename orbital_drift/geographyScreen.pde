@@ -14,8 +14,9 @@
  
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
- */
+
+*/
+
 import java.util.Collections;
 
 class Geography extends Screen {
@@ -110,8 +111,7 @@ class Geography extends Screen {
           float cap = map(e.capitalization, 0.0, 550, EntityRadiusLowerBound, EntityRadiusUpperBound);
           e.radius = EntityTransitions.BOUNCE_IN_OUT.calcEasing(this.state_time, 3.0, cap - 3.0, this.state_times[this.state_index]);
           if (!this.SnP_500.contains(e)) {
-            
-            e.colorAlpha = 255 - EntityTransitions.LINEAR.calcEasing(this.state_time, 0, 255, this.state_times[this.state_index]);
+            //e.colorAlpha = 255 - EntityTransitions.LINEAR.calcEasing(this.state_time, 0, 255, this.state_times[this.state_index]);
           }
         }
       }
@@ -136,6 +136,6 @@ class Geography extends Screen {
   }
   
   void teardown() {
-    this.screen_manager.entities_update(this.SnP_500);
+    //this.screen_manager.entities_update(this.SnP_500);
   }
 }

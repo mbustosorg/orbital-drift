@@ -1,21 +1,21 @@
 /*
 
  Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
- 
+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
- */
+
+*/
 
 class ScreenManager {
   YahooDataFeed datafeed = new YahooDataFeed();
@@ -57,7 +57,7 @@ class ScreenManager {
 
   private Screen screen;
   // Active screen being displayed
-  private boolean is_paused = false;
+  private boolean is_paused = false, is_text_displayed = false;
 
   ScreenManager(Screen screen) {
     this.screen = screen;
@@ -78,6 +78,8 @@ class ScreenManager {
   void keyPressed() {
     if (key == 'p') {
       this.is_paused = !this.is_paused;
+    } else if (key == 't') {
+      this.is_text_displayed = !this.is_text_displayed;
     }
     screen.keyPressed();
   }
@@ -87,7 +89,8 @@ class ScreenManager {
     File dataDirectory = new File(datapath);
     String[] fileNames = dataDirectory.list();
 
-    debugLabel = new Label(new PVector(-width / 4, -height / 4 + 12 + 475, 0), this.orbitalCamera);
+    //debugLabel = new Label(new PVector(-width / 4, -height / 4 + 12 + 475, 0), this.orbitalCamera);
+    debugLabel = new Label(new PVector(100, 100, 0), this.orbitalCamera);
 
     for (String filename : fileNames) {
       print(filename);
@@ -167,11 +170,11 @@ class ScreenManager {
     }
 
     this.screen.update_and_draw(delta, this.is_paused);
-    if (this.is_paused) {
+    if (this.is_text_displayed) {
       fill(150);
       debugLabel.draw(String.format("Screen '%s', %.0f / %.0f", this.screen.name, this.screen.elapsed, this.screen.duration));
     } else {
-      //println(frameRate);
+      println(frameRate);
     }
 
     if (this.screen.is_time_elapsed()) {

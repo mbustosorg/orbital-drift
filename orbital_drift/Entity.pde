@@ -99,10 +99,10 @@ class Entity implements Comparable<Entity> {
     if (trailIndex > 0) {      
       float trail = (float(TrailCount) - float(trailIndex)) / float(TrailCount);
       fill(this.fillColor, trail * this.colorAlpha);
-      ellipse(0, 0, trail * this.radius, trail * this.radius);
+      rect(0, 0, trail * this.radius, trail * this.radius);
     } else {
       fill(this.fillColor, this.colorAlpha);
-      ellipse(0, 0, this.radius, this.radius);
+      rect(0, 0, this.radius, this.radius);
     }
 
     popMatrix();

@@ -22,8 +22,13 @@ ScreenManager screen_manager;
 float draw_last_millis;
   // Determine delta between frames
 
+PMatrix3D originalMatrix;
+
 void setup() {
-  size(1000, 1000, P3D);
+  //size(1000, 1000, P3D);
+  fullScreen(P3D);
+  
+  originalMatrix = getMatrix((PMatrix3D)null);
   screen_manager = new ScreenManager(new Geography());
   screen_manager.setup();
   draw_last_millis = millis();
