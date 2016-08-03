@@ -1,21 +1,22 @@
 /*
 
  Copyright (C) 2016 Mauricio Bustos (m@bustos.org), Matthew Yeager
-
+ 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
-
+ 
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
-
+ 
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-*/
+ 
+ */
+import java.util.Map;
 
 class ScreenManager {
   YahooDataFeed datafeed = new YahooDataFeed();
@@ -144,35 +145,93 @@ class ScreenManager {
       println(String.format("  %05.2f%% - %s", EntityTransitions.SectorToCapRatio.get(key) * 100, key));
     }
 
-    this.tickerDataPushRate = this.tickerUpdateRate / this.entities.size();
     this.screen.setup(this);
   }
 
   void update(float delta) {
-    this.tickerUpdateElapsed += delta;
-    if (this.tickerUpdateElapsed >= this.tickerUpdateRate) {
-      // Update ticker data 
-      this.tickerUpdateElapsed = 0.0;
-      thread("tickerDataRequestAndPopulate");
-    }
-
-    this.tickerDataPushElapsed += delta;
-    if (this.tickerData.size() > 0 && this.tickerDataPushElapsed >= this.tickerDataPushRate) {
-      // Push ticker data to entities over `tickerUpdateRate'
-      this.tickerDataPushElapsed = 0.0;
-      TickerData td = this.tickerData.remove(0);
-      Entity e = this.symbol_to_entity.get(td.symbol);
-      if (e != null) {
-        e.ticker_update(td);
-      } else {
-        println("!!", "TickerData for unknown entity. Symbol: ", td.symbol);
+    if (!this.is_paused) {
+      this.tickerDataPushRate = this.tickerUpdateRate / this.entities.size();
+      this.tickerUpdateElapsed += delta;
+      if (this.tickerUpdateElapsed >= this.tickerUpdateRate) {
+        // Update ticker data 
+        this.tickerUpdateElapsed = 0.0;
+        thread("tickerDataRequestAndPopulate");
+      }
+  
+      this.tickerDataPushElapsed += delta;
+      if (this.tickerData.size() > 0 && this.tickerDataPushElapsed >= this.tickerDataPushRate) {
+        // Push ticker data to entities over `tickerUpdateRate'
+        this.tickerDataPushElapsed = 0.0;
+        TickerData td = this.tickerData.remove(0);
+        Entity e = this.symbol_to_entity.get(td.symbol);
+        if (e != null) {
+          e.ticker_update(td);
+        } else {
+          println("!!", "TickerData for unknown entity. Symbol: ", td.symbol);
+        }
       }
     }
 
     this.screen.update_and_draw(delta, this.is_paused);
     if (this.is_text_displayed) {
+      // Technical information displayed for testing purposes
+      pushStyle();
+      int textsize = 24;
+      textSize(textsize);
       fill(150);
-      debugLabel.draw(String.format("Screen '%s', %.0f / %.0f", this.screen.name, this.screen.elapsed, this.screen.duration));
+
+      pushMatrix();
+      hint(DISABLE_DEPTH_TEST);
+      resetMatrix();
+      applyMatrix(originalMatrix);
+      String screenInfo = String.format("Screen '%s', %.0f / %.0f", this.screen.name, this.screen.elapsed, this.screen.duration);
+      float screenInfoWidth = textWidth(screenInfo);
+      text(screenInfo, width / 2 - screenInfoWidth / 2, textAscent());
+        // Top Center
+      if (this.is_paused) {
+        pushStyle();
+        fill(255, 0, 0);
+        String paused = "PAUSED!";
+        float pausedWidth = textWidth(paused);
+        text(paused, width / 2 - screenInfoWidth / 2 - pausedWidth * 3 / 2, textAscent());
+        text(paused, width / 2 + screenInfoWidth / 2 + pausedWidth / 2, textAscent());
+        popStyle();
+      }
+
+      String fps = Integer.toString(round(frameRate));
+      text(fps, width - textWidth(fps), textAscent());
+        // Top Right Corner
+      String datafeed = String.format("Next Ticker API Call: %1$4.1f / %2$3.0fs", this.tickerUpdateElapsed / 1000, this.tickerUpdateRate / 1000);
+      text(datafeed, 0, height - textDescent() - textsize * 2);
+      text("TickerData items: " + Integer.toString(this.tickerData.size()), 0, height - textDescent() - textsize);
+        // Bottom Left
+      String cameraInfo = String.format("Camera: [%1$04d, %2$04d, %3$04d]", 
+          round(this.orbitalCamera.eyeX), round(this.orbitalCamera.eyeY), round(this.orbitalCamera.eyeZ));
+      text(cameraInfo, width / 2 - textWidth(cameraInfo) / 2, height - textDescent());
+        // Bottom Center
+      int indexInUseIndex = -1, ii = 0;
+      float indexNameLengthMax = 0.0;
+      String[] indexNames = new String[this.entities_by_index.size()];
+      for (Map.Entry e : this.entities_by_index.entrySet()) {
+        indexNames[ii] = e.getKey().toString();
+        indexNameLengthMax = max(indexNameLengthMax, textWidth(indexNames[ii]));
+        if (this.entities == e.getValue()) {
+          indexInUseIndex = ii;
+        }
+        ii++;
+      }
+
+      for (int i = 0; i < indexNames.length; i++) {
+         int rowFromBottom = indexNames.length - i;
+         text(indexNames[i], width - indexNameLengthMax, height - textDescent() - textsize * rowFromBottom);
+         if (indexInUseIndex == i) {
+           text(">>", width - indexNameLengthMax - textWidth(">>"), height - textDescent() - textsize * rowFromBottom);
+         }
+      }
+        // Bottom Right
+      hint(ENABLE_DEPTH_TEST);
+      popMatrix();
+      popStyle();
     } else {
       println(frameRate);
     }
